@@ -7,8 +7,9 @@
 
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-  <!-- Font Awesome untuk icon -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
     * {
@@ -18,8 +19,11 @@
       font-family: 'Poppins', sans-serif;
     }
 
-    <body style="margin:0; min-height:100vh; display:flex; flex-direction:column;">
-      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: linear-gradient(135deg, #0d1b2a, #1b263b);
       color: #ffffff;
     }
 
@@ -34,7 +38,6 @@
 
     nav h2 {
       color: #4cc9f0;
-      font-weight: 600;
     }
 
     nav ul {
@@ -54,31 +57,30 @@
       color: #4cc9f0;
     }
 
-    /* ===== HERO SECTION ===== */
+    /* ===== HERO ===== */
     .hero {
       text-align: center;
       padding: 120px 20px;
     }
 
     .hero h1 {
-      font-size: 48px;
-      margin-bottom: 20px;
+      font-size: 45px;
       color: #4cc9f0;
+      margin-bottom: 20px;
     }
 
     .hero p {
       max-width: 700px;
       margin: auto;
-      font-size: 18px;
       line-height: 1.8;
       color: #dceeff;
     }
 
     .btn {
       display: inline-block;
-      margin-top: 30px;
+      margin: 30px 10px 0 10px;
       padding: 12px 30px;
-      background-color: #4cc9f0;
+      background: linear-gradient(45deg, #4cc9f0, #4895ef);
       color: #0d1b2a;
       border-radius: 30px;
       text-decoration: none;
@@ -87,23 +89,74 @@
     }
 
     .btn:hover {
-      background-color: #90e0ef;
       transform: scale(1.05);
+    }
+
+    /* ===== VIDEO ===== */
+    .video-section {
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .video-section h2 {
+      margin-bottom: 30px;
+      color: #4cc9f0;
+    }
+
+    iframe {
+      width: 560px;
+      max-width: 90%;
+      height: 315px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    /* ===== CONTACT ===== */
+    #contact {
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    #contact h2 {
+      color: #4cc9f0;
+      margin-bottom: 40px;
+    }
+
+    .contact-box {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .contact-item {
+      background: #1b263b;
+      padding: 20px 30px;
+      border-radius: 15px;
+      width: 200px;
+      text-decoration: none;
+      color: white;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+      transition: 0.3s;
+    }
+
+    .contact-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .contact-item i {
+      font-size: 30px;
+      margin-bottom: 10px;
     }
 
     /* ===== FOOTER ===== */
     footer {
-      background-color: #0d1b2a;
-      text-align: center;
+      margin-top: auto;
       padding: 20px;
-      margin-top: 80px;
-      color: #a8dadc;
-      font-size: 14px;
-    }
-
-    footer span {
+      text-align: center;
+      background-color: #0d1b2a;
       color: #4cc9f0;
-      font-weight: 600;
+      font-size: 14px;
     }
 
   </style>
@@ -122,68 +175,59 @@
     </ul>
   </nav>
 
-  <!-- Hero Section -->
+  <!-- Hero -->
   <section class="hero">
     <h1>Welcome to Esra Digital Library</h1>
     <p>
-      Ruang literasi digital ini hadir sebagai tempat pembelajaran terbuka, akses informasi, serta pengembangan kreativitas bagi semua orang✨✨
+      Ruang literasi digital ini hadir sebagai tempat pembelajaran terbuka,
+      akses informasi, serta pengembangan kreativitas bagi semua orang ✨✨
+      
       Mari temukan ribuan buku seru yang siap menemanimu hari ini.
     </p>
 
-    <div class="button-group">
-  <a href="cv.html" class="btn">Lihat Curriculum Vitae</a>
-<a href="https://instagram.com/ecaahutaurukk" target="_blank" class="btn btn-ig">
-  <i class="fab fa-instagram"></i> Instagram
-</a>
-</div>
-<section style="padding:80px 20px; text-align:center;">
-
-  <h2 style="margin-bottom:30px;">Video Motivation</h2>
-
-  <div style="display:flex; justify-content:center;">
-    <iframe 
-      src="https://www.youtube.com/embed/bXGhtjezJPY"
-      width="568"
-      height="315"
-      style="max-width:90%; border-radius:15px; box-shadow:0 10px 30px rgba(0,0,0,0.5);"
-      allowfullscreen>
-    </iframe>
-  </div>
-  <!-- Contact Section -->
-<section id="contact" style="padding:80px 20px; text-align:center;">
-
-  <h2 style="color:#4cc9f0; margin-bottom:40px;">Contact Person</h2>
-
-  <div style="display:flex; justify-content:center; gap:40px; flex-wrap:wrap;">
-
-    <!-- WhatsApp -->
-    <a href="https://wa.me/6282169967447" target="_blank"
-       style="background:#0d1b2a; padding:20px 30px; border-radius:15px; text-decoration:none; color:white; width:200px; box-shadow:0 8px 20px rgba(0,0,0,0.4);">
-       <i class="fab fa-whatsapp" style="font-size:30px; color:#25D366; margin-bottom:10px;"></i>
-       <p>WhatsApp</p>
-       <small>0821-6996-7447</small>
+    <a href="cv.html" class="btn">Lihat Curriculum Vitae</a>
+    <a href="https://instagram.com/ecaahutaurukk" target="_blank" class="btn">
+      <i class="fab fa-instagram"></i> Instagram
     </a>
+  </section>
 
-    <!-- Instagram -->
-    <a href="https://instagram.com/ecaahutaurukk" target="_blank"
-       style="background:#0d1b2a; padding:20px 30px; border-radius:15px; text-decoration:none; color:white; width:200px; box-shadow:0 8px 20px rgba(0,0,0,0.4);">
-       <i class="fab fa-instagram" style="font-size:30px; color:#E1306C; margin-bottom:10px;"></i>
-       <p>Instagram</p>
-       <small>@ecaahutaurukk</small>
-    </a>
+  <!-- Video -->
+  <section class="video-section">
+    <h2>Video Motivation</h2>
+    <iframe src="https://www.youtube.com/embed/bXGhtjezJPY" allowfullscreen></iframe>
+  </section>
 
-    <!-- Email -->
-    <a href="mailto:esradewitriputri08@gmail.com"
-       style="background:#0d1b2a; padding:20px 30px; border-radius:15px; text-decoration:none; color:white; width:200px; box-shadow:0 8px 20px rgba(0,0,0,0.4);">
-       <i class="fas fa-envelope" style="font-size:30px; color:#4cc9f0; margin-bottom:10px;"></i>
-       <p>Email</p>
-       <small>esradewitriputri08@gmail.com</small>
-    </a>
-  </div>  
-</section>
-<!-- Footer -->
-<footer style="margin-top:auto; text-align:center; padding:20px; background-color:#0d1b2a; color:#a8dadc;">
-  © 2026 Esra Dewi Tri Putri Hutauruk 230709034
-</footer>
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact Person</h2>
 
+    <div class="contact-box">
 
+      <a href="https://wa.me/6282169967447" target="_blank" class="contact-item">
+        <i class="fab fa-whatsapp" style="color:#25D366;"></i>
+        <p>WhatsApp</p>
+        <small>0821-6996-7447</small>
+      </a>
+
+      <a href="https://instagram.com/ecaahutaurukk" target="_blank" class="contact-item">
+        <i class="fab fa-instagram" style="color:#E1306C;"></i>
+        <p>Instagram</p>
+        <small>@ecaahutaurukk</small>
+      </a>
+
+      <a href="mailto:esradewitriputri08@gmail.com" class="contact-item">
+        <i class="fas fa-envelope" style="color:#4cc9f0;"></i>
+        <p>Email</p>
+        <small>esradewitriputri08@gmail.com</small>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    © 2026 Esra Dewi Tri Putri Hutauruk | 230709034
+  </footer>
+
+</body>
+</html>
