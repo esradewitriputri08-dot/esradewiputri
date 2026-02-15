@@ -1,233 +1,240 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Esra Digital Library</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Esra Digital Library</title>
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
 
-    body {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      background: linear-gradient(135deg, #0d1b2a, #1b263b);
-      color: #ffffff;
-    }
+body{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+  color:white;
+}
 
-    /* ===== NAVBAR ===== */
-    nav {
-      background-color: #0d1b2a;
-      padding: 15px 50px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+/* ===== NAVBAR ===== */
+nav{
+  background:rgba(0,0,0,0.4);
+  backdrop-filter:blur(10px);
+  padding:18px 60px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:sticky;
+  top:0;
+}
 
-    nav h2 {
-      color: #4cc9f0;
-    }
+nav h2{
+  color:#4fd1ff;
+  font-weight:600;
+}
 
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 25px;
-    }
+nav ul{
+  list-style:none;
+  display:flex;
+  gap:30px;
+}
 
-    nav ul li a {
-      text-decoration: none;
-      color: #ffffff;
-      font-weight: 500;
-      transition: 0.3s;
-    }
+nav ul li a{
+  text-decoration:none;
+  color:white;
+  font-weight:500;
+  transition:0.3s;
+}
 
-    nav ul li a:hover {
-      color: #4cc9f0;
-    }
+nav ul li a:hover{
+  color:#4fd1ff;
+}
 
-    /* ===== HERO ===== */
-    .hero {
-      text-align: center;
-      padding: 120px 20px;
-    }
+/* ===== HERO ===== */
+.hero{
+  text-align:center;
+  padding:120px 20px;
+}
 
-    .hero h1 {
-      font-size: 45px;
-      color: #4cc9f0;
-      margin-bottom: 20px;
-    }
+.hero h1{
+  font-size:48px;
+  color:#4fd1ff;
+  margin-bottom:20px;
+}
 
-    .hero p {
-      max-width: 700px;
-      margin: auto;
-      line-height: 1.8;
-      color: #dceeff;
-    }
+.hero p{
+  max-width:750px;
+  margin:auto;
+  line-height:1.8;
+  color:#e0f7ff;
+}
 
-    .btn {
-      display: inline-block;
-      margin: 30px 10px 0 10px;
-      padding: 12px 30px;
-      background: linear-gradient(45deg, #4cc9f0, #4895ef);
-      color: #0d1b2a;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: 0.3s;
-    }
+.btn{
+  display:inline-block;
+  margin:35px 10px 0 10px;
+  padding:12px 35px;
+  background:linear-gradient(45deg,#4fd1ff,#00c6ff);
+  color:#003049;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:600;
+  transition:0.3s;
+}
 
-    .btn:hover {
-      transform: scale(1.05);
-    }
+.btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 10px 25px rgba(0,198,255,0.5);
+}
 
-    /* ===== VIDEO ===== */
-    .video-section {
-      padding: 80px 20px;
-      text-align: center;
-    }
+/* ===== VIDEO ===== */
+.video-section{
+  padding:80px 20px;
+  text-align:center;
+}
 
-    .video-section h2 {
-      margin-bottom: 30px;
-      color: #4cc9f0;
-    }
+.video-section h2{
+  margin-bottom:35px;
+  color:#4fd1ff;
+  font-size:28px;
+}
 
-    iframe {
-      width: 560px;
-      max-width: 90%;
-      height: 315px;
-      border-radius: 15px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    }
+iframe{
+  width:560px;
+  max-width:90%;
+  height:315px;
+  border-radius:15px;
+  box-shadow:0 15px 40px rgba(0,0,0,0.5);
+}
 
-    /* ===== CONTACT ===== */
-    #contact {
-      padding: 80px 20px;
-      text-align: center;
-    }
+/* ===== CONTACT ===== */
+#contact{
+  padding:100px 20px;
+  text-align:center;
+}
 
-    #contact h2 {
-      color: #4cc9f0;
-      margin-bottom: 40px;
-    }
+#contact h2{
+  color:#4fd1ff;
+  margin-bottom:50px;
+  font-size:28px;
+}
 
-    .contact-box {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      flex-wrap: wrap;
-    }
+.contact-box{
+  display:flex;
+  justify-content:center;
+  gap:35px;
+  flex-wrap:wrap;
+}
 
-    .contact-item {
-      background: #1b263b;
-      padding: 20px 30px;
-      border-radius: 15px;
-      width: 200px;
-      text-decoration: none;
-      color: white;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-      transition: 0.3s;
-    }
+.contact-item{
+  background:rgba(255,255,255,0.05);
+  padding:25px 30px;
+  border-radius:20px;
+  width:220px;
+  text-decoration:none;
+  color:white;
+  backdrop-filter:blur(10px);
+  transition:0.3s;
+  box-shadow:0 10px 30px rgba(0,0,0,0.4);
+}
 
-    .contact-item:hover {
-      transform: translateY(-5px);
-    }
+.contact-item:hover{
+  transform:translateY(-8px);
+  background:rgba(79,209,255,0.15);
+}
 
-    .contact-item i {
-      font-size: 30px;
-      margin-bottom: 10px;
-    }
+.contact-item i{
+  font-size:35px;
+  margin-bottom:15px;
+}
 
-    /* ===== FOOTER ===== */
-    footer {
-      margin-top: auto;
-      padding: 20px;
-      text-align: center;
-      background-color: #0d1b2a;
-      color: #4cc9f0;
-      font-size: 14px;
-    }
+.contact-item p{
+  font-weight:600;
+  margin-bottom:5px;
+}
 
-  </style>
+/* ===== FOOTER ===== */
+footer{
+  margin-top:auto;
+  padding:20px;
+  text-align:center;
+  background:rgba(0,0,0,0.4);
+  font-size:14px;
+  color:#4fd1ff;
+}
+</style>
 </head>
 
 <body>
 
-  <!-- Navbar -->
-  <nav>
-    <h2>Esra Digital Library</h2>
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Service</a></li>
-      <li><a href="#">Collection</a></li>
-      <li><a href="#contact">Contact Person</a></li>
-    </ul>
-  </nav>
+<nav>
+  <h2>Esra Digital Library</h2>
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Service</a></li>
+    <li><a href="#">Collection</a></li>
+    <li><a href="#contact">Contact Person</a></li>
+  </ul>
+</nav>
 
-  <!-- Hero -->
-  <section class="hero">
-    <h1>Welcome to Esra Digital Library</h1>
-    <p>
-      Ruang literasi digital ini hadir sebagai tempat pembelajaran terbuka,
-      akses informasi, serta pengembangan kreativitas bagi semua orang ✨✨
-      
-      Mari temukan ribuan buku seru yang siap menemanimu hari ini.
-    </p>
+<section class="hero">
+  <h1>Welcome to Esra Digital Library</h1>
+  <p>
+    Ruang literasi digital ini hadir sebagai tempat pembelajaran terbuka,
+    akses informasi, serta pengembangan kreativitas bagi semua orang ✨
+    Mari temukan ribuan buku seru yang siap menemanimu hari ini.
+  </p>
 
-    <a href="cv.html" class="btn">Lihat Curriculum Vitae</a>
-    <a href="https://instagram.com/ecaahutaurukk" target="_blank" class="btn">
-      <i class="fab fa-instagram"></i> Instagram
+  <a href="cv.html" class="btn">Lihat Curriculum Vitae</a>
+  <a href="https://instagram.com/ecaahutaurukk" target="_blank" class="btn">
+    <i class="fab fa-instagram"></i> Instagram
+  </a>
+</section>
+
+<section class="video-section">
+  <h2>Video Motivation</h2>
+  <iframe src="https://www.youtube.com/embed/bXGhtjezJPY" allowfullscreen></iframe>
+</section>
+
+<section id="contact">
+  <h2>Contact Person</h2>
+
+  <div class="contact-box">
+
+    <a href="https://wa.me/6282169967447" target="_blank" class="contact-item">
+      <i class="fab fa-whatsapp" style="color:#25D366;"></i>
+      <p>WhatsApp</p>
+      <small>0821-6996-7447</small>
     </a>
-  </section>
 
-  <!-- Video -->
-  <section class="video-section">
-    <h2>Video Motivation</h2>
-    <iframe src="https://www.youtube.com/embed/bXGhtjezJPY" allowfullscreen></iframe>
-  </section>
+    <a href="https://instagram.com/ecaahutaurukk" target="_blank" class="contact-item">
+      <i class="fab fa-instagram" style="color:#E1306C;"></i>
+      <p>Instagram</p>
+      <small>@ecaahutaurukk</small>
+    </a>
 
-  <!-- Contact -->
-  <section id="contact">
-    <h2>Contact Person</h2>
+    <a href="mailto:esradewitriputri08@gmail.com" class="contact-item">
+      <i class="fas fa-envelope" style="color:#4fd1ff;"></i>
+      <p>Email</p>
+      <small>esradewitriputri08@gmail.com</small>
+    </a>
 
-    <div class="contact-box">
+  </div>
+</section>
 
-      <a href="https://wa.me/6282169967447" target="_blank" class="contact-item">
-        <i class="fab fa-whatsapp" style="color:#25D366;"></i>
-        <p>WhatsApp</p>
-        <small>0821-6996-7447</small>
-      </a>
-
-      <a href="https://instagram.com/ecaahutaurukk" target="_blank" class="contact-item">
-        <i class="fab fa-instagram" style="color:#E1306C;"></i>
-        <p>Instagram</p>
-        <small>@ecaahutaurukk</small>
-      </a>
-
-      <a href="mailto:esradewitriputri08@gmail.com" class="contact-item">
-        <i class="fas fa-envelope" style="color:#4cc9f0;"></i>
-        <p>Email</p>
-        <small>esradewitriputri08@gmail.com</small>
-      </a>
-
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    © 2026 Esra Dewi Tri Putri Hutauruk | 230709034
-  </footer>
+<footer>
+  © 2026 Esra Dewi Tri Putri Hutauruk | 230709034
+</footer>
 
 </body>
 </html>
