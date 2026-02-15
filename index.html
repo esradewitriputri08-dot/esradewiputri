@@ -1,117 +1,113 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Coming Soon | Esra Hutauruk</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Saya</title>
 
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      height: 100vh;
-      background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #e3f2fd; /* biru muda */
+    }
+
+    .navbar {
+      background-color: #2196f3;
+      padding: 15px;
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      margin-left: 15px;
+      font-weight: bold;
+    }
+
+    .navbar a:hover {
+      text-decoration: underline;
+    }
+
+    .hero {
       text-align: center;
-      overflow: hidden;
+      padding: 60px 20px;
+    }
+
+    .hero h1 {
+      color: #0d47a1;
+      margin-bottom: 10px;
+    }
+
+    .section {
+      padding: 40px 20px;
+      text-align: center;
     }
 
     .card {
       background: white;
-      padding: 40px 30px;
-      border-radius: 25px;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-      max-width: 380px;
-      width: 90%;
-      animation: fadeIn 1.5s ease-in-out;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 500px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
-    .card img {
-      width: 200px;
-      border-radius: 20px;
-      margin-bottom: 20px;
-      transition: transform 0.3s ease;
-    }
-
-    .card img:hover {
-      transform: scale(1.05);
-    }
-
-    h1 {
-      color: #0d47a1;
-      font-size: 28px;
-      margin-bottom: 10px;
-    }
-
-    h2 {
-      color: #1565c0;
-      font-size: 22px;
-      margin-bottom: 15px;
-    }
-
-    p {
-      color: #555;
-      font-size: 16px;
-      line-height: 1.6;
-    }
-
-    .soon {
-      margin-top: 25px;
-      font-weight: bold;
-      color: #0d47a1;
-      letter-spacing: 2px;
-      animation: blink 1.5s infinite;
-    }
-
-    .btn {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 10px 20px;
-      background: #1976d2;
+    footer {
+      background: #2196f3;
       color: white;
-      text-decoration: none;
-      border-radius: 20px;
-      transition: 0.3s;
-      font-weight: bold;
+      text-align: center;
+      padding: 15px;
+      margin-top: 30px;
     }
-
-    .btn:hover {
-      background: #0d47a1;
-      transform: translateY(-3px);
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes blink {
-      0% { opacity: 1; }
-      50% { opacity: 0.5; }
-      100% { opacity: 1; }
-    }
-
   </style>
+
 </head>
-
 <body>
-  <div class="card">
-    <img src="https://i.imgur.com/6XGQZ7B.png" alt="Welcome">
 
-    <h1>Selamat Datang</h1>
-    <h2>Website Esra Hutauruk</h2>
-
-    <p>
-      Yuk, temukan petualangan baru dan kita jelajahi jendela dunia melalui buku-buku seru hari ini! 📚💡
-    </p>
-
-    <div class="soon">
-      ✨ COMING SOON ✨
+  <div class="navbar">
+    <div><b>My Web</b></div>
+    <div>
+      <a href="#home">Home</a>
+      <a href="#cv">CV</a>
+      <a href="#contact">Contact</a>
     </div>
-
-    <a href="#" class="btn">Lihat Selengkapnya</a>
   </div>
+
+  <section id="home" class="hero">
+    <h1>Selamat Datang</h1>
+    <p>Ini adalah website pribadi saya ✨</p>
+  </section>
+
+  <section id="cv" class="section">
+    <h2>Curriculum Vitae</h2>
+    <div class="card">
+      <p><b>Nama:</b> Nama Kamu</p>
+      <p><b>Pendidikan:</b> Universitas Kamu</p>
+      <p><b>Keahlian:</b> HTML, Microsoft Office, dll</p>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <h2>Media Sosial</h2>
+    <div class="card">
+      <p>Instagram: @username</p>
+      <p>Facebook: Nama FB</p>
+      <p>YouTube: Channel Kamu</p>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Website Saya
+  </footer>
+
 </body>
 </html>
+
