@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -9,11 +10,12 @@
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
       height: 100vh;
-      background: linear-gradient(to right, #e3f2fd, #bbdefb);
+      background: linear-gradient(135deg, #e3f2fd, #bbdefb);
       display: flex;
       justify-content: center;
       align-items: center;
       text-align: center;
+      overflow: hidden;
     }
 
     .card {
@@ -23,12 +25,18 @@
       box-shadow: 0 15px 40px rgba(0,0,0,0.2);
       max-width: 380px;
       width: 90%;
+      animation: fadeIn 1.5s ease-in-out;
     }
 
     .card img {
       width: 200px;
       border-radius: 20px;
       margin-bottom: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .card img:hover {
+      transform: scale(1.05);
     }
 
     h1 {
@@ -54,25 +62,56 @@
       font-weight: bold;
       color: #0d47a1;
       letter-spacing: 2px;
+      animation: blink 1.5s infinite;
     }
+
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #1976d2;
+      color: white;
+      text-decoration: none;
+      border-radius: 20px;
+      transition: 0.3s;
+      font-weight: bold;
+    }
+
+    .btn:hover {
+      background: #0d47a1;
+      transform: translateY(-3px);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes blink {
+      0% { opacity: 1; }
+      50% { opacity: 0.5; }
+      100% { opacity: 1; }
+    }
+
   </style>
 </head>
 
 <body>
   <div class="card">
-    <!-- GANTI GAMBAR DI SINI -->
     <img src="https://i.imgur.com/6XGQZ7B.png" alt="Welcome">
 
     <h1>Selamat Datang</h1>
     <h2>Website Esra Hutauruk</h2>
 
     <p>
-      Yuk, temukan petualangan baru dan kita jelajahi jendela dunia melalui buku-buku seru hari ini!📚💡
+      Yuk, temukan petualangan baru dan kita jelajahi jendela dunia melalui buku-buku seru hari ini! 📚💡
     </p>
 
     <div class="soon">
       ✨ COMING SOON ✨
     </div>
+
+    <a href="#" class="btn">Lihat Selengkapnya</a>
   </div>
 </body>
 </html>
