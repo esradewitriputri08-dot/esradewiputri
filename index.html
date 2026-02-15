@@ -1,113 +1,41 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Website Saya</title>
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
-
-    body {
-      background-color: #e3f2fd; /* biru muda */
-    }
-
-    .navbar {
-      background-color: #2196f3;
-      padding: 15px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .navbar a {
-      color: white;
-      text-decoration: none;
-      margin-left: 15px;
-      font-weight: bold;
-    }
-
-    .navbar a:hover {
-      text-decoration: underline;
-    }
-
-    .hero {
-      text-align: center;
-      padding: 60px 20px;
-    }
-
-    .hero h1 {
-      color: #0d47a1;
-      margin-bottom: 10px;
-    }
-
-    .section {
-      padding: 40px 20px;
-      text-align: center;
-    }
-
-    .card {
-      background: white;
-      padding: 20px;
-      margin: 20px auto;
-      max-width: 500px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    footer {
-      background: #2196f3;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      margin-top: 30px;
-    }
-  </style>
-
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <div class="navbar">
-    <div><b>My Web</b></div>
-    <div>
+  <header class="navbar">
+    <div class="logo">My Web</div>
+    <nav>
       <a href="#home">Home</a>
-      <a href="#cv">CV</a>
+      <a href="#about">Profil</a>
       <a href="#contact">Contact</a>
-    </div>
-  </div>
+    </nav>
+  </header>
 
   <section id="home" class="hero">
-    <h1>Selamat Datang</h1>
-    <p>Ini adalah website pribadi saya ✨</p>
+    <h1>Selamat Datang di Website Saya</h1>
+    <p>Ini adalah website profil sederhana.</p>
   </section>
 
-  <section id="cv" class="section">
-    <h2>Curriculum Vitae</h2>
-    <div class="card">
-      <p><b>Nama:</b> Nama Kamu</p>
-      <p><b>Pendidikan:</b> Universitas Kamu</p>
-      <p><b>Keahlian:</b> HTML, Microsoft Office, dll</p>
-    </div>
+  <section id="about" class="profile">
+    <h2>Tentang Saya</h2>
+    <p>Halo, saya Esra Dewi Tri Putri Hutauruk. Saya membuat website ini sebagai media berbagi informasi.</p>
   </section>
 
-  <section id="contact" class="section">
-    <h2>Media Sosial</h2>
-    <div class="card">
-      <p>Instagram: @username</p>
-      <p>Facebook: Nama FB</p>
-      <p>YouTube: Channel Kamu</p>
-    </div>
+  <section id="contact" class="contact">
+    <h2>Contact</h2>
+    <p>Email: contoh@email.com</p>
+    <p>Telepon: +62 821 6996 7447</p>
   </section>
 
   <footer>
-    © 2026 Website Saya
+    <p>&copy; 2026 Website Saya</p>
   </footer>
-
 </body>
 </html>
+
 
