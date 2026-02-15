@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -5,10 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Esra Digital Library</title>
 
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-<!-- Font Awesome -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
@@ -27,33 +25,28 @@ body{
   color:white;
 }
 
-/* ===== NAVBAR ===== */
+/* NAVBAR */
 nav{
   background:rgba(0,0,0,0.4);
-  backdrop-filter:blur(10px);
-  padding:18px 60px;
+  padding:15px 50px;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  position:sticky;
-  top:0;
 }
 
 nav h2{
   color:#4fd1ff;
-  font-weight:600;
 }
 
 nav ul{
   list-style:none;
   display:flex;
-  gap:30px;
+  gap:25px;
 }
 
 nav ul li a{
   text-decoration:none;
   color:white;
-  font-weight:500;
   transition:0.3s;
 }
 
@@ -61,20 +54,20 @@ nav ul li a:hover{
   color:#4fd1ff;
 }
 
-/* ===== HERO ===== */
+/* HERO */
 .hero{
   text-align:center;
   padding:120px 20px;
 }
 
 .hero h1{
-  font-size:48px;
+  font-size:45px;
   color:#4fd1ff;
   margin-bottom:20px;
 }
 
 .hero p{
-  max-width:750px;
+  max-width:700px;
   margin:auto;
   line-height:1.8;
   color:#e0f7ff;
@@ -82,8 +75,8 @@ nav ul li a:hover{
 
 .btn{
   display:inline-block;
-  margin:35px 10px 0 10px;
-  padding:12px 35px;
+  margin:30px 10px 0 10px;
+  padding:12px 30px;
   background:linear-gradient(45deg,#4fd1ff,#00c6ff);
   color:#003049;
   border-radius:30px;
@@ -93,20 +86,18 @@ nav ul li a:hover{
 }
 
 .btn:hover{
-  transform:translateY(-3px);
-  box-shadow:0 10px 25px rgba(0,198,255,0.5);
+  transform:scale(1.05);
 }
 
-/* ===== VIDEO ===== */
+/* VIDEO */
 .video-section{
   padding:80px 20px;
   text-align:center;
 }
 
 .video-section h2{
-  margin-bottom:35px;
+  margin-bottom:30px;
   color:#4fd1ff;
-  font-size:28px;
 }
 
 iframe{
@@ -114,62 +105,66 @@ iframe{
   max-width:90%;
   height:315px;
   border-radius:15px;
-  box-shadow:0 15px 40px rgba(0,0,0,0.5);
+  box-shadow:0 10px 30px rgba(0,0,0,0.5);
 }
 
-/* ===== CONTACT ===== */
+/* CONTACT ICON ONLY */
 #contact{
   padding:100px 20px;
   text-align:center;
 }
 
 #contact h2{
-  color:#4fd1ff;
   margin-bottom:50px;
-  font-size:28px;
+  color:#4fd1ff;
 }
 
 .contact-box{
   display:flex;
   justify-content:center;
-  gap:35px;
-  flex-wrap:wrap;
+  gap:40px;
 }
 
 .contact-item{
-  background:rgba(255,255,255,0.05);
-  padding:25px 30px;
-  border-radius:20px;
-  width:220px;
-  text-decoration:none;
-  color:white;
-  backdrop-filter:blur(10px);
-  transition:0.3s;
-  box-shadow:0 10px 30px rgba(0,0,0,0.4);
-}
-
-.contact-item:hover{
-  transform:translateY(-8px);
-  background:rgba(79,209,255,0.15);
-}
-
-.contact-item i{
+  width:90px;
+  height:90px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
   font-size:35px;
-  margin-bottom:15px;
+  color:white;
+  text-decoration:none;
+  transition:0.4s;
 }
 
-.contact-item p{
-  font-weight:600;
-  margin-bottom:5px;
+/* Warna */
+.wa{ background:#25D366; }
+.ig{ background:linear-gradient(45deg,#fd1d1d,#e1306c,#833ab4); }
+.email{ background:#4fd1ff; }
+
+/* Glow Hover */
+.wa:hover{
+  transform:scale(1.2);
+  box-shadow:0 0 25px #25D366;
 }
 
-/* ===== FOOTER ===== */
+.ig:hover{
+  transform:scale(1.2);
+  box-shadow:0 0 25px #e1306c;
+}
+
+.email:hover{
+  transform:scale(1.2);
+  box-shadow:0 0 25px #4fd1ff;
+}
+
+/* FOOTER */
 footer{
   margin-top:auto;
   padding:20px;
   text-align:center;
   background:rgba(0,0,0,0.4);
-  font-size:14px;
   color:#4fd1ff;
 }
 </style>
@@ -183,7 +178,7 @@ footer{
     <li><a href="#">Home</a></li>
     <li><a href="#">Service</a></li>
     <li><a href="#">Collection</a></li>
-    <li><a href="#contact">Contact Person</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
@@ -207,28 +202,20 @@ footer{
 </section>
 
 <section id="contact">
-  <h2>Contact Person</h2>
+  <h2>Connect With Me</h2>
 
   <div class="contact-box">
-
-    <a href="https://wa.me/6282169967447" target="_blank" class="contact-item">
-      <i class="fab fa-whatsapp" style="color:#25D366;"></i>
-      <p>WhatsApp</p>
-      <small>0821-6996-7447</small>
+    <a href="https://wa.me/6282169967447" target="_blank" class="contact-item wa">
+      <i class="fab fa-whatsapp"></i>
     </a>
 
-    <a href="https://instagram.com/ecaahutaurukk" target="_blank" class="contact-item">
-      <i class="fab fa-instagram" style="color:#E1306C;"></i>
-      <p>Instagram</p>
-      <small>@ecaahutaurukk</small>
+    <a href="https://instagram.com/ecaahutaurukk" target="_blank" class="contact-item ig">
+      <i class="fab fa-instagram"></i>
     </a>
 
-    <a href="mailto:esradewitriputri08@gmail.com" class="contact-item">
-      <i class="fas fa-envelope" style="color:#4fd1ff;"></i>
-      <p>Email</p>
-      <small>esradewitriputri08@gmail.com</small>
+    <a href="mailto:esradewitriputri08@gmail.com" class="contact-item email">
+      <i class="fas fa-envelope"></i>
     </a>
-
   </div>
 </section>
 
