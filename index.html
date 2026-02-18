@@ -24,6 +24,7 @@ body{
   color:white;
 }
 
+/* NAVBAR */
 nav{
   background:rgba(0,0,0,0.4);
   padding:15px 50px;
@@ -46,12 +47,14 @@ nav ul li a{
   text-decoration:none;
   color:white;
   transition:0.3s;
+  cursor:pointer;
 }
 
 nav ul li a:hover{
   color:#4fd1ff;
 }
 
+/* HERO */
 .hero{
   text-align:center;
   padding:80px 20px;
@@ -96,6 +99,7 @@ nav ul li a:hover{
   transform:scale(1.05);
 }
 
+/* VIDEO */
 .video-section{
   padding:80px 20px;
   text-align:center;
@@ -114,6 +118,7 @@ iframe{
   box-shadow:0 10px 30px rgba(0,0,0,0.5);
 }
 
+/* CONTACT */
 #contact{
   padding:100px 20px;
   text-align:center;
@@ -152,12 +157,61 @@ iframe{
   transform:scale(1.2);
 }
 
+/* FOOTER */
 footer{
   margin-top:auto;
   padding:20px;
   text-align:center;
   background:rgba(0,0,0,0.4);
   color:#4fd1ff;
+}
+
+/* LOGIN MODAL */
+.modal{
+  display:none;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.7);
+  justify-content:center;
+  align-items:center;
+}
+
+.modal-content{
+  background:rgba(255,255,255,0.1);
+  backdrop-filter:blur(10px);
+  padding:40px;
+  border-radius:20px;
+  width:350px;
+  color:white;
+  box-shadow:0 0 30px rgba(0,0,0,0.5);
+}
+
+.modal-content h2{
+  text-align:center;
+  margin-bottom:20px;
+  color:#4fd1ff;
+}
+
+.modal-content input{
+  width:100%;
+  padding:12px;
+  margin-bottom:15px;
+  border:none;
+  border-radius:10px;
+  outline:none;
+}
+
+.modal-content button{
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:30px;
+  background:linear-gradient(45deg,#4fd1ff,#00c6ff);
+  font-weight:bold;
+  cursor:pointer;
 }
 </style>
 </head>
@@ -171,14 +225,26 @@ footer{
     <li><a href="#">Service</a></li>
     <li><a href="#">Collection</a></li>
     <li><a href="#contact">Contact</a></li>
+    <li><a onclick="openLogin()">Login</a></li>
   </ul>
 </nav>
 
+<!-- LOGIN POPUP -->
+<div class="modal" id="loginModal">
+  <div class="modal-content">
+    <h2>Login</h2>
+    <form onsubmit="submitLogin(event)">
+      <input type="text" placeholder="First Name" required>
+      <input type="text" placeholder="Last Name" required>
+      <input type="tel" placeholder="Nomor HP" required>
+      <input type="email" placeholder="Email" required>
+      <button type="submit">Masuk</button>
+    </form>
+  </div>
+</div>
+
 <section class="hero">
-
-  <!-- FOTO -->
   <img src="foto-esra.jpg" alt="Foto Esra">
-
   <h1>Welcome to Esra Digital Library</h1>
   <p>
     Ruang literasi digital ini hadir sebagai tempat pembelajaran terbuka,
@@ -186,7 +252,6 @@ footer{
     Mari temukan ribuan buku seru yang siap menemanimu hari ini.
   </p>
 
-  <!-- GANTI ID FILE DI BAWAH JIKA BERBEDA -->
   <a href="https://drive.google.com/file/d/1NDT8TYpnyim2lDyLb2Qpnk6EIdxlJNU0/view?usp=sharing"
      target="_blank"
      class="btn">
@@ -198,7 +263,6 @@ footer{
      class="btn">
      <i class="fab fa-instagram"></i> Instagram
   </a>
-
 </section>
 
 <section class="video-section">
@@ -208,7 +272,6 @@ footer{
 
 <section id="contact">
   <h2>Connect With Me</h2>
-
   <div class="contact-box">
     <a href="https://wa.me/6282169967447" target="_blank" class="contact-item wa">
       <i class="fab fa-whatsapp"></i>
@@ -227,6 +290,18 @@ footer{
 <footer>
   © 2026 Esra Dewi Tri Putri Hutauruk | 230709034
 </footer>
+
+<script>
+function openLogin(){
+  document.getElementById("loginModal").style.display="flex";
+}
+
+function submitLogin(event){
+  event.preventDefault();
+  document.getElementById("loginModal").style.display="none";
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+</script>
 
 </body>
 </html>
