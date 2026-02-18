@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -63,7 +62,7 @@ body{
   cursor:pointer;
 }
 
-/* HOMEPAGE (AWALNYA DISEMBUNYIKAN) */
+/* HOMEPAGE */
 #homePage{
   display:none;
   min-height:100vh;
@@ -79,7 +78,20 @@ nav{
   align-items:center;
 }
 
-nav h2{
+/* LOGO AREA */
+.logo-area{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.logo-area img{
+  width:45px;
+  height:45px;
+  object-fit:contain;
+}
+
+.logo-area h2{
   color:#4fd1ff;
 }
 
@@ -197,7 +209,7 @@ footer{
 <!-- LOGIN PAGE -->
 <div id="loginPage">
   <div class="login-box">
-    <h2>Login</h2>
+    <h2>Pendaftaran Anggota</h2>
     <form onsubmit="login(event)">
       <input type="text" placeholder="First Name" required>
       <input type="text" placeholder="Last Name" required>
@@ -212,7 +224,10 @@ footer{
 <div id="homePage">
 
 <nav>
-  <h2>Esra Digital Library</h2>
+  <div class="logo-area">
+    <img src="logo.png" alt="Logo">
+    <h2>Esra Digital Library</h2>
+  </div>
   <ul>
     <li><a href="#">Home</a></li>
     <li><a href="#">Service</a></li>
@@ -272,4 +287,5 @@ function login(event){
 
 </body>
 </html>
+
 
