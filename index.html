@@ -17,71 +17,55 @@ color:white;
 overflow-x:hidden;
 }
 
-/* ===== LOGIN ===== */
-<!-- LOGIN -->
-<div id="loginPage" class="auth-page">
-<div class="auth-box">
-<h2>ECH Digital Library</h2>
-<div id="errorMsg"></div>
+/* LOGIN STYLE */
+.auth-page{
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
 
-<form onsubmit="login(event)">
-<input type="email" id="loginEmail" placeholder="Email" required>
-<input type="password" id="loginPassword" placeholder="Password" required>
-<button type="submit">Masuk</button>
-</form>
+.auth-box{
+background:rgba(255,255,255,0.1);
+padding:35px;
+border-radius:15px;
+backdrop-filter:blur(10px);
+width:320px;
+text-align:center;
+}
 
-<div class="extra" style="margin-top:10px;">
-<a onclick="showForgot()">Lupa Password?</a>
-</div>
+.auth-box input{
+width:100%;
+padding:10px;
+margin:10px 0;
+border:none;
+border-radius:6px;
+}
 
-<div class="extra" style="margin-top:8px;">
-Belum memiliki akun? 
-<a onclick="showRegister()">Daftar Sekarang</a>
-</div>
+.auth-box button{
+width:100%;
+padding:10px;
+border:none;
+border-radius:20px;
+background:#4fd1ff;
+cursor:pointer;
+font-weight:600;
+}
 
-</div>
-</div>
+.auth-links{
+display:flex;
+justify-content:space-between;
+margin-top:10px;
+font-size:13px;
+}
 
-<!-- REGISTER -->
-<div id="registerPage" class="auth-page" style="display:none;">
-<div class="auth-box">
-<h2>Pendaftaran Anggota</h2>
+.auth-links a{
+color:#4fd1ff;
+text-decoration:none;
+cursor:pointer;
+}
 
-<form onsubmit="register(event)">
-<input type="text" id="regFirst" placeholder="First Name" required>
-<input type="text" id="regLast" placeholder="Last Name" required>
-<input type="email" id="regEmail" placeholder="Email" required>
-<input type="password" id="regPassword" placeholder="Password" required>
-<input type="text" id="regPhone" placeholder="Nomor Handphone" required>
-<button type="submit">Daftar</button>
-</form>
-
-<div class="extra">
-Sudah punya akun? 
-<a onclick="showLogin()">Login</a>
-</div>
-
-</div>
-</div>
-
-<!-- FORGOT PASSWORD -->
-<div id="forgotPage" class="auth-page" style="display:none;">
-<div class="auth-box">
-<h2>Reset Password</h2>
-
-<form onsubmit="resetPassword(event)">
-<input type="email" id="forgotEmail" placeholder="Masukkan Email Terdaftar" required>
-<button type="submit">Reset Password</button>
-</form>
-
-<div class="extra">
-<a onclick="showLogin()">Kembali ke Login</a>
-</div>
-
-</div>
-</div>
-
-/* ===== HOME ===== */
+/* HOME */
 #homePage{display:none;min-height:100vh;flex-direction:column;}
 
 nav{
@@ -90,76 +74,72 @@ padding:15px 40px;
 display:flex;justify-content:space-between;align-items:center;
 position:sticky;top:0;z-index:1000;
 }
+
 .logo-area h2{color:#4fd1ff;}
+
 nav ul{list-style:none;display:flex;gap:18px;}
+
 nav ul li a{
 text-decoration:none;color:white;font-size:14px;
 transition:0.3s;
 }
+
 nav ul li a:hover{color:#4fd1ff;}
 
-/* ===== HERO ===== */
 .hero{
 padding:100px 20px;text-align:center;
 animation:fadeIn 1.5s ease;
 }
+
 .hero h1{font-size:45px;color:#4fd1ff;margin-bottom:20px;}
 .hero p{max-width:700px;margin:auto;opacity:0.85;line-height:1.7;}
 .hero span{color:#4fd1ff;font-weight:600;}
 
-/* ===== COLLECTION ===== */
 .collection{
 padding:70px 20px;text-align:center;
 }
+
 .collection h2{margin-bottom:40px;color:#4fd1ff;}
+
 .book-grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
 gap:25px;
 max-width:1000px;margin:auto;
 }
+
 .book-card{
 background:rgba(255,255,255,0.1);
 padding:20px;border-radius:15px;
 transition:0.3s;
 cursor:pointer;
 }
+
 .book-card:hover{
 transform:translateY(-8px);
 box-shadow:0 0 25px rgba(79,209,255,0.7);
 }
+
 .book-card i{font-size:40px;margin-bottom:15px;color:#4fd1ff;}
-.book-card h4{margin-bottom:10px;}
 
-/* ===== MEMBERSHIP ===== */
-.membership{padding:70px 20px;text-align:center;}
-.membership-card{
-width:320px;margin:auto;padding:25px;
-border-radius:20px;
-background:rgba(255,255,255,0.1);
-backdrop-filter:blur(10px);
-box-shadow:0 0 25px rgba(0,0,0,0.5);
-}
-.membership-card h3{margin-bottom:10px;}
-.card-id{font-size:13px;opacity:0.7;margin-top:10px;}
-
-/* ===== CONTACT ===== */
 .contact{padding:70px 20px;text-align:center;}
+
 .contact-box{
 display:flex;justify-content:center;gap:30px;flex-wrap:wrap;
 }
+
 .contact-item{
 width:70px;height:70px;border-radius:50%;
 display:flex;align-items:center;justify-content:center;
 font-size:30px;color:white;text-decoration:none;
 transition:0.3s;
 }
+
 .contact-item:hover{transform:scale(1.1);}
 .wa{background:#25D366;}
 .ig{background:linear-gradient(45deg,#fd1d1d,#e1306c,#833ab4);}
 .email{background:#4fd1ff;}
 
-/* ===== FEEDBACK ===== */
 .feedback-box{
 display:none;
 position:fixed;bottom:30px;right:30px;
@@ -167,9 +147,11 @@ background:rgba(255,255,255,0.1);
 backdrop-filter:blur(12px);
 padding:20px;border-radius:15px;width:280px;
 }
+
 .feedback-box input,.feedback-box textarea{
 width:100%;padding:8px;margin-bottom:10px;border:none;border-radius:8px;
 }
+
 .feedback-box button{
 width:100%;padding:8px;border:none;border-radius:20px;
 background:#4fd1ff;font-weight:bold;cursor:pointer;
@@ -195,29 +177,39 @@ to{opacity:1;transform:translateY(0);}
 <div class="auth-box">
 <h2>ECH Digital Library</h2>
 <div id="errorMsg"></div>
+
 <form onsubmit="login(event)">
 <input type="email" id="loginEmail" placeholder="Email" required>
 <input type="password" id="loginPassword" placeholder="Password" required>
 <button type="submit">Masuk</button>
 </form>
-<div class="extra">
-<a onclick="showRegister()">Daftar Sekarang</a>
+
+<div class="auth-links">
+<a onclick="showRegister()">Belum memiliki akun? Daftar sekarang</a>
+<a onclick="showForgot()">Lupa sandi?</a>
 </div>
+
 </div>
 </div>
 
 <!-- REGISTER -->
 <div id="registerPage" class="auth-page" style="display:none;">
 <div class="auth-box">
-<h2>Pendaftaran Anggota</h2>
+<h2>Daftar Anggota</h2>
+
 <form onsubmit="register(event)">
+<input type="text" id="regFirst" placeholder="First Name" required>
+<input type="text" id="regLast" placeholder="Last Name" required>
 <input type="email" id="regEmail" placeholder="Email" required>
 <input type="password" id="regPassword" placeholder="Password" required>
+<input type="text" id="regPhone" placeholder="Nomor Handphone" required>
 <button type="submit">Daftar</button>
 </form>
-<div class="extra">
-<a onclick="showLogin()">Login</a>
+
+<div style="margin-top:10px;">
+<a onclick="showLogin()" style="color:#4fd1ff;cursor:pointer;">Kembali ke Login</a>
 </div>
+
 </div>
 </div>
 
@@ -229,8 +221,8 @@ to{opacity:1;transform:translateY(0);}
 </div>
 <ul>
 <li><a href="#home">Home</a></li>
-<li><a href="#collection">Collection</a></li>
-<li><a href="#membership">Membership</a></li>
+<li><a>Service</a></li>
+<li><a>Membership</a></li>
 <li><a href="https://drive.google.com/file/d/1NDT8TYpnyim2lDyLb2Qpnk6EIdxlJNU0/view?usp=drivesdk" target="_blank">Librarian</a></li>
 <li><a href="#contact">Contact</a></li>
 <li><a onclick="toggleFeedback()">Feedback</a></li>
@@ -241,25 +233,17 @@ to{opacity:1;transform:translateY(0);}
 <section id="home" class="hero">
 <h1>Welcome to <span>ECH Digital Library</span></h1>
 <p>
-Ruang literasi digital ini hadir sebagai tempat pembelajaran terbuka, akses informasi, serta pengembangan kreativitas bagi semua orang. Mari temukan ribuan buku seru yang siap menemanimu hari ini.✨
+Ruang literasi digital ini hadir sebagai tempat pembelajaran terbuka, akses informasi, serta pengembangan kreativitas bagi semua orang.
 </p>
 </section>
 
 <section id="collection" class="collection">
 <h2>Koleksi Buku Interaktif</h2>
 <div class="book-grid">
-<div class="book-card"><i class="fas fa-book"></i><h4>Fisika SMA</h4><p>Konsep & latihan soal</p></div>
-<div class="book-card"><i class="fas fa-book"></i><h4>Biologi SMA</h4><p>Materi lengkap & ilustrasi</p></div>
-<div class="book-card"><i class="fas fa-book"></i><h4>Matematika</h4><p>Rumus & pembahasan</p></div>
-<div class="book-card"><i class="fas fa-book"></i><h4>Sejarah</h4><p>Kisah & peristiwa dunia</p></div>
-</div>
-</section>
-
-<section id="membership" class="membership">
-<h2>Kartu Anggota Digital</h2>
-<div class="membership-card">
-<h3 id="memberEmail"></h3>
-<div class="card-id">Member ID: <span id="memberID"></span></div>
+<div class="book-card"><i class="fas fa-book"></i><h4>Fisika SMA</h4></div>
+<div class="book-card"><i class="fas fa-book"></i><h4>Biologi SMA</h4></div>
+<div class="book-card"><i class="fas fa-book"></i><h4>Matematika</h4></div>
+<div class="book-card"><i class="fas fa-book"></i><h4>Sejarah</h4></div>
 </div>
 </section>
 
@@ -275,7 +259,7 @@ Ruang literasi digital ini hadir sebagai tempat pembelajaran terbuka, akses info
 <section id="about" class="collection">
 <h2>About Us</h2>
 <p style="max-width:800px;margin:20px auto;line-height:1.8;opacity:0.9;">
-ECH Digital Library adalah platform perpustakaan digital yang dirancang untuk mendukung generasi muda dalam mengakses informasi secara cepat, akurat, dan interaktif. Kami percaya bahwa literasi digital adalah kunci masa depan pendidikan. Melalui sistem yang modern dan ramah pengguna, kami membantu siswa menjelajahi dunia pengetahuan tanpa batas.
+ECH Digital Library adalah platform perpustakaan digital yang dirancang untuk mendukung generasi muda dalam mengakses informasi secara cepat dan interaktif.
 </p>
 </section>
 
@@ -291,19 +275,20 @@ ECH Digital Library adalah platform perpustakaan digital yang dirancang untuk me
 </div>
 
 <script>
-  function showForgot(){
-loginPage.style.display="none";
-forgotPage.style.display="flex";
-}
+let currentUser="";
+
+function showRegister(){loginPage.style.display="none";registerPage.style.display="flex";}
+function showLogin(){registerPage.style.display="none";loginPage.style.display="flex";}
+function showForgot(){alert("Fitur reset password belum tersedia.");}
 
 function register(e){
 e.preventDefault();
-
 let fullName = regFirst.value + " " + regLast.value;
 
 localStorage.setItem(regEmail.value, JSON.stringify({
 password: regPassword.value,
 name: fullName,
+email: regEmail.value,
 phone: regPhone.value
 }));
 
@@ -319,45 +304,6 @@ if(data && data.password === loginPassword.value){
 currentUser=data.name;
 loginPage.style.display="none";
 homePage.style.display="flex";
-memberEmail.innerText=currentUser;
-memberID.innerText="ECH-"+Math.floor(Math.random()*10000);
-}else{
-errorMsg.innerText="Email atau Password salah!";
-}
-}
-
-function resetPassword(e){
-e.preventDefault();
-let data = localStorage.getItem(forgotEmail.value);
-
-if(data){
-alert("Email ditemukan! Silakan login kembali.");
-showLogin();
-}else{
-alert("Email tidak terdaftar!");
-}
-}
-let currentUser="";
-
-function showRegister(){loginPage.style.display="none";registerPage.style.display="flex";}
-function showLogin(){registerPage.style.display="none";loginPage.style.display="flex";}
-
-function register(e){
-e.preventDefault();
-localStorage.setItem(regEmail.value,regPassword.value);
-alert("Pendaftaran berhasil!");
-showLogin();
-}
-
-function login(e){
-e.preventDefault();
-const saved=localStorage.getItem(loginEmail.value);
-if(saved===loginPassword.value){
-currentUser=loginEmail.value;
-loginPage.style.display="none";
-homePage.style.display="flex";
-memberEmail.innerText=currentUser;
-memberID.innerText="ECH-"+Math.floor(Math.random()*10000);
 }else{
 errorMsg.innerText="Email atau Password salah!";
 }
@@ -377,3 +323,4 @@ toggleFeedback();
 
 </body>
 </html>
+
