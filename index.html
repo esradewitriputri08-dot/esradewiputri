@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Electronic Center for Knowledge</title>
 
+<!-- FONT -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
@@ -21,6 +22,7 @@ color:white;
 min-height:100vh;
 }
 
+/* NAVBAR */
 nav{
 display:flex;
 justify-content:space-between;
@@ -53,12 +55,13 @@ nav ul li:hover{
 color:#00f2fe;
 }
 
+/* SECTION */
 section{
 padding:120px 40px 60px;
 min-height:100vh;
-display:none;
 }
 
+/* HERO */
 .hero{
 text-align:center;
 margin-top:60px;
@@ -73,6 +76,7 @@ margin-bottom:15px;
 opacity:0.8;
 }
 
+/* SEARCH */
 .search-box{
 margin-top:30px;
 text-align:center;
@@ -93,6 +97,7 @@ background:#00f2fe;
 cursor:pointer;
 }
 
+/* AUTH */
 .auth-page{
 display:flex;
 justify-content:center;
@@ -105,7 +110,7 @@ background:rgba(255,255,255,0.1);
 padding:40px;
 border-radius:15px;
 backdrop-filter:blur(10px);
-width:320px;
+width:300px;
 text-align:center;
 }
 
@@ -126,31 +131,21 @@ background:#00f2fe;
 cursor:pointer;
 }
 
-.auth-links{
-display:flex;
-justify-content:space-between;
+.extra{
 margin-top:10px;
-font-size:13px;
+font-size:14px;
 }
 
-.auth-links a{
+.extra a{
 color:#00f2fe;
 cursor:pointer;
-text-decoration:none;
 }
 
-.user-info{
-text-align:center;
-margin-top:20px;
-font-size:14px;
-opacity:0.9;
-}
-
+/* FOOTER */
 footer{
 text-align:center;
 padding:20px;
 background:rgba(255,255,255,0.05);
-display:none;
 }
 </style>
 </head>
@@ -160,20 +155,18 @@ display:none;
 <nav>
 <h2>ECH Library</h2>
 <ul>
-<li onclick="showSection('home')">Home</li>
-<li>Service</li>
-<li>Membership</li>
+<li onclick="scrollToSection('home')">Home</li>
+<li onclick="scrollToSection('feedback')">Feedback</li>
+<li onclick="scrollToSection('about')">About Us</li>
 <li onclick="window.open('https://drive.google.com/file/d/1NDT8TYpnyim2lDyLb2Qpnk6EIdxlJNU0/view?usp=drivesdk')">Librarian</li>
-<li onclick="showSection('contact')">Contact</li>
-<li onclick="showSection('feedback')">Feedback</li>
-<li onclick="showSection('about')">About Us</li>
 </ul>
 </nav>
 
 <!-- LOGIN -->
 <div id="loginPage" class="auth-page">
 <div class="auth-box">
-<h2>Login</h2>
+<h2>ECH Digital Library</h2>
+<div id="errorMsg"></div>
 
 <form onsubmit="login(event)">
 <input type="email" id="loginEmail" placeholder="Email" required>
@@ -181,32 +174,32 @@ display:none;
 <button type="submit">Masuk</button>
 </form>
 
-<div class="auth-links">
-<span><a onclick="showRegister()">Belum memiliki akun? Daftar sekarang</a></span>
-<span><a onclick="showForgot()">Lupa sandi?</a></span>
+<div class="extra">
+<a onclick="showForgot()">Lupa Password?</a>
 </div>
 
+<div class="extra">
+Belum memiliki akun? 
+<a onclick="showRegister()">Daftar sekarang</a>
+</div>
 </div>
 </div>
 
 <!-- REGISTER -->
 <div id="registerPage" class="auth-page" style="display:none;">
 <div class="auth-box">
-<h2>Daftar Anggota</h2>
-
+<h2>Pendaftaran Anggota</h2>
 <form onsubmit="register(event)">
 <input type="text" id="regFirst" placeholder="First Name" required>
 <input type="text" id="regLast" placeholder="Last Name" required>
 <input type="email" id="regEmail" placeholder="Email" required>
 <input type="password" id="regPassword" placeholder="Password" required>
-<input type="text" id="regPhone" placeholder="Nomor Handphone" required>
+<input type="text" id="regPhone" placeholder="Nomor HP" required>
 <button type="submit">Daftar</button>
 </form>
-
-<div style="margin-top:10px;">
-<a onclick="showLogin()" style="color:#00f2fe;cursor:pointer;">Kembali ke Login</a>
+<div class="extra">
+Sudah punya akun? <a onclick="showLogin()">Login</a>
 </div>
-
 </div>
 </div>
 
@@ -215,63 +208,60 @@ display:none;
 <div class="auth-box">
 <h2>Reset Password</h2>
 <form onsubmit="resetPassword(event)">
-<input type="email" placeholder="Masukkan Email Terdaftar" required>
+<input type="email" id="forgotEmail" placeholder="Masukkan Email Terdaftar" required>
 <button type="submit">Reset</button>
 </form>
-<div style="margin-top:10px;">
-<a onclick="showLogin()" style="color:#00f2fe;cursor:pointer;">Kembali ke Login</a>
+<div class="extra">
+<a onclick="showLogin()">Kembali ke Login</a>
 </div>
 </div>
 </div>
 
 <!-- HOME -->
-<section id="home">
+<section id="home" style="display:none;">
 <div class="hero">
 <h1>Electronic Center for Knowledge</h1>
 <p>Menggali informasi lebih dalam dan memperluas wawasan tanpa batas.</p>
 
 <div class="search-box">
-<input type="text" placeholder="Cari buku...">
-<button>Cari</button>
+<input type="text" id="searchInput" placeholder="Cari buku...">
+<button onclick="searchBook()">Cari</button>
+<p id="searchResult"></p>
 </div>
-
-<div class="user-info" id="userInfo"></div>
-
 </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact">
-<h2>Contact</h2>
+<!-- FEEDBACK -->
+<section id="feedback" style="display:none;">
+<h2>Feedback</h2>
+<p>Kami sangat menghargai masukan dari pengguna untuk pengembangan layanan.</p>
+</section>
+
+<!-- ABOUT -->
+<section id="about" style="display:none;">
+<h2>About Us</h2>
+<p>
+Electronic Center for Knowledge (ECH) adalah platform perpustakaan digital
+yang dirancang untuk membantu siswa SMA dalam mengeksplorasi pengetahuan
+secara lebih interaktif dan modern. Website ini hadir untuk mendukung
+pembelajaran mandiri, memperluas wawasan, serta memberikan pengalaman
+mengakses informasi yang mudah, cepat, dan menyenangkan.
+</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<p>Hubungi Kami:</p>
 <p>
 <a href="https://wa.me/6282169967447" target="_blank">WhatsApp</a> |
 <a href="https://instagram.com/eecsh_" target="_blank">Instagram</a> |
 <a href="mailto:esradewitriputri08@gmail.com">Email</a>
 </p>
-</section>
-
-<!-- FEEDBACK -->
-<section id="feedback">
-<h2>Feedback</h2>
-<p>Kami sangat menghargai masukan untuk pengembangan layanan ini.</p>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-<h2>About Us</h2>
-<p>
-Electronic Center for Knowledge adalah platform perpustakaan digital
-yang dirancang untuk membantu pengguna menggali informasi lebih dalam,
-menambah wawasan, dan menciptakan pengalaman belajar yang modern,
-interaktif, serta nyaman diakses kapan saja.
-</p>
-</section>
-
-<footer>
-<p>© 2026 Electronic Center for Knowledge</p>
 </footer>
 
 <script>
+let currentUser="";
+
 function showRegister(){
 loginPage.style.display="none";
 registerPage.style.display="flex";
@@ -290,11 +280,10 @@ forgotPage.style.display="flex";
 
 function register(e){
 e.preventDefault();
-let fullName = regFirst.value + " " + regLast.value;
-localStorage.setItem(regEmail.value, JSON.stringify({
+let fullName=regFirst.value+" "+regLast.value;
+localStorage.setItem(regEmail.value,JSON.stringify({
 password:regPassword.value,
-name:fullName,
-email:regEmail.value
+name:fullName
 }));
 alert("Pendaftaran berhasil!");
 showLogin();
@@ -302,15 +291,15 @@ showLogin();
 
 function login(e){
 e.preventDefault();
-let data = JSON.parse(localStorage.getItem(loginEmail.value));
-
+let data=JSON.parse(localStorage.getItem(loginEmail.value));
 if(data && data.password===loginPassword.value){
+currentUser=data.name;
 loginPage.style.display="none";
-document.querySelectorAll("section").forEach(sec=>sec.style.display="block");
-document.querySelector("footer").style.display="block";
-userInfo.innerHTML="Login sebagai:<br><b>"+data.name+"</b><br>"+data.email;
+document.getElementById("home").style.display="block";
+document.getElementById("feedback").style.display="block";
+document.getElementById("about").style.display="block";
 }else{
-alert("Email atau Password salah!");
+errorMsg.innerText="Email atau Password salah!";
 }
 }
 
@@ -320,8 +309,13 @@ alert("Silakan login kembali.");
 showLogin();
 }
 
-function showSection(id){
+function scrollToSection(id){
 document.getElementById(id).scrollIntoView({behavior:"smooth"});
+}
+
+function searchBook(){
+let input=document.getElementById("searchInput").value;
+document.getElementById("searchResult").innerText="Hasil pencarian untuk: "+input;
 }
 </script>
 
