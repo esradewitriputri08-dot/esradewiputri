@@ -10,99 +10,138 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-body{background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);color:white;}
+html{scroll-behavior:smooth;}
+body{
+background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+color:white;
+overflow-x:hidden;
+}
 
+/* ===== LOGIN ===== */
 .auth-page{height:100vh;display:flex;justify-content:center;align-items:center;}
 .auth-box{
-  background:rgba(255,255,255,0.1);
-  backdrop-filter:blur(10px);
-  padding:40px;border-radius:20px;width:350px;
-  box-shadow:0 0 30px rgba(0,0,0,0.5);
+background:rgba(255,255,255,0.1);
+backdrop-filter:blur(12px);
+padding:40px;border-radius:20px;width:350px;
+box-shadow:0 0 40px rgba(0,0,0,0.6);
+animation:fadeIn 1s ease;
 }
-.auth-box h2{text-align:center;color:#4fd1ff;}
-.subtitle{text-align:center;font-size:13px;margin-bottom:20px;opacity:0.8;}
-.auth-box input{
-  width:100%;padding:12px;margin-bottom:15px;
-  border:none;border-radius:10px;
-}
+.auth-box h2{text-align:center;color:#4fd1ff;margin-bottom:10px;}
+.auth-box input{width:100%;padding:12px;margin-bottom:15px;border:none;border-radius:10px;}
 .auth-box button{
-  width:100%;padding:12px;border:none;border-radius:30px;
-  background:linear-gradient(45deg,#4fd1ff,#00c6ff);
-  font-weight:bold;cursor:pointer;
+width:100%;padding:12px;border:none;border-radius:30px;
+background:linear-gradient(45deg,#4fd1ff,#00c6ff);
+font-weight:bold;cursor:pointer;
+transition:0.3s;
 }
+.auth-box button:hover{transform:scale(1.05);}
 .extra{text-align:center;font-size:14px;}
 .extra a{color:#4fd1ff;cursor:pointer;text-decoration:none;}
 #errorMsg{color:#ff6b6b;font-size:13px;text-align:center;margin-bottom:10px;}
 
+/* ===== HOME ===== */
 #homePage{display:none;min-height:100vh;flex-direction:column;}
 
 nav{
-  background:rgba(0,0,0,0.4);
-  padding:15px 40px;
-  display:flex;justify-content:space-between;align-items:center;
+background:rgba(0,0,0,0.4);
+padding:15px 40px;
+display:flex;justify-content:space-between;align-items:center;
+position:sticky;top:0;z-index:1000;
 }
-.logo-area{display:flex;flex-direction:column;}
 .logo-area h2{color:#4fd1ff;}
-.logo-area span{font-size:12px;opacity:0.7;}
-
-nav ul{list-style:none;display:flex;gap:20px;}
-nav ul li a{text-decoration:none;color:white;}
-
-.menu-icon{display:none;font-size:22px;cursor:pointer;}
-.close-btn{display:none;}
-
-.hero{text-align:center;padding:80px 20px;}
-.hero h1{font-size:40px;color:#4fd1ff;margin-bottom:20px;}
-
-.feedback-box{
-  display:none;
-  position:fixed;
-  bottom:30px;
-  right:30px;
-  background:rgba(255,255,255,0.1);
-  backdrop-filter:blur(10px);
-  padding:20px;
-  border-radius:15px;
-  width:280px;
-  box-shadow:0 0 20px rgba(0,0,0,0.5);
+nav ul{list-style:none;display:flex;gap:18px;}
+nav ul li a{
+text-decoration:none;color:white;font-size:14px;
+transition:0.3s;
 }
-.feedback-box h3{text-align:center;margin-bottom:10px;color:#4fd1ff;}
-.feedback-box input,
-.feedback-box textarea{
-  width:100%;
-  padding:8px;
-  margin-bottom:10px;
-  border:none;
-  border-radius:8px;
+nav ul li a:hover{color:#4fd1ff;}
+
+/* ===== HERO ===== */
+.hero{
+padding:100px 20px;text-align:center;
+animation:fadeIn 1.5s ease;
+}
+.hero h1{font-size:45px;color:#4fd1ff;margin-bottom:20px;}
+.hero p{max-width:700px;margin:auto;opacity:0.85;line-height:1.7;}
+.hero span{color:#4fd1ff;font-weight:600;}
+
+/* ===== COLLECTION ===== */
+.collection{
+padding:70px 20px;text-align:center;
+}
+.collection h2{margin-bottom:40px;color:#4fd1ff;}
+.book-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:25px;
+max-width:1000px;margin:auto;
+}
+.book-card{
+background:rgba(255,255,255,0.1);
+padding:20px;border-radius:15px;
+transition:0.3s;
+cursor:pointer;
+}
+.book-card:hover{
+transform:translateY(-8px);
+box-shadow:0 0 25px rgba(79,209,255,0.7);
+}
+.book-card i{font-size:40px;margin-bottom:15px;color:#4fd1ff;}
+.book-card h4{margin-bottom:10px;}
+
+/* ===== MEMBERSHIP ===== */
+.membership{padding:70px 20px;text-align:center;}
+.membership-card{
+width:320px;margin:auto;padding:25px;
+border-radius:20px;
+background:rgba(255,255,255,0.1);
+backdrop-filter:blur(10px);
+box-shadow:0 0 25px rgba(0,0,0,0.5);
+}
+.membership-card h3{margin-bottom:10px;}
+.card-id{font-size:13px;opacity:0.7;margin-top:10px;}
+
+/* ===== CONTACT ===== */
+.contact{padding:70px 20px;text-align:center;}
+.contact-box{
+display:flex;justify-content:center;gap:30px;flex-wrap:wrap;
+}
+.contact-item{
+width:70px;height:70px;border-radius:50%;
+display:flex;align-items:center;justify-content:center;
+font-size:30px;color:white;text-decoration:none;
+transition:0.3s;
+}
+.contact-item:hover{transform:scale(1.1);}
+.wa{background:#25D366;}
+.ig{background:linear-gradient(45deg,#fd1d1d,#e1306c,#833ab4);}
+.email{background:#4fd1ff;}
+
+/* ===== FEEDBACK ===== */
+.feedback-box{
+display:none;
+position:fixed;bottom:30px;right:30px;
+background:rgba(255,255,255,0.1);
+backdrop-filter:blur(12px);
+padding:20px;border-radius:15px;width:280px;
+}
+.feedback-box input,.feedback-box textarea{
+width:100%;padding:8px;margin-bottom:10px;border:none;border-radius:8px;
 }
 .feedback-box button{
-  width:100%;
-  padding:8px;
-  border:none;
-  border-radius:20px;
-  background:#4fd1ff;
-  font-weight:bold;
-  cursor:pointer;
+width:100%;padding:8px;border:none;border-radius:20px;
+background:#4fd1ff;font-weight:bold;cursor:pointer;
 }
 
-@media(max-width:768px){
-  nav ul{
-    position:fixed;
-    top:0;right:-100%;
-    height:100%;width:250px;
-    background:#1b2b34;
-    flex-direction:column;
-    padding-top:60px;
-    transition:0.3s;
-  }
-  nav ul li{padding:15px;}
-  .menu-icon{display:block;}
-  .close-btn{
-    display:block;
-    position:absolute;
-    top:15px;right:20px;
-    font-size:20px;cursor:pointer;
-  }
+footer{
+padding:20px;text-align:center;
+background:rgba(0,0,0,0.4);
+margin-top:50px;
+}
+
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(20px);}
+to{opacity:1;transform:translateY(0);}
 }
 </style>
 </head>
@@ -111,131 +150,139 @@ nav ul li a{text-decoration:none;color:white;}
 
 <!-- LOGIN -->
 <div id="loginPage" class="auth-page">
-  <div class="auth-box">
-    <h2>ECH Digital Library</h2>
-    <div class="subtitle">Electronic Center for Knowledge</div>
-    <div id="errorMsg"></div>
-
-    <form onsubmit="login(event)">
-      <input type="email" id="loginEmail" placeholder="Email" required>
-      <input type="password" id="loginPassword" placeholder="Password" required>
-      <button type="submit">Masuk</button>
-    </form>
-
-    <div class="extra">
-      <p>Belum mempunyai akun? 
-        <a onclick="showRegister()">Daftar Sekarang</a>
-      </p>
-      <a onclick="forgotPassword()">Lupa sandi?</a>
-    </div>
-  </div>
+<div class="auth-box">
+<h2>ECH Digital Library</h2>
+<div id="errorMsg"></div>
+<form onsubmit="login(event)">
+<input type="email" id="loginEmail" placeholder="Email" required>
+<input type="password" id="loginPassword" placeholder="Password" required>
+<button type="submit">Masuk</button>
+</form>
+<div class="extra">
+<a onclick="showRegister()">Daftar Sekarang</a>
+</div>
+</div>
 </div>
 
 <!-- REGISTER -->
 <div id="registerPage" class="auth-page" style="display:none;">
-  <div class="auth-box">
-    <h2>Pendaftaran Anggota</h2>
-    <form onsubmit="register(event)">
-      <input type="text" placeholder="First Name" required>
-      <input type="text" placeholder="Last Name" required>
-      <input type="email" id="regEmail" placeholder="Email" required>
-      <input type="password" id="regPassword" placeholder="Password" required>
-      <input type="tel" placeholder="Nomor Handphone" required>
-      <button type="submit">Daftar</button>
-    </form>
-    <div class="extra">
-      <p>Sudah punya akun? 
-        <a onclick="showLogin()">Login di sini</a>
-      </p>
-    </div>
-  </div>
+<div class="auth-box">
+<h2>Pendaftaran Anggota</h2>
+<form onsubmit="register(event)">
+<input type="email" id="regEmail" placeholder="Email" required>
+<input type="password" id="regPassword" placeholder="Password" required>
+<button type="submit">Daftar</button>
+</form>
+<div class="extra">
+<a onclick="showLogin()">Login</a>
+</div>
+</div>
 </div>
 
-<!-- HOMEPAGE -->
+<!-- HOME -->
 <div id="homePage">
 <nav>
-  <div class="logo-area">
-    <h2>ECH Digital Library</h2>
-    <span>Electronic Center for Knowledge</span>
-  </div>
-
-  <div class="menu-icon" onclick="openMenu()">
-    <i class="fas fa-bars"></i>
-  </div>
-
-  <ul id="navMenu">
-    <span class="close-btn" onclick="closeMenu()">✖</span>
-    <li><a href="#">Home</a></li>
-    <li><a href="#">Service</a></li>
-    <li><a href="#">Collection</a></li>
-    <li><a href="#">Membership</a></li>
-    <li><a href="cv.pdf" target="_blank">Librarian</a></li>
-    <li><a href="#">Contact</a></li>
-    <li><a href="#" onclick="toggleFeedback()">Feedback</a></li>
-  </ul>
+<div class="logo-area">
+<h2>ECH Digital Library</h2>
+</div>
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#collection">Collection</a></li>
+<li><a href="#membership">Membership</a></li>
+<li><a href="https://drive.google.com/file/d/1NDT8TYpnyim2lDyLb2Qpnk6EIdxlJNU0/view?usp=drivesdk" target="_blank">LinkDrive</a></li>
+<li><a href="#contact">Contact</a></li>
+<li><a onclick="toggleFeedback()">Feedback</a></li>
+</ul>
 </nav>
 
-<section class="hero">
-  <h1>Welcome to ECH Digital Library</h1>
+<section id="home" class="hero">
+<h1>Welcome to <span>ECH Digital Library</span></h1>
+<p>
+Platform literasi digital yang modern, nyaman, dan inspiratif untuk siswa SMA.
+Belajar jadi lebih menyenangkan dengan koleksi interaktif dan akses mudah ✨
+</p>
 </section>
+
+<section id="collection" class="collection">
+<h2>Koleksi Buku Interaktif</h2>
+<div class="book-grid">
+<div class="book-card"><i class="fas fa-book"></i><h4>Fisika SMA</h4><p>Konsep & latihan soal</p></div>
+<div class="book-card"><i class="fas fa-book"></i><h4>Biologi SMA</h4><p>Materi lengkap & ilustrasi</p></div>
+<div class="book-card"><i class="fas fa-book"></i><h4>Matematika</h4><p>Rumus & pembahasan</p></div>
+<div class="book-card"><i class="fas fa-book"></i><h4>Sejarah</h4><p>Kisah & peristiwa dunia</p></div>
+</div>
+</section>
+
+<section id="membership" class="membership">
+<h2>Kartu Anggota Digital</h2>
+<div class="membership-card">
+<h3 id="memberEmail"></h3>
+<div class="card-id">Member ID: <span id="memberID"></span></div>
+</div>
+</section>
+
+<section id="contact" class="contact">
+<h2>Contact</h2>
+<div class="contact-box">
+<a href="https://wa.me/6282169967447" target="_blank" class="contact-item wa">
+<i class="fab fa-whatsapp"></i>
+</a>
+<a href="https://instagram.com/eecsh_" target="_blank" class="contact-item ig">
+<i class="fab fa-instagram"></i>
+</a>
+<a href="mailto:esradewitriputri08@gmail.com" class="contact-item email">
+<i class="fas fa-envelope"></i>
+</a>
+</div>
+</section>
+
+<footer>
+© 2026 ECH Digital Library | Designed with ❤
+</footer>
 </div>
 
-<!-- FEEDBACK FORM -->
 <div class="feedback-box" id="feedbackBox">
-  <h3>Feedback</h3>
-  <input type="text" id="fbName" placeholder="Nama">
-  <textarea id="fbMessage" rows="3" placeholder="Masukan Anda"></textarea>
-  <button onclick="sendFeedback()">Kirim</button>
+<input type="text" id="fbName" placeholder="Nama">
+<textarea id="fbMessage" rows="3" placeholder="Masukan"></textarea>
+<button onclick="sendFeedback()">Kirim</button>
 </div>
 
 <script>
+let currentUser="";
+
 function showRegister(){loginPage.style.display="none";registerPage.style.display="flex";}
 function showLogin(){registerPage.style.display="none";loginPage.style.display="flex";}
 
 function register(e){
-  e.preventDefault();
-  const email = regEmail.value;
-  const password = regPassword.value;
-  if(localStorage.getItem(email)){alert("Email sudah terdaftar!");return;}
-  localStorage.setItem(email,password);
-  alert("Pendaftaran berhasil!");
-  showLogin();
+e.preventDefault();
+localStorage.setItem(regEmail.value,regPassword.value);
+alert("Pendaftaran berhasil!");
+showLogin();
 }
 
 function login(e){
-  e.preventDefault();
-  const email = loginEmail.value;
-  const password = loginPassword.value;
-  const savedPassword = localStorage.getItem(email);
-  if(savedPassword===null){errorMsg.innerText="Email belum terdaftar!";}
-  else if(savedPassword!==password){errorMsg.innerText="Password salah!";}
-  else{loginPage.style.display="none";homePage.style.display="flex";}
+e.preventDefault();
+const saved=localStorage.getItem(loginEmail.value);
+if(saved===loginPassword.value){
+currentUser=loginEmail.value;
+loginPage.style.display="none";
+homePage.style.display="flex";
+memberEmail.innerText=currentUser;
+memberID.innerText="ECH-"+Math.floor(Math.random()*10000);
+}else{
+errorMsg.innerText="Email atau Password salah!";
 }
-
-function forgotPassword(){
-  const email=prompt("Masukkan email Anda:");
-  const pass=localStorage.getItem(email);
-  if(pass){alert("Password Anda: "+pass);}
-  else{alert("Email tidak ditemukan!");}
 }
-
-function openMenu(){navMenu.style.right="0";}
-function closeMenu(){navMenu.style.right="-100%";}
 
 function toggleFeedback(){
-  const box=document.getElementById("feedbackBox");
-  box.style.display = box.style.display==="block" ? "none":"block";
+feedbackBox.style.display=feedbackBox.style.display==="block"?"none":"block";
 }
 
 function sendFeedback(){
-  const name=document.getElementById("fbName").value;
-  const msg=document.getElementById("fbMessage").value;
-  if(name===""||msg===""){alert("Isi semua kolom!");return;}
-  localStorage.setItem("feedback_"+Date.now(),name+" : "+msg);
-  alert("Terima kasih atas masukan Anda!");
-  document.getElementById("fbName").value="";
-  document.getElementById("fbMessage").value="";
-  toggleFeedback();
+alert("Terima kasih atas masukan Anda!");
+fbName.value="";
+fbMessage.value="";
+toggleFeedback();
 }
 </script>
 
