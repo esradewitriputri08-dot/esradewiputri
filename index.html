@@ -5,295 +5,282 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ECH Digital Library</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-html{scroll-behavior:smooth;}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
 body{
-background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+background:#0f172a;
 color:white;
-overflow-x:hidden;
 }
 
-/* LOGIN */
-.auth-page{height:100vh;display:flex;justify-content:center;align-items:center;}
-.auth-box{
-background:rgba(255,255,255,0.1);
-backdrop-filter:blur(12px);
-padding:40px;border-radius:20px;width:350px;
-box-shadow:0 0 40px rgba(0,0,0,0.6);
-}
-.auth-box h2{text-align:center;color:#4fd1ff;margin-bottom:15px;}
-.auth-box input{width:100%;padding:12px;margin-bottom:15px;border:none;border-radius:10px;}
-.auth-box button{
-width:100%;padding:12px;border:none;border-radius:30px;
-background:linear-gradient(45deg,#4fd1ff,#00c6ff);
-font-weight:bold;cursor:pointer;
-}
-.extra{text-align:center;font-size:14px;}
-.extra a{color:#4fd1ff;cursor:pointer;text-decoration:none;}
-#errorMsg{color:#ff6b6b;font-size:13px;text-align:center;margin-bottom:10px;}
-
-/* HOME */
-#homePage{display:none;min-height:100vh;flex-direction:column;}
-
+/* Navbar */
 nav{
-background:rgba(0,0,0,0.4);
-padding:15px 40px;
-display:flex;justify-content:space-between;align-items:center;
-position:sticky;top:0;z-index:1000;
-}
-.logo-area h2{color:#4fd1ff;}
-nav ul{list-style:none;display:flex;gap:18px;}
-nav ul li a{
-text-decoration:none;color:white;font-size:14px;
-transition:0.3s;
-}
-nav ul li a:hover{color:#4fd1ff;}
-
-section{padding:80px 20px;text-align:center;}
-h1,h2{color:#4fd1ff;margin-bottom:20px;}
-
-.hero h1{font-size:45px;}
-.hero p{max-width:700px;margin:auto;opacity:0.85;line-height:1.7;}
-
-.about p{
-max-width:800px;margin:auto;
-line-height:1.8;
-opacity:0.9;
+background:#0b1120;
+padding:15px 50px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:fixed;
+width:100%;
+z-index:1000;
+box-shadow:0 3px 10px rgba(0,0,0,0.5);
 }
 
-/* SEARCH */
-.search-box{
-margin-bottom:30px;
-}
-.search-box input{
-padding:10px 15px;
-border:none;
-border-radius:20px;
-width:280px;
+nav h2{
+color:#38bdf8;
+font-weight:600;
 }
 
-/* BOOK GRID */
-.book-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+nav ul{
+display:flex;
+list-style:none;
 gap:25px;
-max-width:1000px;margin:auto;
 }
-.book-card{
-background:rgba(255,255,255,0.1);
-padding:20px;border-radius:15px;
+
+nav ul li a{
+color:white;
+text-decoration:none;
+font-size:14px;
 transition:0.3s;
 }
-.book-card:hover{
-transform:translateY(-8px);
-box-shadow:0 0 25px rgba(79,209,255,0.7);
-}
-.book-card i{font-size:40px;margin-bottom:15px;color:#4fd1ff;}
-.book-card h4{margin-bottom:10px;}
 
-/* MEMBERSHIP */
-.membership-card{
-width:320px;margin:auto;padding:25px;
+nav ul li a:hover{
+color:#38bdf8;
+}
+
+/* Section */
+section{
+padding:120px 60px;
+min-height:100vh;
+}
+
+/* Home */
+#home{
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
+
+#home h1{
+font-size:42px;
+color:#38bdf8;
+}
+
+#home p{
+margin-top:20px;
+max-width:600px;
+color:#cbd5e1;
+}
+
+.btn{
+margin-top:25px;
+padding:12px 30px;
+background:#38bdf8;
+border:none;
+border-radius:30px;
+color:#0f172a;
+cursor:pointer;
+font-weight:600;
+transition:0.3s;
+}
+
+.btn:hover{
+background:#0ea5e9;
+}
+
+/* Cards */
+.card{
+background:#1e293b;
+padding:25px;
+border-radius:15px;
+box-shadow:0 5px 20px rgba(0,0,0,0.4);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+/* Collection */
+.search-box{
+margin-bottom:20px;
+}
+
+.search-box input{
+padding:10px;
+width:250px;
 border-radius:20px;
-background:rgba(255,255,255,0.1);
-backdrop-filter:blur(10px);
-box-shadow:0 0 25px rgba(0,0,0,0.5);
+border:none;
+outline:none;
 }
 
-/* CONTACT */
-.contact-box{
-display:flex;justify-content:center;gap:30px;flex-wrap:wrap;
+.books{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
 }
-.contact-item{
-width:70px;height:70px;border-radius:50%;
-display:flex;align-items:center;justify-content:center;
-font-size:30px;color:white;text-decoration:none;
+
+.book{
+background:#1e293b;
+padding:20px;
+border-radius:15px;
+cursor:pointer;
 transition:0.3s;
 }
-.contact-item:hover{transform:scale(1.1);}
-.wa{background:#25D366;}
-.ig{background:linear-gradient(45deg,#fd1d1d,#e1306c,#833ab4);}
-.email{background:#4fd1ff;}
 
-/* FEEDBACK */
-.feedback-box{
-display:none;
-position:fixed;bottom:30px;right:30px;
-background:rgba(255,255,255,0.1);
-backdrop-filter:blur(12px);
-padding:20px;border-radius:15px;width:280px;
-}
-.feedback-box input,.feedback-box textarea{
-width:100%;padding:8px;margin-bottom:10px;border:none;border-radius:8px;
-}
-.feedback-box button{
-width:100%;padding:8px;border:none;border-radius:20px;
-background:#4fd1ff;font-weight:bold;cursor:pointer;
+.book:hover{
+background:#334155;
 }
 
+/* Membership */
+.membership-card{
+max-width:400px;
+margin:auto;
+text-align:center;
+}
+
+/* Feedback */
+.feedback-form input,
+.feedback-form textarea{
+width:100%;
+margin-bottom:12px;
+padding:10px;
+border-radius:10px;
+border:none;
+outline:none;
+}
+
+/* Contact */
+.contact-icons a{
+margin-right:20px;
+font-size:28px;
+color:#38bdf8;
+text-decoration:none;
+transition:0.3s;
+}
+
+.contact-icons a:hover{
+color:white;
+}
+
+/* Footer */
 footer{
-padding:20px;text-align:center;
-background:rgba(0,0,0,0.4);
-margin-top:50px;
+background:#0b1120;
+text-align:center;
+padding:20px;
+color:#94a3b8;
 }
 </style>
 </head>
 
 <body>
 
-<!-- LOGIN -->
-<div id="loginPage" class="auth-page">
-<div class="auth-box">
-<h2>ECH Digital Library</h2>
-<div id="errorMsg"></div>
-<form onsubmit="login(event)">
-<input type="email" id="loginEmail" placeholder="Email" required>
-<input type="password" id="loginPassword" placeholder="Password" required>
-<button type="submit">Masuk</button>
-</form>
-<div class="extra">
-<a onclick="showRegister()">Daftar Sekarang</a>
-</div>
-</div>
-</div>
-
-<!-- REGISTER -->
-<div id="registerPage" class="auth-page" style="display:none;">
-<div class="auth-box">
-<h2>Pendaftaran Anggota</h2>
-<form onsubmit="register(event)">
-<input type="email" id="regEmail" placeholder="Email" required>
-<input type="password" id="regPassword" placeholder="Password" required>
-<button type="submit">Daftar</button>
-</form>
-<div class="extra">
-<a onclick="showLogin()">Login</a>
-</div>
-</div>
-</div>
-
-<!-- HOME -->
-<div id="homePage">
 <nav>
-<div class="logo-area">
 <h2>ECH Digital Library</h2>
-</div>
 <ul>
 <li><a href="#home">Home</a></li>
+<li><a href="#service">Service</a></li>
 <li><a href="#collection">Collection</a></li>
 <li><a href="#membership">Membership</a></li>
 <li><a href="https://drive.google.com/file/d/1NDT8TYpnyim2lDyLb2Qpnk6EIdxlJNU0/view?usp=drivesdk" target="_blank">Librarian</a></li>
 <li><a href="#contact">Contact</a></li>
+<li><a href="#feedback">Feedback</a></li>
 <li><a href="#about">About Us</a></li>
-<li><a onclick="toggleFeedback()">Feedback</a></li>
 </ul>
 </nav>
 
-<section id="home" class="hero">
+<section id="home">
 <h1>Welcome to ECH Digital Library</h1>
-<p>Ruang literasl digital ini hadir sebagai tempat pembelajaran terbuka, akses informasi, serta pengembangan kreativitas bagi semua orang Mari temukan ribuan buku seru yang siap menemanimu hari ini.</p>
+<p>Electronic Center for Knowledge adalah pusat literasi digital modern yang membantu siswa menggali informasi lebih dalam, memperluas wawasan, dan meningkatkan kualitas pembelajaran berbasis teknologi.</p>
+<button class="btn" onclick="document.getElementById('collection').scrollIntoView()">Explore Collection</button>
+</section>
+
+<section id="service">
+<h2>Our Services</h2>
+<br>
+<div class="card">
+<p>Akses buku digital interaktif, sistem pencarian cepat, kartu anggota digital, serta layanan informasi yang modern dan ramah pengguna.</p>
+</div>
 </section>
 
 <section id="collection">
-<h2>Koleksi Buku Interaktif</h2>
+<h2>Koleksi Buku</h2>
+<br>
 
 <div class="search-box">
-<input type="text" id="searchInput" placeholder="Cari buku..." onkeyup="searchBook()">
+<input type="text" id="searchInput" onkeyup="searchBooks()" placeholder="Cari judul buku...">
 </div>
 
-<div class="book-grid" id="bookGrid">
-<div class="book-card"><i class="fas fa-book"></i><h4>Fisika SMA</h4><p>Konsep & latihan soal</p></div>
-<div class="book-card"><i class="fas fa-book"></i><h4>Biologi SMA</h4><p>Materi lengkap</p></div>
-<div class="book-card"><i class="fas fa-book"></i><h4>Matematika</h4><p>Rumus & pembahasan</p></div>
-<div class="book-card"><i class="fas fa-book"></i><h4>Sejarah</h4><p>Kisah dunia</p></div>
+<div class="books">
+<div class="book">Pemrograman Web Dasar</div>
+<div class="book">Literasi Digital Modern</div>
+<div class="book">Teknologi Informasi Pendidikan</div>
+<div class="book">Manajemen Informasi Perpustakaan</div>
+<div class="book">Dasar-Dasar Jaringan Komputer</div>
 </div>
 </section>
 
 <section id="membership">
-<h2>Kartu Anggota Digital</h2>
-<div class="membership-card">
-<h3 id="memberEmail"></h3>
-<p>ID: <span id="memberID"></span></p>
+<h2>Membership</h2>
+<br>
+<div class="card membership-card">
+<h3>Kartu Anggota Digital</h3>
+<p>Nama: Anggota ECH</p>
+<p>ID: 2026ECH001</p>
+<p>Status: Aktif</p>
 </div>
 </section>
 
 <section id="contact">
 <h2>Contact</h2>
-<div class="contact-box">
-<a href="https://wa.me/6282169967447" target="_blank" class="contact-item wa"><i class="fab fa-whatsapp"></i></a>
-<a href="https://instagram.com/eecsh_" target="_blank" class="contact-item ig"><i class="fab fa-instagram"></i></a>
-<a href="mailto:esradewitriputri08@gmail.com" class="contact-item email"><i class="fas fa-envelope"></i></a>
+<br>
+<div class="contact-icons">
+<a href="https://wa.me/6282169967447" target="_blank">WhatsApp</a>
+<a href="https://instagram.com/eecsh_" target="_blank">Instagram</a>
+<a href="mailto:esradewitriputri08@gmail.com">Email</a>
 </div>
 </section>
-  
-  <section id="about" class="about">
+
+<section id="feedback">
+<h2>Feedback</h2>
+<br>
+<div class="feedback-form">
+<input type="text" placeholder="Nama">
+<textarea placeholder="Masukan Anda"></textarea>
+<button class="btn">Kirim</button>
+</div>
+</section>
+
+<section id="about">
 <h2>About Us</h2>
-<p>
-ECH Digital Library hadir sebagai ruang literasi digital yang dirancang untuk membantu siswa menggali informasi lebih dalam,
-meningkatkan wawasan akademik, serta membangun kebiasaan belajar mandiri.
-Kami menyediakan koleksi pembelajaran yang interaktif, akses yang mudah, serta pengalaman digital yang nyaman dan modern.
-Melalui platform ini, pengguna tidak hanya membaca, tetapi juga mengeksplorasi, memahami, dan mengembangkan potensi diri secara maksimal.
-</p>
+<br>
+<div class="card">
+<p>ECH Digital Library (Electronic Center for Knowledge) merupakan platform perpustakaan digital yang dirancang untuk mendukung generasi muda dalam mengakses informasi secara cepat, akurat, dan interaktif. Kami berkomitmen membantu siswa memperluas wawasan dan membangun budaya literasi digital yang kuat di era modern.</p>
+</div>
 </section>
 
-
-<footer>© 2026 ECH Digital Library</footer>
-</div>
-
-<div class="feedback-box" id="feedbackBox">
-<input type="text" id="fbName" placeholder="Nama">
-<textarea id="fbMessage" rows="3" placeholder="Masukan"></textarea>
-<button onclick="sendFeedback()">Kirim</button>
-</div>
+<footer>
+© 2026 ECH Digital Library | Electronic Center for Knowledge
+</footer>
 
 <script>
-let currentUser="";
-
-function showRegister(){loginPage.style.display="none";registerPage.style.display="flex";}
-function showLogin(){registerPage.style.display="none";loginPage.style.display="flex";}
-
-function register(e){
-e.preventDefault();
-localStorage.setItem(regEmail.value,regPassword.value);
-alert("Pendaftaran berhasil!");
-showLogin();
-}
-
-function login(e){
-e.preventDefault();
-const saved=localStorage.getItem(loginEmail.value);
-if(saved===loginPassword.value){
-currentUser=loginEmail.value;
-loginPage.style.display="none";
-homePage.style.display="flex";
-memberEmail.innerText=currentUser;
-memberID.innerText="ECH-"+Math.floor(Math.random()*10000);
-}else{
-errorMsg.innerText="Email atau Password salah!";
-}
-}
-
-function toggleFeedback(){
-feedbackBox.style.display=feedbackBox.style.display==="block"?"none":"block";
-}
-
-function sendFeedback(){
-alert("Terima kasih atas masukan Anda!");
-fbName.value="";
-fbMessage.value="";
-toggleFeedback();
-}
-
-function searchBook(){
+function searchBooks(){
 let input=document.getElementById("searchInput").value.toLowerCase();
-let cards=document.getElementsByClassName("book-card");
-for(let i=0;i<cards.length;i++){
-let title=cards[i].innerText.toLowerCase();
-cards[i].style.display=title.includes(input)?"block":"none";
+let books=document.getElementsByClassName("book");
+
+for(let i=0;i<books.length;i++){
+let text=books[i].innerText.toLowerCase();
+books[i].style.display=text.includes(input) ? "block" : "none";
 }
 }
 </script>
