@@ -3,24 +3,177 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ECH Digital Library</title>
+<title>Electronic Center for Knowledge</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-html{scroll-behavior:smooth;}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
 body{
 background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
 color:white;
-overflow-x:hidden;
+min-height:100vh;
 }
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 40px;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(10px);
+position:fixed;
+width:100%;
+top:0;
+z-index:1000;
+}
+
+nav h2{
+font-weight:600;
+}
+
+nav ul{
+display:flex;
+gap:20px;
+list-style:none;
+}
+
+nav ul li{
+cursor:pointer;
+transition:0.3s;
+}
+
+nav ul li:hover{
+color:#00f2fe;
+}
+
+section{
+padding:120px 40px 60px;
+min-height:100vh;
+display:none;
+}
+
+.hero{
+text-align:center;
+margin-top:60px;
+}
+
+.hero h1{
+font-size:40px;
+margin-bottom:15px;
+}
+
+.hero p{
+opacity:0.8;
+}
+
+.search-box{
+margin-top:30px;
+text-align:center;
+}
+
+.search-box input{
+padding:10px;
+width:250px;
+border:none;
+border-radius:20px;
+}
+
+.search-box button{
+padding:10px 20px;
+border:none;
+border-radius:20px;
+background:#00f2fe;
+cursor:pointer;
+}
+
+.auth-page{
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+.auth-box{
+background:rgba(255,255,255,0.1);
+padding:40px;
+border-radius:15px;
+backdrop-filter:blur(10px);
+width:320px;
+text-align:center;
+}
+
+.auth-box input{
+width:100%;
+padding:10px;
+margin:10px 0;
+border:none;
+border-radius:5px;
+}
+
+.auth-box button{
+width:100%;
+padding:10px;
+border:none;
+border-radius:5px;
+background:#00f2fe;
+cursor:pointer;
+}
+
+.auth-links{
+display:flex;
+justify-content:space-between;
+margin-top:10px;
+font-size:13px;
+}
+
+.auth-links a{
+color:#00f2fe;
+cursor:pointer;
+text-decoration:none;
+}
+
+.user-info{
+text-align:center;
+margin-top:20px;
+font-size:14px;
+opacity:0.9;
+}
+
+footer{
+text-align:center;
+padding:20px;
+background:rgba(255,255,255,0.05);
+display:none;
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+<h2>ECH Library</h2>
+<ul>
+<li onclick="showSection('home')">Home</li>
+<li>Service</li>
+<li>Membership</li>
+<li onclick="window.open('https://drive.google.com/file/d/1NDT8TYpnyim2lDyLb2Qpnk6EIdxlJNU0/view?usp=drivesdk')">Librarian</li>
+<li onclick="showSection('contact')">Contact</li>
+<li onclick="showSection('feedback')">Feedback</li>
+<li onclick="showSection('about')">About Us</li>
+</ul>
+</nav>
+
 <!-- LOGIN -->
 <div id="loginPage" class="auth-page">
 <div class="auth-box">
-<h2>ECH Digital Library</h2>
-<div id="errorMsg"></div>
+<h2>Login</h2>
 
 <form onsubmit="login(event)">
 <input type="email" id="loginEmail" placeholder="Email" required>
@@ -28,13 +181,9 @@ overflow-x:hidden;
 <button type="submit">Masuk</button>
 </form>
 
-<div class="extra" style="margin-top:10px;">
-<a onclick="showForgot()">Lupa Password?</a>
-</div>
-
-<div class="extra" style="margin-top:8px;">
-Belum memiliki akun? 
-<a onclick="showRegister()">Daftar Sekarang</a>
+<div class="auth-links">
+<span><a onclick="showRegister()">Belum memiliki akun? Daftar sekarang</a></span>
+<span><a onclick="showForgot()">Lupa sandi?</a></span>
 </div>
 
 </div>
@@ -43,7 +192,7 @@ Belum memiliki akun?
 <!-- REGISTER -->
 <div id="registerPage" class="auth-page" style="display:none;">
 <div class="auth-box">
-<h2>Pendaftaran Anggota</h2>
+<h2>Daftar Anggota</h2>
 
 <form onsubmit="register(event)">
 <input type="text" id="regFirst" placeholder="First Name" required>
@@ -54,243 +203,86 @@ Belum memiliki akun?
 <button type="submit">Daftar</button>
 </form>
 
-<div class="extra">
-Sudah punya akun? 
-<a onclick="showLogin()">Login</a>
+<div style="margin-top:10px;">
+<a onclick="showLogin()" style="color:#00f2fe;cursor:pointer;">Kembali ke Login</a>
 </div>
 
 </div>
 </div>
 
-<!-- FORGOT PASSWORD -->
+<!-- FORGOT -->
 <div id="forgotPage" class="auth-page" style="display:none;">
 <div class="auth-box">
 <h2>Reset Password</h2>
-
 <form onsubmit="resetPassword(event)">
-<input type="email" id="forgotEmail" placeholder="Masukkan Email Terdaftar" required>
-<button type="submit">Reset Password</button>
+<input type="email" placeholder="Masukkan Email Terdaftar" required>
+<button type="submit">Reset</button>
 </form>
-
-<div class="extra">
-<a onclick="showLogin()">Kembali ke Login</a>
-</div>
-
-</div>
-</div>
-
-
-
-/* ===== HOME ===== */
-#homePage{display:none;min-height:100vh;flex-direction:column;}
-
-nav{
-background:rgba(0,0,0,0.4);
-padding:15px 40px;
-display:flex;justify-content:space-between;align-items:center;
-position:sticky;top:0;z-index:1000;
-}
-.logo-area h2{color:#4fd1ff;}
-nav ul{list-style:none;display:flex;gap:18px;}
-nav ul li a{
-text-decoration:none;color:white;font-size:14px;
-transition:0.3s;
-}
-nav ul li a:hover{color:#4fd1ff;}
-
-/* ===== HERO ===== */
-.hero{
-padding:100px 20px;text-align:center;
-animation:fadeIn 1.5s ease;
-}
-.hero h1{font-size:45px;color:#4fd1ff;margin-bottom:20px;}
-.hero p{max-width:700px;margin:auto;opacity:0.85;line-height:1.7;}
-.hero span{color:#4fd1ff;font-weight:600;}
-
-/* ===== COLLECTION ===== */
-.collection{
-padding:70px 20px;text-align:center;
-}
-.collection h2{margin-bottom:40px;color:#4fd1ff;}
-.book-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:25px;
-max-width:1000px;margin:auto;
-}
-.book-card{
-background:rgba(255,255,255,0.1);
-padding:20px;border-radius:15px;
-transition:0.3s;
-cursor:pointer;
-}
-.book-card:hover{
-transform:translateY(-8px);
-box-shadow:0 0 25px rgba(79,209,255,0.7);
-}
-.book-card i{font-size:40px;margin-bottom:15px;color:#4fd1ff;}
-.book-card h4{margin-bottom:10px;}
-
-/* ===== MEMBERSHIP ===== */
-.membership{padding:70px 20px;text-align:center;}
-.membership-card{
-width:320px;margin:auto;padding:25px;
-border-radius:20px;
-background:rgba(255,255,255,0.1);
-backdrop-filter:blur(10px);
-box-shadow:0 0 25px rgba(0,0,0,0.5);
-}
-.membership-card h3{margin-bottom:10px;}
-.card-id{font-size:13px;opacity:0.7;margin-top:10px;}
-
-/* ===== CONTACT ===== */
-.contact{padding:70px 20px;text-align:center;}
-.contact-box{
-display:flex;justify-content:center;gap:30px;flex-wrap:wrap;
-}
-.contact-item{
-width:70px;height:70px;border-radius:50%;
-display:flex;align-items:center;justify-content:center;
-font-size:30px;color:white;text-decoration:none;
-transition:0.3s;
-}
-.contact-item:hover{transform:scale(1.1);}
-.wa{background:#25D366;}
-.ig{background:linear-gradient(45deg,#fd1d1d,#e1306c,#833ab4);}
-.email{background:#4fd1ff;}
-
-/* ===== FEEDBACK ===== */
-.feedback-box{
-display:none;
-position:fixed;bottom:30px;right:30px;
-background:rgba(255,255,255,0.1);
-backdrop-filter:blur(12px);
-padding:20px;border-radius:15px;width:280px;
-}
-.feedback-box input,.feedback-box textarea{
-width:100%;padding:8px;margin-bottom:10px;border:none;border-radius:8px;
-}
-.feedback-box button{
-width:100%;padding:8px;border:none;border-radius:20px;
-background:#4fd1ff;font-weight:bold;cursor:pointer;
-}
-
-footer{
-padding:20px;text-align:center;
-background:rgba(0,0,0,0.4);
-margin-top:50px;
-}
-
-@keyframes fadeIn{
-from{opacity:0;transform:translateY(20px);}
-to{opacity:1;transform:translateY(0);}
-}
-</style>
-</head>
-
-<body>
-
-<!-- LOGIN -->
-<div id="loginPage" class="auth-page">
-<div class="auth-box">
-<h2>ECH Digital Library</h2>
-<div id="errorMsg"></div>
-<form onsubmit="login(event)">
-<input type="email" id="loginEmail" placeholder="Email" required>
-<input type="password" id="loginPassword" placeholder="Password" required>
-<button type="submit">Masuk</button>
-</form>
-<div class="extra">
-<a onclick="showRegister()">Daftar Sekarang</a>
-</div>
-</div>
-</div>
-
-<!-- REGISTER -->
-<div id="registerPage" class="auth-page" style="display:none;">
-<div class="auth-box">
-<h2>Pendaftaran Anggota</h2>
-<form onsubmit="register(event)">
-<input type="email" id="regEmail" placeholder="Email" required>
-<input type="password" id="regPassword" placeholder="Password" required>
-<button type="submit">Daftar</button>
-</form>
-<div class="extra">
-<a onclick="showLogin()">Login</a>
+<div style="margin-top:10px;">
+<a onclick="showLogin()" style="color:#00f2fe;cursor:pointer;">Kembali ke Login</a>
 </div>
 </div>
 </div>
 
 <!-- HOME -->
-<div id="homePage">
-<nav>
-<div class="logo-area">
-<h2>ECH Digital Library</h2>
-</div>
-<ul>
-<li><a href="#home">Home</a></li>
-<li><a href="#collection">Collection</a></li>
-<li><a href="#membership">Membership</a></li>
-<li><a href="https://drive.google.com/file/d/1NDT8TYpnyim2lDyLb2Qpnk6EIdxlJNU0/view?usp=drivesdk" target="_blank">Librarian</a></li>
-<li><a href="#contact">Contact</a></li>
-<li><a onclick="toggleFeedback()">Feedback</a></li>
-<li><a href="#about">About Us</a></li>
-</ul>
-</nav>
+<section id="home">
+<div class="hero">
+<h1>Electronic Center for Knowledge</h1>
+<p>Menggali informasi lebih dalam dan memperluas wawasan tanpa batas.</p>
 
-<section id="home" class="hero">
-<h1>Welcome to <span>ECH Digital Library</span></h1>
+<div class="search-box">
+<input type="text" placeholder="Cari buku...">
+<button>Cari</button>
+</div>
+
+<div class="user-info" id="userInfo"></div>
+
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<h2>Contact</h2>
 <p>
-Ruang literasi digital ini hadir sebagai tempat pembelajaran terbuka, akses informasi, serta pengembangan kreativitas bagi semua orang. Mari temukan ribuan buku seru yang siap menemanimu hari ini.✨
+<a href="https://wa.me/6282169967447" target="_blank">WhatsApp</a> |
+<a href="https://instagram.com/eecsh_" target="_blank">Instagram</a> |
+<a href="mailto:esradewitriputri08@gmail.com">Email</a>
 </p>
 </section>
 
-<section id="collection" class="collection">
-<h2>Koleksi Buku Interaktif</h2>
-<div class="book-grid">
-<div class="book-card"><i class="fas fa-book"></i><h4>Fisika SMA</h4><p>Konsep & latihan soal</p></div>
-<div class="book-card"><i class="fas fa-book"></i><h4>Biologi SMA</h4><p>Materi lengkap & ilustrasi</p></div>
-<div class="book-card"><i class="fas fa-book"></i><h4>Matematika</h4><p>Rumus & pembahasan</p></div>
-<div class="book-card"><i class="fas fa-book"></i><h4>Sejarah</h4><p>Kisah & peristiwa dunia</p></div>
-</div>
+<!-- FEEDBACK -->
+<section id="feedback">
+<h2>Feedback</h2>
+<p>Kami sangat menghargai masukan untuk pengembangan layanan ini.</p>
 </section>
 
-<section id="membership" class="membership">
-<h2>Kartu Anggota Digital</h2>
-<div class="membership-card">
-<h3 id="memberEmail"></h3>
-<div class="card-id">Member ID: <span id="memberID"></span></div>
-</div>
-</section>
-
-<section id="contact" class="contact">
-<h2>Contact</h2>
-<div class="contact-box">
-<a href="https://wa.me/6282169967447" target="_blank" class="contact-item wa"><i class="fab fa-whatsapp"></i></a>
-<a href="https://instagram.com/eecsh_" target="_blank" class="contact-item ig"><i class="fab fa-instagram"></i></a>
-<a href="mailto:esradewitriputri08@gmail.com" class="contact-item email"><i class="fas fa-envelope"></i></a>
-</div>
-</section>
-
-<section id="about" class="collection">
+<!-- ABOUT -->
+<section id="about">
 <h2>About Us</h2>
-<p style="max-width:800px;margin:20px auto;line-height:1.8;opacity:0.9;">
-ECH Digital Library adalah platform perpustakaan digital yang dirancang untuk mendukung generasi muda dalam mengakses informasi secara cepat, akurat, dan interaktif. Kami percaya bahwa literasi digital adalah kunci masa depan pendidikan. Melalui sistem yang modern dan ramah pengguna, kami membantu siswa menjelajahi dunia pengetahuan tanpa batas.
+<p>
+Electronic Center for Knowledge adalah platform perpustakaan digital
+yang dirancang untuk membantu pengguna menggali informasi lebih dalam,
+menambah wawasan, dan menciptakan pengalaman belajar yang modern,
+interaktif, serta nyaman diakses kapan saja.
 </p>
 </section>
 
 <footer>
-© 2026 ECH Digital Library 
+<p>© 2026 Electronic Center for Knowledge</p>
 </footer>
-</div>
-
-<div class="feedback-box" id="feedbackBox">
-<input type="text" id="fbName" placeholder="Nama">
-<textarea id="fbMessage" rows="3" placeholder="Masukan"></textarea>
-<button onclick="sendFeedback()">Kirim</button>
-</div>
 
 <script>
+function showRegister(){
+loginPage.style.display="none";
+registerPage.style.display="flex";
+}
+
+function showLogin(){
+registerPage.style.display="none";
+forgotPage.style.display="none";
+loginPage.style.display="flex";
+}
+
 function showForgot(){
 loginPage.style.display="none";
 forgotPage.style.display="flex";
@@ -298,15 +290,12 @@ forgotPage.style.display="flex";
 
 function register(e){
 e.preventDefault();
-
 let fullName = regFirst.value + " " + regLast.value;
-
 localStorage.setItem(regEmail.value, JSON.stringify({
-password: regPassword.value,
-name: fullName,
-phone: regPhone.value
+password:regPassword.value,
+name:fullName,
+email:regEmail.value
 }));
-
 alert("Pendaftaran berhasil!");
 showLogin();
 }
@@ -315,53 +304,24 @@ function login(e){
 e.preventDefault();
 let data = JSON.parse(localStorage.getItem(loginEmail.value));
 
-if(data && data.password === loginPassword.value){
-currentUser=data.name;
+if(data && data.password===loginPassword.value){
 loginPage.style.display="none";
-homePage.style.display="flex";
-memberEmail.innerText=currentUser;
-memberID.innerText="ECH-"+Math.floor(Math.random()*10000);
+document.querySelectorAll("section").forEach(sec=>sec.style.display="block");
+document.querySelector("footer").style.display="block";
+userInfo.innerHTML="Login sebagai:<br><b>"+data.name+"</b><br>"+data.email;
 }else{
-errorMsg.innerText="Email atau Password salah!";
+alert("Email atau Password salah!");
 }
 }
 
 function resetPassword(e){
 e.preventDefault();
-let data = localStorage.getItem(forgotEmail.value);
-
-if(data){
-alert("Email ditemukan! Silakan login kembali.");
+alert("Silakan login kembali.");
 showLogin();
-}else{
-alert("Email tidak terdaftar!");
-}
-}
 }
 
-function login(e){
-e.preventDefault();
-const saved=localStorage.getItem(loginEmail.value);
-if(saved===loginPassword.value){
-currentUser=loginEmail.value;
-loginPage.style.display="none";
-homePage.style.display="flex";
-memberEmail.innerText=currentUser;
-memberID.innerText="ECH-"+Math.floor(Math.random()*10000);
-}else{
-errorMsg.innerText="Email atau Password salah!";
-}
-}
-
-function toggleFeedback(){
-feedbackBox.style.display=feedbackBox.style.display==="block"?"none":"block";
-}
-
-function sendFeedback(){
-alert("Terima kasih atas masukan Anda!");
-fbName.value="";
-fbMessage.value="";
-toggleFeedback();
+function showSection(id){
+document.getElementById(id).scrollIntoView({behavior:"smooth"});
 }
 </script>
 
