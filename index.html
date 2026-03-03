@@ -16,28 +16,70 @@ background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
 color:white;
 overflow-x:hidden;
 }
+<!-- LOGIN -->
+<div id="loginPage" class="auth-page">
+<div class="auth-box">
+<h2>ECH Digital Library</h2>
+<div id="errorMsg"></div>
 
-/* ===== LOGIN ===== */
-.auth-page{height:100vh;display:flex;justify-content:center;align-items:center;}
-.auth-box{
-background:rgba(255,255,255,0.1);
-backdrop-filter:blur(12px);
-padding:40px;border-radius:20px;width:350px;
-box-shadow:0 0 40px rgba(0,0,0,0.6);
-animation:fadeIn 1s ease;
-}
-.auth-box h2{text-align:center;color:#4fd1ff;margin-bottom:10px;}
-.auth-box input{width:100%;padding:12px;margin-bottom:15px;border:none;border-radius:10px;}
-.auth-box button{
-width:100%;padding:12px;border:none;border-radius:30px;
-background:linear-gradient(45deg,#4fd1ff,#00c6ff);
-font-weight:bold;cursor:pointer;
-transition:0.3s;
-}
-.auth-box button:hover{transform:scale(1.05);}
-.extra{text-align:center;font-size:14px;}
-.extra a{color:#4fd1ff;cursor:pointer;text-decoration:none;}
-#errorMsg{color:#ff6b6b;font-size:13px;text-align:center;margin-bottom:10px;}
+<form onsubmit="login(event)">
+<input type="email" id="loginEmail" placeholder="Email" required>
+<input type="password" id="loginPassword" placeholder="Password" required>
+<button type="submit">Masuk</button>
+</form>
+
+<div class="extra" style="margin-top:10px;">
+<a onclick="showForgot()">Lupa Password?</a>
+</div>
+
+<div class="extra" style="margin-top:8px;">
+Belum memiliki akun? 
+<a onclick="showRegister()">Daftar Sekarang</a>
+</div>
+
+</div>
+</div>
+
+<!-- REGISTER -->
+<div id="registerPage" class="auth-page" style="display:none;">
+<div class="auth-box">
+<h2>Pendaftaran Anggota</h2>
+
+<form onsubmit="register(event)">
+<input type="text" id="regFirst" placeholder="First Name" required>
+<input type="text" id="regLast" placeholder="Last Name" required>
+<input type="email" id="regEmail" placeholder="Email" required>
+<input type="password" id="regPassword" placeholder="Password" required>
+<input type="text" id="regPhone" placeholder="Nomor Handphone" required>
+<button type="submit">Daftar</button>
+</form>
+
+<div class="extra">
+Sudah punya akun? 
+<a onclick="showLogin()">Login</a>
+</div>
+
+</div>
+</div>
+
+<!-- FORGOT PASSWORD -->
+<div id="forgotPage" class="auth-page" style="display:none;">
+<div class="auth-box">
+<h2>Reset Password</h2>
+
+<form onsubmit="resetPassword(event)">
+<input type="email" id="forgotEmail" placeholder="Masukkan Email Terdaftar" required>
+<button type="submit">Reset Password</button>
+</form>
+
+<div class="extra">
+<a onclick="showLogin()">Kembali ke Login</a>
+</div>
+
+</div>
+</div>
+
+
 
 /* ===== HOME ===== */
 #homePage{display:none;min-height:100vh;flex-direction:column;}
@@ -249,16 +291,52 @@ ECH Digital Library adalah platform perpustakaan digital yang dirancang untuk me
 </div>
 
 <script>
-let currentUser="";
-
-function showRegister(){loginPage.style.display="none";registerPage.style.display="flex";}
-function showLogin(){registerPage.style.display="none";loginPage.style.display="flex";}
+function showForgot(){
+loginPage.style.display="none";
+forgotPage.style.display="flex";
+}
 
 function register(e){
 e.preventDefault();
-localStorage.setItem(regEmail.value,regPassword.value);
+
+let fullName = regFirst.value + " " + regLast.value;
+
+localStorage.setItem(regEmail.value, JSON.stringify({
+password: regPassword.value,
+name: fullName,
+phone: regPhone.value
+}));
+
 alert("Pendaftaran berhasil!");
 showLogin();
+}
+
+function login(e){
+e.preventDefault();
+let data = JSON.parse(localStorage.getItem(loginEmail.value));
+
+if(data && data.password === loginPassword.value){
+currentUser=data.name;
+loginPage.style.display="none";
+homePage.style.display="flex";
+memberEmail.innerText=currentUser;
+memberID.innerText="ECH-"+Math.floor(Math.random()*10000);
+}else{
+errorMsg.innerText="Email atau Password salah!";
+}
+}
+
+function resetPassword(e){
+e.preventDefault();
+let data = localStorage.getItem(forgotEmail.value);
+
+if(data){
+alert("Email ditemukan! Silakan login kembali.");
+showLogin();
+}else{
+alert("Email tidak terdaftar!");
+}
+}
 }
 
 function login(e){
