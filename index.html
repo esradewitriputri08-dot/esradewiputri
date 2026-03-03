@@ -9,172 +9,99 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Poppins',sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);color:white;}
 
-body{
-  background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-  color:white;
-}
-
-.auth-page{
-  height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-}
-
+.auth-page{height:100vh;display:flex;justify-content:center;align-items:center;}
 .auth-box{
   background:rgba(255,255,255,0.1);
   backdrop-filter:blur(10px);
-  padding:40px;
-  border-radius:20px;
-  width:350px;
+  padding:40px;border-radius:20px;width:350px;
   box-shadow:0 0 30px rgba(0,0,0,0.5);
 }
-
-.auth-box h2{
-  text-align:center;
-  margin-bottom:5px;
-  color:#4fd1ff;
-}
-
-.subtitle{
-  text-align:center;
-  font-size:13px;
-  margin-bottom:20px;
-  opacity:0.8;
-}
-
+.auth-box h2{text-align:center;color:#4fd1ff;}
+.subtitle{text-align:center;font-size:13px;margin-bottom:20px;opacity:0.8;}
 .auth-box input{
-  width:100%;
-  padding:12px;
-  margin-bottom:15px;
-  border:none;
-  border-radius:10px;
+  width:100%;padding:12px;margin-bottom:15px;
+  border:none;border-radius:10px;
 }
-
 .auth-box button{
-  width:100%;
-  padding:12px;
-  border:none;
-  border-radius:30px;
+  width:100%;padding:12px;border:none;border-radius:30px;
   background:linear-gradient(45deg,#4fd1ff,#00c6ff);
-  font-weight:bold;
-  cursor:pointer;
+  font-weight:bold;cursor:pointer;
 }
+.extra{text-align:center;font-size:14px;}
+.extra a{color:#4fd1ff;cursor:pointer;text-decoration:none;}
+#errorMsg{color:#ff6b6b;font-size:13px;text-align:center;margin-bottom:10px;}
 
-.extra{
-  margin-top:15px;
-  text-align:center;
-  font-size:14px;
-}
-
-.extra a{
-  color:#4fd1ff;
-  cursor:pointer;
-  text-decoration:none;
-}
-
-#errorMsg{
-  color:#ff6b6b;
-  font-size:13px;
-  text-align:center;
-  margin-bottom:10px;
-}
-
-#homePage{
-  display:none;
-  min-height:100vh;
-  flex-direction:column;
-}
+#homePage{display:none;min-height:100vh;flex-direction:column;}
 
 nav{
   background:rgba(0,0,0,0.4);
   padding:15px 40px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+  display:flex;justify-content:space-between;align-items:center;
 }
+.logo-area{display:flex;flex-direction:column;}
+.logo-area h2{color:#4fd1ff;}
+.logo-area span{font-size:12px;opacity:0.7;}
 
-.logo-area{
-  display:flex;
-  flex-direction:column;
-}
+nav ul{list-style:none;display:flex;gap:20px;}
+nav ul li a{text-decoration:none;color:white;}
 
-.logo-area h2{
-  color:#4fd1ff;
-}
+.menu-icon{display:none;font-size:22px;cursor:pointer;}
+.close-btn{display:none;}
 
-.logo-area span{
-  font-size:12px;
-  opacity:0.7;
-}
+.hero{text-align:center;padding:80px 20px;}
+.hero h1{font-size:40px;color:#4fd1ff;margin-bottom:20px;}
 
-nav ul{
-  list-style:none;
-  display:flex;
-  gap:25px;
-}
-
-nav ul li a{
-  text-decoration:none;
-  color:white;
-}
-
-.menu-icon{
+.feedback-box{
   display:none;
-  font-size:22px;
+  position:fixed;
+  bottom:30px;
+  right:30px;
+  background:rgba(255,255,255,0.1);
+  backdrop-filter:blur(10px);
+  padding:20px;
+  border-radius:15px;
+  width:280px;
+  box-shadow:0 0 20px rgba(0,0,0,0.5);
+}
+.feedback-box h3{text-align:center;margin-bottom:10px;color:#4fd1ff;}
+.feedback-box input,
+.feedback-box textarea{
+  width:100%;
+  padding:8px;
+  margin-bottom:10px;
+  border:none;
+  border-radius:8px;
+}
+.feedback-box button{
+  width:100%;
+  padding:8px;
+  border:none;
+  border-radius:20px;
+  background:#4fd1ff;
+  font-weight:bold;
   cursor:pointer;
-}
-
-.close-btn{
-  display:none;
-}
-
-.hero{
-  text-align:center;
-  padding:80px 20px;
-}
-
-.hero h1{
-  font-size:40px;
-  color:#4fd1ff;
-  margin-bottom:20px;
 }
 
 @media(max-width:768px){
   nav ul{
     position:fixed;
-    top:0;
-    right:-100%;
-    height:100%;
-    width:250px;
+    top:0;right:-100%;
+    height:100%;width:250px;
     background:#1b2b34;
     flex-direction:column;
     padding-top:60px;
     transition:0.3s;
   }
-
-  nav ul li{
-    padding:15px;
-  }
-
-  .menu-icon{
-    display:block;
-  }
-
+  nav ul li{padding:15px;}
+  .menu-icon{display:block;}
   .close-btn{
     display:block;
     position:absolute;
-    top:15px;
-    right:20px;
-    font-size:20px;
-    cursor:pointer;
+    top:15px;right:20px;
+    font-size:20px;cursor:pointer;
   }
 }
 </style>
@@ -187,7 +114,6 @@ nav ul li a{
   <div class="auth-box">
     <h2>ECH Digital Library</h2>
     <div class="subtitle">Electronic Center for Knowledge</div>
-
     <div id="errorMsg"></div>
 
     <form onsubmit="login(event)">
@@ -209,7 +135,6 @@ nav ul li a{
 <div id="registerPage" class="auth-page" style="display:none;">
   <div class="auth-box">
     <h2>Pendaftaran Anggota</h2>
-
     <form onsubmit="register(event)">
       <input type="text" placeholder="First Name" required>
       <input type="text" placeholder="Last Name" required>
@@ -218,7 +143,6 @@ nav ul li a{
       <input type="tel" placeholder="Nomor Handphone" required>
       <button type="submit">Daftar</button>
     </form>
-
     <div class="extra">
       <p>Sudah punya akun? 
         <a onclick="showLogin()">Login di sini</a>
@@ -244,7 +168,10 @@ nav ul li a{
     <li><a href="#">Home</a></li>
     <li><a href="#">Service</a></li>
     <li><a href="#">Collection</a></li>
+    <li><a href="#">Membership</a></li>
+    <li><a href="cv.pdf" target="_blank">Librarian</a></li>
     <li><a href="#">Contact</a></li>
+    <li><a href="#" onclick="toggleFeedback()">Feedback</a></li>
   </ul>
 </nav>
 
@@ -253,29 +180,25 @@ nav ul li a{
 </section>
 </div>
 
-<script>
-function showRegister(){
-  loginPage.style.display="none";
-  registerPage.style.display="flex";
-}
+<!-- FEEDBACK FORM -->
+<div class="feedback-box" id="feedbackBox">
+  <h3>Feedback</h3>
+  <input type="text" id="fbName" placeholder="Nama">
+  <textarea id="fbMessage" rows="3" placeholder="Masukan Anda"></textarea>
+  <button onclick="sendFeedback()">Kirim</button>
+</div>
 
-function showLogin(){
-  registerPage.style.display="none";
-  loginPage.style.display="flex";
-}
+<script>
+function showRegister(){loginPage.style.display="none";registerPage.style.display="flex";}
+function showLogin(){registerPage.style.display="none";loginPage.style.display="flex";}
 
 function register(e){
   e.preventDefault();
   const email = regEmail.value;
   const password = regPassword.value;
-
-  if(localStorage.getItem(email)){
-    alert("Email sudah terdaftar!");
-    return;
-  }
-
+  if(localStorage.getItem(email)){alert("Email sudah terdaftar!");return;}
   localStorage.setItem(email,password);
-  alert("Pendaftaran berhasil! Silakan login.");
+  alert("Pendaftaran berhasil!");
   showLogin();
 }
 
@@ -283,37 +206,36 @@ function login(e){
   e.preventDefault();
   const email = loginEmail.value;
   const password = loginPassword.value;
-
   const savedPassword = localStorage.getItem(email);
-
-  if(savedPassword === null){
-    errorMsg.innerText = "Email belum terdaftar!";
-  } else if(savedPassword !== password){
-    errorMsg.innerText = "Password salah!";
-  } else {
-    errorMsg.innerText = "";
-    loginPage.style.display="none";
-    homePage.style.display="flex";
-  }
+  if(savedPassword===null){errorMsg.innerText="Email belum terdaftar!";}
+  else if(savedPassword!==password){errorMsg.innerText="Password salah!";}
+  else{loginPage.style.display="none";homePage.style.display="flex";}
 }
 
 function forgotPassword(){
-  const email = prompt("Masukkan email Anda:");
-  const savedPassword = localStorage.getItem(email);
-
-  if(savedPassword){
-    alert("Password Anda adalah: " + savedPassword);
-  } else {
-    alert("Email tidak ditemukan!");
-  }
+  const email=prompt("Masukkan email Anda:");
+  const pass=localStorage.getItem(email);
+  if(pass){alert("Password Anda: "+pass);}
+  else{alert("Email tidak ditemukan!");}
 }
 
-function openMenu(){
-  navMenu.style.right="0";
+function openMenu(){navMenu.style.right="0";}
+function closeMenu(){navMenu.style.right="-100%";}
+
+function toggleFeedback(){
+  const box=document.getElementById("feedbackBox");
+  box.style.display = box.style.display==="block" ? "none":"block";
 }
 
-function closeMenu(){
-  navMenu.style.right="-100%";
+function sendFeedback(){
+  const name=document.getElementById("fbName").value;
+  const msg=document.getElementById("fbMessage").value;
+  if(name===""||msg===""){alert("Isi semua kolom!");return;}
+  localStorage.setItem("feedback_"+Date.now(),name+" : "+msg);
+  alert("Terima kasih atas masukan Anda!");
+  document.getElementById("fbName").value="";
+  document.getElementById("fbMessage").value="";
+  toggleFeedback();
 }
 </script>
 
