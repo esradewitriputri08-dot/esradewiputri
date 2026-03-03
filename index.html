@@ -17,19 +17,20 @@
 }
 
 body{
+  background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
   color:white;
 }
 
-/* ================= LOGIN ================= */
-#loginPage{
+/* ================= LOGIN & REGISTER ================= */
+
+.auth-page{
   height:100vh;
   display:flex;
   justify-content:center;
   align-items:center;
-  background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
 }
 
-.login-box{
+.auth-box{
   background:rgba(255,255,255,0.1);
   backdrop-filter:blur(10px);
   padding:40px;
@@ -38,13 +39,20 @@ body{
   box-shadow:0 0 30px rgba(0,0,0,0.5);
 }
 
-.login-box h2{
+.auth-box h2{
   text-align:center;
-  margin-bottom:20px;
+  margin-bottom:5px;
   color:#4fd1ff;
 }
 
-.login-box input{
+.subtitle{
+  text-align:center;
+  font-size:13px;
+  margin-bottom:20px;
+  opacity:0.8;
+}
+
+.auth-box input{
   width:100%;
   padding:12px;
   margin-bottom:15px;
@@ -52,7 +60,7 @@ body{
   border-radius:10px;
 }
 
-.login-box button{
+.auth-box button{
   width:100%;
   padding:12px;
   border:none;
@@ -62,205 +70,166 @@ body{
   cursor:pointer;
 }
 
+.extra{
+  margin-top:15px;
+  text-align:center;
+  font-size:14px;
+}
+
+.extra a{
+  color:#4fd1ff;
+  cursor:pointer;
+  text-decoration:none;
+}
+
 /* ================= HOMEPAGE ================= */
+
 #homePage{
   display:none;
+  min-height:100vh;
   flex-direction:column;
 }
 
 /* NAVBAR */
 nav{
-  position:absolute;
-  width:100%;
-  top:0;
-  left:0;
-  padding:20px 50px;
+  background:rgba(0,0,0,0.4);
+  padding:15px 40px;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  z-index:10;
 }
 
 .logo-area{
   display:flex;
-  align-items:center;
-  gap:12px;
-}
-
-.logo-area img{
-  width:45px;
-}
-
-.brand{
-  display:flex;
   flex-direction:column;
 }
 
-.brand h2{
-  font-size:20px;
-  margin:0;
+.logo-area h2{
+  color:#4fd1ff;
 }
 
-.tagline{
+.logo-area span{
   font-size:12px;
-  opacity:0.8;
-  letter-spacing:1px;
+  opacity:0.7;
 }
 
-.hamburger{
-  font-size:26px;
+nav ul{
+  list-style:none;
+  display:flex;
+  gap:25px;
+}
+
+nav ul li a{
+  text-decoration:none;
+  color:white;
+}
+
+.menu-icon{
+  display:none;
+  font-size:22px;
   cursor:pointer;
+}
+
+.close-btn{
+  display:none;
 }
 
 /* HERO */
 .hero{
-  position:relative;
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
   text-align:center;
-  background:
-    linear-gradient(rgba(0,100,80,0.6), rgba(0,0,100,0.6)),
-    url('https://images.unsplash.com/photo-1507842217343-583bb7270b66') center/cover no-repeat;
+  padding:80px 20px;
 }
 
 .hero h1{
-  font-size:55px;
-  margin-bottom:10px;
+  font-size:40px;
+  color:#4fd1ff;
+  margin-bottom:20px;
 }
 
 .hero p{
-  margin-bottom:30px;
-  opacity:0.9;
+  max-width:700px;
+  margin:auto;
+  line-height:1.8;
+  color:#e0f7ff;
 }
 
-/* SEARCH */
-.search-box{
-  display:flex;
-  background:rgba(255,255,255,0.2);
-  backdrop-filter:blur(10px);
-  border-radius:50px;
-  overflow:hidden;
-  width:650px;
-  max-width:90%;
-}
+/* RESPONSIVE */
+@media(max-width:768px){
 
-.search-box input{
-  flex:1;
-  padding:18px 25px;
-  border:none;
-  background:transparent;
-  color:white;
-  font-size:16px;
-}
+  nav ul{
+    position:fixed;
+    top:0;
+    right:-100%;
+    height:100%;
+    width:250px;
+    background:#1b2b34;
+    flex-direction:column;
+    padding-top:60px;
+    transition:0.3s;
+  }
 
-.search-box input::placeholder{
-  color:#eee;
-}
+  nav ul li{
+    padding:15px;
+  }
 
-.search-box button{
-  padding:18px 40px;
-  border:none;
-  background:white;
-  color:#333;
-  font-weight:600;
-  cursor:pointer;
-}
+  .menu-icon{
+    display:block;
+  }
 
-.pencarian{
-  margin-top:15px;
-  opacity:0.8;
-}
-
-/* SIDEBAR */
-.sidebar{
-  position:fixed;
-  top:0;
-  right:-300px;
-  width:300px;
-  height:100%;
-  background:white;
-  color:#333;
-  padding:40px 20px;
-  transition:0.4s;
-  z-index:1000;
-}
-
-.sidebar.active{
-  right:0;
-}
-
-.close-btn{
-  position:absolute;
-  top:20px;
-  right:20px;
-  font-size:22px;
-  cursor:pointer;
-  color:#333;
-}
-
-.sidebar h3{
-  margin-bottom:20px;
-  margin-top:20px;
-}
-
-.sidebar ul{
-  list-style:none;
-}
-
-.sidebar ul li{
-  margin-bottom:15px;
-}
-
-.sidebar ul li a{
-  text-decoration:none;
-  color:#333;
-  font-weight:500;
-}
-
-/* BOOK SLIDER */
-.book-slider{
-  display:flex;
-  overflow-x:auto;
-  gap:20px;
-  padding:30px;
-  background:#000;
-}
-
-.book-slider img{
-  width:150px;
-  border-radius:10px;
-  transition:0.3s;
-}
-
-.book-slider img:hover{
-  transform:scale(1.1);
-}
-
-/* FOOTER */
-footer{
-  background:#000;
-  padding:20px;
-  text-align:center;
+  .close-btn{
+    display:block;
+    position:absolute;
+    top:15px;
+    right:20px;
+    font-size:20px;
+    cursor:pointer;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<!-- LOGIN -->
-<div id="loginPage">
-  <div class="login-box">
-    <h2>Pendaftaran Anggota</h2>
+<!-- LOGIN PAGE -->
+<div id="loginPage" class="auth-page">
+  <div class="auth-box">
+    <h2>ECH Digital Library</h2>
+    <div class="subtitle">Electronic Center for Knowledge</div>
+
     <form onsubmit="login(event)">
-      <input type="text" placeholder="First Name" required>
-      <input type="text" placeholder="Last Name" required>
-      <input type="tel" placeholder="Nomor HP" required>
-      <input type="email" placeholder="Email" required>
+      <input type="email" id="loginEmail" placeholder="Email" required>
+      <input type="password" id="loginPassword" placeholder="Password" required>
       <button type="submit">Masuk</button>
     </form>
+
+    <div class="extra">
+      <p>Belum mempunyai akun? 
+        <a onclick="showRegister()">Daftar Sekarang</a>
+      </p>
+      <a onclick="forgotPassword()">Lupa sandi?</a>
+    </div>
+  </div>
+</div>
+
+<!-- REGISTER PAGE -->
+<div id="registerPage" class="auth-page" style="display:none;">
+  <div class="auth-box">
+    <h2>Pendaftaran Anggota</h2>
+
+    <form onsubmit="register(event)">
+      <input type="text" placeholder="First Name" required>
+      <input type="text" placeholder="Last Name" required>
+      <input type="email" id="regEmail" placeholder="Email" required>
+      <input type="password" id="regPassword" placeholder="Password" required>
+      <input type="tel" placeholder="Nomor Handphone" required>
+      <button type="submit">Daftar</button>
+    </form>
+
+    <div class="extra">
+      <p>Sudah punya akun? 
+        <a onclick="showLogin()">Login di sini</a>
+      </p>
+    </div>
   </div>
 </div>
 
@@ -269,85 +238,67 @@ footer{
 
 <nav>
   <div class="logo-area">
-    <img src="logo.png" alt="Logo">
-    <div class="brand">
-      <h2>ECH Digital Library</h2>
-      <span class="tagline">Electronic Center for Knowledge</span>
-    </div>
+    <h2>ECH Digital Library</h2>
+    <span>Electronic Center for Knowledge</span>
   </div>
-  <div class="hamburger" onclick="toggleMenu()">
+
+  <div class="menu-icon" onclick="openMenu()">
     <i class="fas fa-bars"></i>
   </div>
+
+  <ul id="navMenu">
+    <span class="close-btn" onclick="closeMenu()">✖</span>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Service</a></li>
+    <li><a href="#">Collection</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
 </nav>
 
 <section class="hero">
-  <h1>CARI</h1>
-  <p>Masukkan satu atau lebih kata kunci dari judul, pengarang, atau subjek</p>
-
-  <div class="search-box">
-    <input type="text" placeholder="Masukkan kata kunci...">
-    <button>CARI</button>
-  </div>
-
-  <div class="pencarian">Pencarian Spesifik</div>
+  <h1>Welcome to ECH Digital Library</h1>
+  <p>
+    Ruang literasi digital berbasis teknologi yang menyediakan akses
+    informasi, pembelajaran, dan pengembangan pengetahuan secara modern ✨
+  </p>
 </section>
 
-<div class="book-slider">
-  <img src="https://covers.openlibrary.org/b/id/10523338-L.jpg">
-  <img src="https://covers.openlibrary.org/b/id/11153271-L.jpg">
-  <img src="https://covers.openlibrary.org/b/id/10252718-L.jpg">
-  <img src="https://covers.openlibrary.org/b/id/10594765-L.jpg">
-  <img src="https://covers.openlibrary.org/b/id/10958359-L.jpg">
-</div>
-
-<footer>
-  © 2026 ECH Digital Library
-</footer>
-
-</div>
-
-<!-- SIDEBAR -->
-<div class="sidebar" id="sidebar">
-  <div class="close-btn" onclick="toggleMenu()">
-    <i class="fas fa-times"></i>
-  </div>
-
-  <h3>MENU</h3>
-  <ul>
-    <li><a href="#">Beranda</a></li>
-    <li><a href="#">Warta Perpustakaan</a></li>
-    <li><a href="#">Info Perpustakaan</a></li>
-    <li><a href="#">Lokasi Perpustakaan</a></li>
-    <li><a href="#">Area Anggota</a></li>
-    <li><a href="#">Pustakawan</a></li>
-    <li><a href="#">Tentang</a></li>
-  </ul>
 </div>
 
 <script>
-function login(event){
-  event.preventDefault();
+function showRegister(){
+  document.getElementById("loginPage").style.display="none";
+  document.getElementById("registerPage").style.display="flex";
+}
+
+function showLogin(){
+  document.getElementById("registerPage").style.display="none";
+  document.getElementById("loginPage").style.display="flex";
+}
+
+function register(e){
+  e.preventDefault();
+  alert("Pendaftaran berhasil! Silakan login.");
+  showLogin();
+}
+
+function login(e){
+  e.preventDefault();
   document.getElementById("loginPage").style.display="none";
   document.getElementById("homePage").style.display="flex";
 }
 
-function toggleMenu(){
-  document.getElementById("sidebar").classList.toggle("active");
+function forgotPassword(){
+  alert("Silakan hubungi admin untuk reset password.");
 }
 
-/* Klik luar sidebar untuk menutup */
-document.addEventListener("click", function(event){
-  const sidebar = document.getElementById("sidebar");
-  const hamburger = document.querySelector(".hamburger");
+function openMenu(){
+  document.getElementById("navMenu").style.right="0";
+}
 
-  if(
-    sidebar.classList.contains("active") &&
-    !sidebar.contains(event.target) &&
-    !hamburger.contains(event.target)
-  ){
-    sidebar.classList.remove("active");
-  }
-});
+function closeMenu(){
+  document.getElementById("navMenu").style.right="-100%";
+}
 </script>
 
 </body>
