@@ -219,52 +219,88 @@ to{opacity:1;transform:translateY(0);}
 <div class="logo-area">
 <h2>ECH Digital Library</h2>
 </div>
+
 <ul>
 <li><a href="#home">Home</a></li>
 <li><a>Service</a></li>
+<li><a href="#collection">Collection</a></li>
+<li><a href="profil.html">Profil</a></li>
 <li><a>Membership</a></li>
 <li><a href="https://drive.google.com/file/d/1NDT8TYpnyim2lDyLb2Qpnk6EIdxlJNU0/view?usp=drivesdk" target="_blank">Librarian</a></li>
 <li><a href="#contact">Contact</a></li>
 <li><a onclick="toggleFeedback()">Feedback</a></li>
 <li><a href="#about">About Us</a></li>
 </ul>
+
 </nav>
 
 <section id="home" class="hero">
 <h1>Welcome to <span>ECH Digital Library</span></h1>
-<p> Ruang literasl digital ini hadir sebagai tempat pembelajaran terbuka, akses informasi, serta pengembangan kreativitas bagi semua orang. Mari temukan ribuan buku seru yang siap menemanimu hari ini✨✨.
+<p>
+Ruang literasl digital ini hadir sebagai tempat pembelajaran terbuka, akses informasi, serta pengembangan kreativitas bagi semua orang. Mari temukan ribuan buku seru yang siap menemanimu hari ini✨✨.
 </p>
 </section>
 
 <section id="collection" class="collection">
 <h2>Koleksi Buku Interaktif</h2>
+
 <div class="book-grid">
-<div class="book-card"><i class="fas fa-book"></i><h4>Fisika SMA</h4></div>
-<div class="book-card"><i class="fas fa-book"></i><h4>Biologi SMA</h4></div>
-<div class="book-card"><i class="fas fa-book"></i><h4>Matematika</h4></div>
-<div class="book-card"><i class="fas fa-book"></i><h4>Sejarah</h4></div>
+
+<div class="book-card">
+<i class="fas fa-book"></i>
+<h4>Fisika SMA</h4>
+</div>
+
+<div class="book-card">
+<i class="fas fa-book"></i>
+<h4>Biologi SMA</h4>
+</div>
+
+<div class="book-card">
+<i class="fas fa-book"></i>
+<h4>Matematika</h4>
+</div>
+
+<div class="book-card">
+<i class="fas fa-book"></i>
+<h4>Sejarah</h4>
+</div>
+
 </div>
 </section>
 
 <section id="contact" class="contact">
 <h2>Contact</h2>
+
 <div class="contact-box">
-<a href="https://wa.me/6282169967447" target="_blank" class="contact-item wa"><i class="fab fa-whatsapp"></i></a>
-<a href="https://instagram.com/eecsh_" target="_blank" class="contact-item ig"><i class="fab fa-instagram"></i></a>
-<a href="mailto:esradewitriputri08@gmail.com" class="contact-item email"><i class="fas fa-envelope"></i></a>
+<a href="https://wa.me/6282169967447" target="_blank" class="contact-item wa">
+<i class="fab fa-whatsapp"></i>
+</a>
+
+<a href="https://instagram.com/eecsh_" target="_blank" class="contact-item ig">
+<i class="fab fa-instagram"></i>
+</a>
+
+<a href="mailto:esradewitriputri08@gmail.com" class="contact-item email">
+<i class="fas fa-envelope"></i>
+</a>
 </div>
+
 </section>
 
 <section id="about" class="collection">
 <h2>About Us</h2>
+
 <p style="max-width:800px;margin:20px auto;line-height:1.8;opacity:0.9;">
-ECH Digital Library (Electronic Center for Knowledge) adalah platform perpustakaan digital yang dirancang untuk mendukung generasi muda dalam mengakses informasi secara cepat, akurat, dan interaktif. Kami percaya bahwa literasi digital adalah kunci masa depan pendidikan. Melalui sistem yang modern dan ramah pengguna, kami membantu siswa menjelajahi dunia pengetahuan tanpa batas.
+ECH Digital Library adalah platform perpustakaan digital yang dirancang untuk mendukung generasi muda dalam mengakses informasi secara cepat, akurat, dan interaktif. Kami percaya bahwa literasi digital adalah kunci masa depan pendidikan. Melalui sistem yang modern dan ramah pengguna, kami membantu siswa menjelajahi dunia pengetahuan tanpa batas.
 </p>
+
 </section>
 
 <footer>
-© 2026 ECH Digital Library 
+© 2026 ECH Digital Library
 </footer>
+
 </div>
 
 <div class="feedback-box" id="feedbackBox">
@@ -274,14 +310,26 @@ ECH Digital Library (Electronic Center for Knowledge) adalah platform perpustaka
 </div>
 
 <script>
+
 let currentUser="";
 
-function showRegister(){loginPage.style.display="none";registerPage.style.display="flex";}
-function showLogin(){registerPage.style.display="none";loginPage.style.display="flex";}
-function showForgot(){alert("Fitur reset password belum tersedia.");}
+function showRegister(){
+loginPage.style.display="none";
+registerPage.style.display="flex";
+}
+
+function showLogin(){
+registerPage.style.display="none";
+loginPage.style.display="flex";
+}
+
+function showForgot(){
+alert("Fitur reset password belum tersedia.");
+}
 
 function register(e){
 e.preventDefault();
+
 let fullName = regFirst.value + " " + regLast.value;
 
 localStorage.setItem(regEmail.value, JSON.stringify({
@@ -297,6 +345,7 @@ showLogin();
 
 function login(e){
 e.preventDefault();
+
 let data = JSON.parse(localStorage.getItem(loginEmail.value));
 
 if(data && data.password === loginPassword.value){
@@ -309,7 +358,7 @@ errorMsg.innerText="Email atau Password salah!";
 }
 
 function toggleFeedback(){
-feedbackBox.style.display=feedbackBox.style.display==="block"?"none":"block";
+feedbackBox.style.display = feedbackBox.style.display === "block" ? "none" : "block";
 }
 
 function sendFeedback(){
@@ -318,8 +367,8 @@ fbName.value="";
 fbMessage.value="";
 toggleFeedback();
 }
+
 </script>
 
 </body>
 </html>
-
