@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Library News | ECH Digital Library</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+font-family:'Poppins',sans-serif;
+margin:0;
+background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+color:white;
+}
+
+header{
+text-align:center;
+padding:60px 20px;
+}
+
+header h1{
+color:#4fd1ff;
+}
+
+.news-container{
+max-width:1100px;
+margin:auto;
+padding:20px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+.news-card{
+background:rgba(255,255,255,0.1);
+padding:20px;
+border-radius:15px;
+transition:0.3s;
+backdrop-filter:blur(8px);
+}
+
+.news-card:hover{
+transform:translateY(-8px);
+box-shadow:0 0 25px rgba(79,209,255,0.7);
+}
+
+.news-card img{
+width:100%;
+border-radius:10px;
+margin-bottom:15px;
+}
+
+.news-card h3{
+color:#4fd1ff;
+}
+
+.news-card p{
+font-size:14px;
+opacity:0.9;
+}
+
+.read-more{
+display:inline-block;
+margin-top:10px;
+padding:8px 14px;
+background:#4fd1ff;
+color:black;
+border-radius:20px;
+text-decoration:none;
+font-size:14px;
+}
+
+.article{
+max-width:900px;
+margin:60px auto;
+padding:20px;
+background:rgba(255,255,255,0.1);
+border-radius:15px;
+}
+
+.article h2{
+color:#4fd1ff;
+}
+
+.article p{
+line-height:1.8;
+opacity:0.9;
+}
+
+.back{
+display:inline-block;
+margin-top:15px;
+color:#4fd1ff;
+text-decoration:none;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>📚 Library News</h1>
+<p>Informasi menarik seputar dunia belajar, buku, dan literasi untuk pelajar SMP & SMA</p>
+</header>
+
+<section class="news-container">
+
+<div class="news-card">
+<img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f">
+<h3>5 Buku yang Wajib Dibaca Pelajar</h3>
+<p>Membaca buku dapat meningkatkan wawasan dan kreativitas pelajar. Berikut beberapa buku yang sangat direkomendasikan untuk remaja...</p>
+<a href="#artikel1" class="read-more">Read More</a>
+</div>
+
+<div class="news-card">
+<img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b">
+<h3>Cara Belajar Efektif Tanpa Bosan</h3>
+<p>Banyak pelajar merasa bosan ketika belajar. Padahal dengan teknik yang tepat, belajar bisa menjadi kegiatan yang menyenangkan...</p>
+<a href="#artikel2" class="read-more">Read More</a>
+</div>
+
+<div class="news-card">
+<img src="https://images.unsplash.com/photo-1513258496099-48168024aec0">
+<h3>Tips Mencari Informasi untuk Tugas Sekolah</h3>
+<p>Internet memiliki banyak informasi, tetapi tidak semuanya dapat dipercaya. Pelajar perlu mengetahui cara mencari sumber yang benar...</p>
+<a href="#artikel3" class="read-more">Read More</a>
+</div>
+
+</section>
+
+<!-- ARTIKEL -->
+
+<section id="artikel1" class="article">
+
+<h2>📖 5 Buku yang Wajib Dibaca Pelajar</h2>
+
+<p>Membaca buku merupakan kebiasaan penting bagi pelajar karena dapat memperluas wawasan serta meningkatkan kemampuan berpikir kritis.</p>
+
+<p>Beberapa jenis buku yang direkomendasikan untuk pelajar adalah buku motivasi, novel pendidikan, serta buku pengembangan diri. Buku-buku tersebut dapat memberikan inspirasi dan membantu pelajar memahami berbagai perspektif kehidupan.</p>
+
+<p>Dengan membiasakan membaca minimal 15–30 menit setiap hari, pelajar dapat meningkatkan kemampuan bahasa, memperkaya pengetahuan, serta melatih imajinasi.</p>
+
+<a href="#" class="back">⬆ Kembali ke atas</a>
+
+</section>
+
+
+<section id="artikel2" class="article">
+
+<h2>💡 Cara Belajar Efektif Tanpa Bosan</h2>
+
+<p>Banyak pelajar merasa cepat bosan saat belajar karena metode yang digunakan kurang menarik.</p>
+
+<p>Salah satu cara agar belajar menjadi lebih menyenangkan adalah menggunakan metode seperti membuat mind map, menonton video edukasi, atau belajar bersama teman.</p>
+
+<p>Selain itu, teknik belajar 25 menit kemudian istirahat 5 menit juga dapat membantu otak tetap fokus dan tidak cepat lelah.</p>
+
+<a href="#" class="back">⬆ Kembali ke atas</a>
+
+</section>
+
+
+<section id="artikel3" class="article">
+
+<h2>🌐 Tips Mencari Informasi di Internet</h2>
+
+<p>Internet merupakan sumber informasi yang sangat luas dan mudah diakses oleh pelajar.</p>
+
+<p>Namun, penting untuk memastikan bahwa informasi yang digunakan berasal dari sumber yang terpercaya seperti website pendidikan, jurnal ilmiah, atau perpustakaan digital.</p>
+
+<p>Dengan memilih sumber yang tepat, pelajar dapat menghasilkan tugas sekolah yang lebih akurat dan berkualitas.</p>
+
+<a href="#" class="back">⬆ Kembali ke atas</a>
+
+</section>
+
+</body>
+</html>
