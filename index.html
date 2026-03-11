@@ -9,8 +9,17 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-html{scroll-behavior:smooth;}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
+}
 
 body{
 background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
@@ -18,7 +27,8 @@ color:white;
 overflow-x:hidden;
 }
 
-/* LOGIN STYLE */
+/* LOGIN */
+
 .auth-page{
 display:flex;
 justify-content:center;
@@ -67,9 +77,15 @@ cursor:pointer;
 }
 
 /* HOME */
-#homePage{display:none;min-height:100vh;flex-direction:column;}
+
+#homePage{
+display:none;
+min-height:100vh;
+flex-direction:column;
+}
 
 /* NAVBAR */
+
 nav{
 background:rgba(0,0,0,0.4);
 padding:15px 40px;
@@ -81,15 +97,19 @@ top:0;
 z-index:1000;
 }
 
-.logo-area h2{color:#4fd1ff;}
+.logo-area h2{
+color:#4fd1ff;
+}
 
-/* HAMBURGER */
+/* MENU BUTTON */
+
 .menu-btn{
 font-size:28px;
 cursor:pointer;
 }
 
-/* SIDEBAR MENU */
+/* SIDE MENU */
+
 .side-menu{
 position:fixed;
 top:0;
@@ -117,6 +137,7 @@ margin:15px 0;
 text-decoration:none;
 color:black;
 font-size:16px;
+cursor:pointer;
 }
 
 .close-btn{
@@ -128,34 +149,55 @@ top:15px;
 }
 
 /* HERO */
+
 .hero{
 padding:100px 20px;
 text-align:center;
 animation:fadeIn 1.5s ease;
 }
 
-.hero h1{font-size:45px;color:#4fd1ff;margin-bottom:20px;}
-.hero p{max-width:700px;margin:auto;opacity:0.85;line-height:1.7;}
-.hero span{color:#4fd1ff;font-weight:600;}
+.hero h1{
+font-size:45px;
+color:#4fd1ff;
+margin-bottom:20px;
+}
+
+.hero p{
+max-width:700px;
+margin:auto;
+opacity:0.85;
+line-height:1.7;
+}
+
+.hero span{
+color:#4fd1ff;
+font-weight:600;
+}
 
 /* COLLECTION */
+
 .collection{
 padding:70px 20px;
 text-align:center;
 }
 
-.collection h2{margin-bottom:40px;color:#4fd1ff;}
+.collection h2{
+margin-bottom:40px;
+color:#4fd1ff;
+}
 
 .book-grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
 gap:25px;
-max-width:1000px;margin:auto;
+max-width:1000px;
+margin:auto;
 }
 
 .book-card{
 background:rgba(255,255,255,0.1);
-padding:20px;border-radius:15px;
+padding:20px;
+border-radius:15px;
 transition:0.3s;
 cursor:pointer;
 }
@@ -172,7 +214,11 @@ color:#4fd1ff;
 }
 
 /* CONTACT */
-.contact{padding:70px 20px;text-align:center;}
+
+.contact{
+padding:70px 20px;
+text-align:center;
+}
 
 .contact-box{
 display:flex;
@@ -182,7 +228,9 @@ flex-wrap:wrap;
 }
 
 .contact-item{
-width:70px;height:70px;border-radius:50%;
+width:70px;
+height:70px;
+border-radius:50%;
 display:flex;
 align-items:center;
 justify-content:center;
@@ -192,12 +240,24 @@ text-decoration:none;
 transition:0.3s;
 }
 
-.contact-item:hover{transform:scale(1.1);}
-.wa{background:#25D366;}
-.ig{background:linear-gradient(45deg,#fd1d1d,#e1306c,#833ab4);}
-.email{background:#4fd1ff;}
+.contact-item:hover{
+transform:scale(1.1);
+}
+
+.wa{
+background:#25D366;
+}
+
+.ig{
+background:linear-gradient(45deg,#fd1d1d,#e1306c,#833ab4);
+}
+
+.email{
+background:#4fd1ff;
+}
 
 /* FEEDBACK */
+
 .feedback-box{
 display:none;
 position:fixed;
@@ -229,6 +289,17 @@ font-weight:bold;
 cursor:pointer;
 }
 
+.close-feedback{
+position:absolute;
+top:10px;
+right:15px;
+font-size:20px;
+cursor:pointer;
+color:white;
+}
+
+/* FOOTER */
+
 footer{
 padding:20px;
 text-align:center;
@@ -240,15 +311,20 @@ margin-top:50px;
 from{opacity:0;transform:translateY(20px);}
 to{opacity:1;transform:translateY(0);}
 }
+
 </style>
 </head>
 
 <body>
 
 <!-- LOGIN -->
+
 <div id="loginPage" class="auth-page">
+
 <div class="auth-box">
+
 <h2>ECH Digital Library</h2>
+
 <div id="errorMsg"></div>
 
 <form onsubmit="login(event)">
@@ -261,33 +337,43 @@ to{opacity:1;transform:translateY(0);}
 <a onclick="showRegister()">Belum memiliki akun? Daftar sekarang</a>
 <a onclick="showForgot()">Lupa sandi?</a>
 </div>
+
 </div>
 </div>
 
 <!-- REGISTER -->
+
 <div id="registerPage" class="auth-page" style="display:none;">
+
 <div class="auth-box">
+
 <h2>Daftar Anggota</h2>
 
 <form onsubmit="register(event)">
+
 <input type="text" id="regFirst" placeholder="First Name" required>
 <input type="text" id="regLast" placeholder="Last Name" required>
 <input type="email" id="regEmail" placeholder="Email" required>
 <input type="password" id="regPassword" placeholder="Password" required>
 <input type="text" id="regPhone" placeholder="Nomor Handphone" required>
+
 <button type="submit">Daftar</button>
+
 </form>
 
 <div style="margin-top:10px;">
 <a onclick="showLogin()" style="color:#4fd1ff;cursor:pointer;">Kembali ke Login</a>
 </div>
+
 </div>
 </div>
 
 <!-- HOME -->
+
 <div id="homePage">
 
 <nav>
+
 <div class="logo-area">
 <h2>ECH Digital Library</h2>
 </div>
@@ -295,9 +381,11 @@ to{opacity:1;transform:translateY(0);}
 <div class="menu-btn" onclick="openMenu()">
 <i class="fas fa-bars"></i>
 </div>
+
 </nav>
 
 <!-- SIDE MENU -->
+
 <div class="side-menu" id="sideMenu">
 
 <div class="close-btn" onclick="closeMenu()">✕</div>
@@ -308,7 +396,7 @@ to{opacity:1;transform:translateY(0);}
 <a>Service</a>
 <a href="#collection">Collection</a>
 <a href="profil.html">Profil</a>
-<a>Library News</a>
+<a href="library-news.html">Library News</a>
 <a>Membership</a>
 <a href="https://drive.google.com/file/d/1NDT8TYpnyim2lDyLb2Qpnk6EIdxlJNU0/view?usp=drivesdk" target="_blank">Librarian</a>
 <a href="#contact">Contact</a>
@@ -318,13 +406,19 @@ to{opacity:1;transform:translateY(0);}
 </div>
 
 <section id="home" class="hero">
+
 <h1>Welcome to <span>ECH Digital Library</span></h1>
+
 <p>
-Ruang literasl digital ini hadir sebagai tempat pembelajaran terbuka, akses informasi, serta pengembangan kreativitas bagi semua orang. Mari temukan ribuan buku seru yang siap menemanimu hari ini✨✨.
+Ruang literasi digital ini hadir sebagai tempat pembelajaran terbuka,
+akses informasi, serta pengembangan kreativitas bagi semua orang.
+Mari temukan ribuan buku seru yang siap menemanimu hari ini ✨
 </p>
+
 </section>
 
 <section id="collection" class="collection">
+
 <h2>Koleksi Buku Interaktif</h2>
 
 <div class="book-grid">
@@ -350,9 +444,11 @@ Ruang literasl digital ini hadir sebagai tempat pembelajaran terbuka, akses info
 </div>
 
 </div>
+
 </section>
 
 <section id="contact" class="contact">
+
 <h2>Contact</h2>
 
 <div class="contact-box">
@@ -370,13 +466,17 @@ Ruang literasl digital ini hadir sebagai tempat pembelajaran terbuka, akses info
 </a>
 
 </div>
+
 </section>
 
 <section id="about" class="collection">
+
 <h2>About Us</h2>
 
 <p style="max-width:800px;margin:20px auto;line-height:1.8;opacity:0.9;">
-ECH Digital Library adalah platform perpustakaan digital yang dirancang untuk mendukung generasi muda dalam mengakses informasi secara cepat, akurat, dan interaktif. Kami percaya bahwa literasi digital adalah kunci masa depan pendidikan.
+ECH Digital Library adalah platform perpustakaan digital
+yang dirancang untuk mendukung generasi muda dalam mengakses
+informasi secara cepat, akurat, dan interaktif.
 </p>
 
 </section>
@@ -387,10 +487,18 @@ ECH Digital Library adalah platform perpustakaan digital yang dirancang untuk me
 
 </div>
 
+<!-- FEEDBACK BOX -->
+
 <div class="feedback-box" id="feedbackBox">
+
+<span class="close-feedback" onclick="toggleFeedback()">✕</span>
+
 <input type="text" id="fbName" placeholder="Nama">
+
 <textarea id="fbMessage" rows="3" placeholder="Masukan"></textarea>
+
 <button onclick="sendFeedback()">Kirim</button>
+
 </div>
 
 <script>
@@ -420,6 +528,7 @@ alert("Fitur reset password belum tersedia.");
 }
 
 function register(e){
+
 e.preventDefault();
 
 let fullName = regFirst.value + " " + regLast.value;
@@ -433,20 +542,28 @@ phone: regPhone.value
 
 alert("Pendaftaran berhasil!");
 showLogin();
+
 }
 
 function login(e){
+
 e.preventDefault();
 
 let data = JSON.parse(localStorage.getItem(loginEmail.value));
 
 if(data && data.password === loginPassword.value){
+
 currentUser=data.name;
+
 loginPage.style.display="none";
 homePage.style.display="flex";
+
 }else{
+
 errorMsg.innerText="Email atau Password salah!";
+
 }
+
 }
 
 function toggleFeedback(){
@@ -454,10 +571,14 @@ feedbackBox.style.display = feedbackBox.style.display === "block" ? "none" : "bl
 }
 
 function sendFeedback(){
+
 alert("Terima kasih atas masukan Anda!");
+
 fbName.value="";
 fbMessage.value="";
+
 toggleFeedback();
+
 }
 
 </script>
