@@ -11,6 +11,7 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
 html{scroll-behavior:smooth;}
+
 body{
 background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
 color:white;
@@ -68,26 +69,68 @@ cursor:pointer;
 /* HOME */
 #homePage{display:none;min-height:100vh;flex-direction:column;}
 
+/* NAVBAR */
 nav{
 background:rgba(0,0,0,0.4);
 padding:15px 40px;
-display:flex;justify-content:space-between;align-items:center;
-position:sticky;top:0;z-index:1000;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:sticky;
+top:0;
+z-index:1000;
 }
 
 .logo-area h2{color:#4fd1ff;}
 
-nav ul{list-style:none;display:flex;gap:18px;}
-
-nav ul li a{
-text-decoration:none;color:white;font-size:14px;
-transition:0.3s;
+/* HAMBURGER */
+.menu-btn{
+font-size:28px;
+cursor:pointer;
 }
 
-nav ul li a:hover{color:#4fd1ff;}
+/* SIDEBAR MENU */
+.side-menu{
+position:fixed;
+top:0;
+right:-300px;
+width:300px;
+height:100%;
+background:white;
+color:black;
+padding:30px;
+transition:0.4s;
+z-index:2000;
+}
 
+.side-menu.active{
+right:0;
+}
+
+.side-menu h3{
+margin-bottom:20px;
+}
+
+.side-menu a{
+display:block;
+margin:15px 0;
+text-decoration:none;
+color:black;
+font-size:16px;
+}
+
+.close-btn{
+font-size:30px;
+cursor:pointer;
+position:absolute;
+right:20px;
+top:15px;
+}
+
+/* HERO */
 .hero{
-padding:100px 20px;text-align:center;
+padding:100px 20px;
+text-align:center;
 animation:fadeIn 1.5s ease;
 }
 
@@ -95,8 +138,10 @@ animation:fadeIn 1.5s ease;
 .hero p{max-width:700px;margin:auto;opacity:0.85;line-height:1.7;}
 .hero span{color:#4fd1ff;font-weight:600;}
 
+/* COLLECTION */
 .collection{
-padding:70px 20px;text-align:center;
+padding:70px 20px;
+text-align:center;
 }
 
 .collection h2{margin-bottom:40px;color:#4fd1ff;}
@@ -120,18 +165,30 @@ transform:translateY(-8px);
 box-shadow:0 0 25px rgba(79,209,255,0.7);
 }
 
-.book-card i{font-size:40px;margin-bottom:15px;color:#4fd1ff;}
+.book-card i{
+font-size:40px;
+margin-bottom:15px;
+color:#4fd1ff;
+}
 
+/* CONTACT */
 .contact{padding:70px 20px;text-align:center;}
 
 .contact-box{
-display:flex;justify-content:center;gap:30px;flex-wrap:wrap;
+display:flex;
+justify-content:center;
+gap:30px;
+flex-wrap:wrap;
 }
 
 .contact-item{
 width:70px;height:70px;border-radius:50%;
-display:flex;align-items:center;justify-content:center;
-font-size:30px;color:white;text-decoration:none;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:30px;
+color:white;
+text-decoration:none;
 transition:0.3s;
 }
 
@@ -140,25 +197,41 @@ transition:0.3s;
 .ig{background:linear-gradient(45deg,#fd1d1d,#e1306c,#833ab4);}
 .email{background:#4fd1ff;}
 
+/* FEEDBACK */
 .feedback-box{
 display:none;
-position:fixed;bottom:30px;right:30px;
+position:fixed;
+bottom:30px;
+right:30px;
 background:rgba(255,255,255,0.1);
 backdrop-filter:blur(12px);
-padding:20px;border-radius:15px;width:280px;
+padding:20px;
+border-radius:15px;
+width:280px;
 }
 
-.feedback-box input,.feedback-box textarea{
-width:100%;padding:8px;margin-bottom:10px;border:none;border-radius:8px;
+.feedback-box input,
+.feedback-box textarea{
+width:100%;
+padding:8px;
+margin-bottom:10px;
+border:none;
+border-radius:8px;
 }
 
 .feedback-box button{
-width:100%;padding:8px;border:none;border-radius:20px;
-background:#4fd1ff;font-weight:bold;cursor:pointer;
+width:100%;
+padding:8px;
+border:none;
+border-radius:20px;
+background:#4fd1ff;
+font-weight:bold;
+cursor:pointer;
 }
 
 footer{
-padding:20px;text-align:center;
+padding:20px;
+text-align:center;
 background:rgba(0,0,0,0.4);
 margin-top:50px;
 }
@@ -188,7 +261,6 @@ to{opacity:1;transform:translateY(0);}
 <a onclick="showRegister()">Belum memiliki akun? Daftar sekarang</a>
 <a onclick="showForgot()">Lupa sandi?</a>
 </div>
-
 </div>
 </div>
 
@@ -209,30 +281,41 @@ to{opacity:1;transform:translateY(0);}
 <div style="margin-top:10px;">
 <a onclick="showLogin()" style="color:#4fd1ff;cursor:pointer;">Kembali ke Login</a>
 </div>
-
 </div>
 </div>
 
 <!-- HOME -->
 <div id="homePage">
+
 <nav>
 <div class="logo-area">
 <h2>ECH Digital Library</h2>
 </div>
 
-<ul>
-<li><a href="#home">Home</a></li>
-<li><a>Service</a></li>
-<li><a href="#collection">Collection</a></li>
-<li><a href="profil.html">Profil</a></li>
-<li><a>Membership</a></li>
-<li><a href="https://drive.google.com/file/d/1NDT8TYpnyim2lDyLb2Qpnk6EIdxlJNU0/view?usp=drivesdk" target="_blank">Librarian</a></li>
-<li><a href="#contact">Contact</a></li>
-<li><a onclick="toggleFeedback()">Feedback</a></li>
-<li><a href="#about">About Us</a></li>
-</ul>
-
+<div class="menu-btn" onclick="openMenu()">
+<i class="fas fa-bars"></i>
+</div>
 </nav>
+
+<!-- SIDE MENU -->
+<div class="side-menu" id="sideMenu">
+
+<div class="close-btn" onclick="closeMenu()">✕</div>
+
+<h3>MENU</h3>
+
+<a href="#home">Home</a>
+<a>Service</a>
+<a href="#collection">Collection</a>
+<a href="profil.html">Profil</a>
+<a>Library News</a>
+<a>Membership</a>
+<a href="https://drive.google.com/file/d/1NDT8TYpnyim2lDyLb2Qpnk6EIdxlJNU0/view?usp=drivesdk" target="_blank">Librarian</a>
+<a href="#contact">Contact</a>
+<a onclick="toggleFeedback()">Feedback</a>
+<a href="#about">About Us</a>
+
+</div>
 
 <section id="home" class="hero">
 <h1>Welcome to <span>ECH Digital Library</span></h1>
@@ -273,6 +356,7 @@ Ruang literasl digital ini hadir sebagai tempat pembelajaran terbuka, akses info
 <h2>Contact</h2>
 
 <div class="contact-box">
+
 <a href="https://wa.me/6282169967447" target="_blank" class="contact-item wa">
 <i class="fab fa-whatsapp"></i>
 </a>
@@ -284,15 +368,15 @@ Ruang literasl digital ini hadir sebagai tempat pembelajaran terbuka, akses info
 <a href="mailto:esradewitriputri08@gmail.com" class="contact-item email">
 <i class="fas fa-envelope"></i>
 </a>
-</div>
 
+</div>
 </section>
 
 <section id="about" class="collection">
 <h2>About Us</h2>
 
 <p style="max-width:800px;margin:20px auto;line-height:1.8;opacity:0.9;">
-ECH Digital Library adalah platform perpustakaan digital yang dirancang untuk mendukung generasi muda dalam mengakses informasi secara cepat, akurat, dan interaktif. Kami percaya bahwa literasi digital adalah kunci masa depan pendidikan. Melalui sistem yang modern dan ramah pengguna, kami membantu siswa menjelajahi dunia pengetahuan tanpa batas.
+ECH Digital Library adalah platform perpustakaan digital yang dirancang untuk mendukung generasi muda dalam mengakses informasi secara cepat, akurat, dan interaktif. Kami percaya bahwa literasi digital adalah kunci masa depan pendidikan.
 </p>
 
 </section>
@@ -310,6 +394,14 @@ ECH Digital Library adalah platform perpustakaan digital yang dirancang untuk me
 </div>
 
 <script>
+
+function openMenu(){
+document.getElementById("sideMenu").classList.add("active");
+}
+
+function closeMenu(){
+document.getElementById("sideMenu").classList.remove("active");
+}
 
 let currentUser="";
 
