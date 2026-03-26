@@ -1,591 +1,141 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ECH Digital Library</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ECH Digital Library</title>
 
-  <!-- FONT & ICON -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);color:white}
 
-    html {
-      scroll-behavior: smooth;
-    }
+/* LOGIN */
+.auth-page{display:flex;justify-content:center;align-items:center;height:100vh}
+.auth-box{background:rgba(255,255,255,0.1);padding:35px;border-radius:15px;width:320px;text-align:center}
+.auth-box input{width:100%;padding:10px;margin:10px 0;border:none;border-radius:6px}
+.auth-box button{width:100%;padding:10px;border:none;border-radius:20px;background:#4fd1ff}
 
-    body {
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      color: white;
-      overflow-x: hidden;
-    }
+/* HOME */
+#homePage{display:none}
 
-    /* LOGIN */
-    .auth-page {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
+/* NAV */
+nav{display:flex;justify-content:space-between;padding:15px 40px;background:rgba(0,0,0,0.4)}
+.menu-btn{font-size:25px;cursor:pointer}
 
-    .auth-box {
-      background: rgba(255, 255, 255, 0.1);
-      padding: 35px;
-      border-radius: 15px;
-      backdrop-filter: blur(10px);
-      width: 320px;
-      text-align: center;
-    }
+/* HERO */
+.hero{padding:100px 20px;text-align:center}
+.hero h1{font-size:45px;color:#4fd1ff;margin-bottom:20px}
 
-    .auth-box input {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border: none;
-      border-radius: 6px;
-    }
+/* COLLECTION */
+.collection{padding:70px 20px;text-align:center}
+.book-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;max-width:1000px;margin:auto}
+.book-card{background:rgba(255,255,255,0.1);padding:20px;border-radius:15px}
 
-    .auth-box button {
-      width: 100%;
-      padding: 10px;
-      border: none;
-      border-radius: 20px;
-      background: #4fd1ff;
-      cursor: pointer;
-      font-weight: 600;
-    }
+/* CONTACT + GAME */
+.contact-game{display:flex;flex-wrap:wrap;justify-content:center;gap:40px;padding:70px}
+.box{background:rgba(255,255,255,0.1);padding:20px;border-radius:15px;width:300px;text-align:center}
 
-    .auth-links {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 10px;
-      font-size: 13px;
-    }
+/* GAME */
+input{padding:8px;border-radius:8px;border:none;margin:5px}
 
-    .auth-links a {
-      color: #4fd1ff;
-      text-decoration: none;
-      cursor: pointer;
-    }
-
-    /* HOME */
-    #homePage {
-      display: none;
-      min-height: 100vh;
-      flex-direction: column;
-    }
-
-    /* NAVBAR */
-    nav {
-      background: rgba(0, 0, 0, 0.4);
-      padding: 15px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .logo-area h2 {
-      color: #4fd1ff;
-    }
-
-    .menu-btn {
-      font-size: 28px;
-      cursor: pointer;
-    }
-
-    /* SIDE MENU */
-    .side-menu {
-      position: fixed;
-      top: 0;
-      right: -300px;
-      width: 300px;
-      height: 100%;
-      background: white;
-      color: black;
-      padding: 30px;
-      transition: 0.4s;
-      z-index: 2000;
-    }
-
-    .side-menu.active {
-      right: 0;
-    }
-
-    .side-menu h3 {
-      margin-bottom: 20px;
-    }
-
-    .side-menu a {
-      display: block;
-      margin: 15px 0;
-      text-decoration: none;
-      color: black;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    .close-btn {
-      font-size: 30px;
-      cursor: pointer;
-      position: absolute;
-      right: 20px;
-      top: 15px;
-    }
-
-    /* HERO */
-    .hero {
-      padding: 100px 20px;
-      text-align: center;
-      animation: fadeIn 1.5s ease;
-    }
-
-    .hero h1 {
-      font-size: 45px;
-      color: #4fd1ff;
-      margin-bottom: 20px;
-    }
-
-    .hero p {
-      max-width: 700px;
-      margin: auto;
-      opacity: 0.85;
-      line-height: 1.7;
-    }
-
-    .hero span {
-      color: #4fd1ff;
-      font-weight: 600;
-    }
-
-    /* COLLECTION */
-    .collection {
-      padding: 70px 20px;
-      text-align: center;
-    }
-
-    .collection h2 {
-      margin-bottom: 40px;
-      color: #4fd1ff;
-    }
-
-    .book-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 25px;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    .book-card {
-      background: rgba(255, 255, 255, 0.1);
-      padding: 20px;
-      border-radius: 15px;
-      transition: 0.3s;
-      cursor: pointer;
-    }
-
-    .book-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 0 25px rgba(79, 209, 255, 0.7);
-    }
-
-    .book-card i {
-      font-size: 40px;
-      margin-bottom: 15px;
-      color: #4fd1ff;
-    }
-
-    /* CONTACT */
-    .contact {
-      padding: 70px 20px;
-      text-align: center;
-    }
-
-    .contact-box {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      flex-wrap: wrap;
-    }
-
-    .contact-item {
-      width: 70px;
-      height: 70px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 30px;
-      color: white;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-
-    .contact-item:hover {
-      transform: scale(1.1);
-    }
-
-    .wa {
-      background: #25D366;
-    }
-
-    .ig {
-      background: linear-gradient(45deg, #fd1d1d, #e1306c, #833ab4);
-    }
-
-    .email {
-      background: #4fd1ff;
-    }
-
-    /* FEEDBACK */
-    .feedback-box {
-      display: none;
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(12px);
-      padding: 20px;
-      border-radius: 15px;
-      width: 280px;
-    }
-
-    .feedback-box input,
-    .feedback-box textarea {
-      width: 100%;
-      padding: 8px;
-      margin-bottom: 10px;
-      border: none;
-      border-radius: 8px;
-    }
-
-    .feedback-box button {
-      width: 100%;
-      padding: 8px;
-      border: none;
-      border-radius: 20px;
-      background: #4fd1ff;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .close-feedback {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      font-size: 20px;
-      cursor: pointer;
-      color: white;
-    }
-
-    /* FOOTER */
-    footer {
-      padding: 20px;
-      text-align: center;
-      background: rgba(0, 0, 0, 0.4);
-      margin-top: 50px;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-  </style>
+</style>
 </head>
 
 <body>
 
-  <!-- LOGIN -->
-  <div id="loginPage" class="auth-page">
-    <div class="auth-box">
-      <h2>ECH Digital Library</h2>
-
-      <div id="errorMsg"></div>
-
-      <form onsubmit="login(event)">
-        <input type="email" id="loginEmail" placeholder="Email" required>
-        <input type="password" id="loginPassword" placeholder="Password" required>
-        <button type="submit">Masuk</button>
-      </form>
-
-      <div class="auth-links">
-        <a onclick="showRegister()">Belum memiliki akun? Daftar sekarang</a>
-        <a onclick="showForgot()">Lupa sandi?</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- REGISTER -->
-  <div id="registerPage" class="auth-page" style="display:none;">
-    <div class="auth-box">
-      <h2>Daftar Anggota</h2>
-
-      <form onsubmit="register(event)">
-        <input type="text" id="regFirst" placeholder="First Name" required>
-        <input type="text" id="regLast" placeholder="Last Name" required>
-        <input type="email" id="regEmail" placeholder="Email" required>
-        <input type="password" id="regPassword" placeholder="Password" required>
-        <input type="text" id="regPhone" placeholder="Nomor Handphone" required>
-
-        <button type="submit">Daftar</button>
-      </form>
-
-      <div style="margin-top:10px;">
-        <a onclick="showLogin()" style="color:#4fd1ff;cursor:pointer;">Kembali ke Login</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- HOME -->
-  <div id="homePage">
-
-    <nav>
-      <div class="logo-area">
-        <h2>ECH Digital Library</h2>
-      </div>
-
-      <div class="menu-btn" onclick="openMenu()">
-        <i class="fas fa-bars"></i>
-      </div>
-    </nav>
-
-    <!-- SIDE MENU -->
-    <div class="side-menu" id="sideMenu">
-      <div class="close-btn" onclick="closeMenu()">✕</div>
-
-      <h3>MENU</h3>
-
-      <a href="#home">Home</a>
-      <a>Service</a>
-      <a href="#collection">Collection</a>
-      <a href="profil.html">Profil</a>
-      <a href="library-news.html">Library News</a>
-      <a>Membership</a>
-      <a href="https://drive.google.com/file/d/1NDT8TYpnyim2lDyLb2Qpnk6EIdxlJNU0/view?usp=drivesdk" target="_blank">Librarian</a>
-      <a href="#contact">Contact</a>
-      <a onclick="toggleFeedback()">Feedback</a>
-      <a href="#about">About Us</a>
-    </div>
-
-    <!-- HERO -->
-<section id="collection" class="collection">
-<h2>Koleksi Buku Interaktif</h2>
-
-<div class="book-grid">
-
-<div class="book-card"><i class="fas fa-book"></i><h4>Fisika SMA</h4></div>
-<div class="book-card"><i class="fas fa-book"></i><h4>Biologi SMA</h4></div>
-<div class="book-card"><i class="fas fa-book"></i><h4>Matematika</h4></div>
-<div class="book-card"><i class="fas fa-book"></i><h4>Sejarah</h4></div>
-<div class="book-card"><i class="fas fa-book"></i><h4>Ekonomi</h4></div>
-<div class="book-card"><i class="fas fa-book"></i><h4>Bahasa Indonesia</h4></div>
-<div class="book-card"><i class="fas fa-book"></i><h4>Bahasa Inggris</h4></div>
-<div class="book-card"><i class="fas fa-book"></i><h4>Geografi</h4></div>
-<div class="book-card"><i class="fas fa-book"></i><h4>Informatika</h4></div>
-<div class="book-card"><i class="fas fa-book"></i><h4>Kimia</h4></div>
-<div class="book-card"><i class="fas fa-book"></i><h4>PPKn</h4></div>
-
+<!-- LOGIN -->
+<div id="loginPage" class="auth-page">
+<div class="auth-box">
+<h2>ECH Digital Library</h2>
+<form onsubmit="login(event)">
+<input id="loginEmail" placeholder="Email" required>
+<input id="loginPassword" placeholder="Password" required>
+<button>Masuk</button>
+</form>
 </div>
+</div>
+
+<!-- HOME -->
+<div id="homePage">
+
+<nav>
+<h2>ECH Digital Library</h2>
+<div class="menu-btn">☰</div>
+</nav>
+
+<!-- HERO (FIXED) -->
+<section class="hero">
+<h1>Welcome to Esra Digital Library</h1>
+<p>Ruang literasi digital untuk semua ✨</p>
 </section>
 
+<!-- KOLEKSI -->
 <section class="collection">
-<h2>Event Perlombaan</h2>
-
+<h2>Koleksi Buku Interaktif</h2>
 <div class="book-grid">
 
-<div class="book-card">
-<i class="fas fa-trophy"></i>
-<h4>Lomba Essay</h4>
-<p>Tanggal: 1-10 Maret 2026<br>Online</p>
-<a href="https://www.instagram.com/p/DVZIg1jE0HD/?igsh=cnlrNjRlZTA5OHFv" target="_blank">
-<button class="event-btn">Info Selengkapnya</button>
-</a>
-</div>
-
-<div class="book-card">
-<i class="fas fa-brain"></i>
-<h4>Cerdas Cermat</h4>
-<p>Tanggal: 4-15 Agustus 2023</p>
-<a href="https://www.instagram.com/p/CvhAE3gBPvs/?igsh=M2w4azRmZnU3dTE=" target="_blank">
-<button class="event-btn">Info Selengkapnya</button>
-</a>
-</div>
-
-<div class="book-card">
-<i class="fas fa-pen"></i>
-<h4>Pelatihan Menulis</h4>
-<p>Tanggal: 28 Desember 2025</p>
-<a href="https://www.instagram.com/p/DSzYIIgiZVm/?igsh=MXJha3U2NnVjc2MxNw==" target="_blank">
-<button class="event-btn">Info Selengkapnya</button>
-</a>
-</div>
+<a href="#"><div class="book-card">Fisika</div></a>
+<a href="#"><div class="book-card">Biologi</div></a>
+<a href="#"><div class="book-card">Matematika</div></a>
+<a href="#"><div class="book-card">Sejarah</div></a>
 
 </div>
 </section>
 
+<!-- EVENT -->
+<section class="collection">
+<h2>Event</h2>
+<div class="book-grid">
+<div class="book-card">Lomba Essay</div>
+<div class="book-card">Cerdas Cermat</div>
+</div>
+</section>
 
-    <!-- CONTACT -->
-    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:40px;padding:50px 20px;">
+<!-- CONTACT + GAME -->
+<section class="contact-game">
 
-  <!-- CONTACT -->
-  <section id="contact" class="contact">
-    <h2>Contact</h2>
+<div class="box">
+<h3>Contact</h3>
+<p>WhatsApp</p>
+<p>Instagram</p>
+</div>
 
-    <div class="contact-box">
-      <a href="https://wa.me/6282169967447" target="_blank" class="contact-item wa">
-        <i class="fab fa-whatsapp"></i>
-      </a>
+<div class="box">
+<h3>Game Matematika</h3>
+<p id="soal"></p>
+<input id="jawaban" placeholder="Jawaban">
+<button onclick="cek()">Jawab</button>
+<p id="hasil"></p>
+</div>
 
-      <a href="https://instagram.com/eecsh_" target="_blank" class="contact-item ig">
-        <i class="fab fa-instagram"></i>
-      </a>
+</section>
 
-      <a href="mailto:esradewitriputri08@gmail.com" class="contact-item email">
-        <i class="fas fa-envelope"></i>
-      </a>
-    </div>
-  </section>
+</div>
 
-  <!-- GAME -->
-  <div style="background:rgba(255,255,255,0.1);padding:20px;border-radius:15px;width:260px;">
-    <h3>🎮 Game Matematika</h3>
-    <p id="question"></p>
-    <input type="number" id="answer" placeholder="Jawaban"
-      style="width:100%;padding:8px;margin:10px 0;border-radius:8px;border:none;">
-    <button onclick="checkAnswer()">Cek</button>
-    <button onclick="newQuestion()">Soal Baru</button>
-    <p id="result"></p>
-  </div>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about" class="collection">
-      <h2>About Us</h2>
-      <p style="max-width:800px;margin:20px auto;line-height:1.8;opacity:0.9;">
-        ECH Digital Library adalah platform perpustakaan digital
-        yang dirancang untuk mendukung generasi muda dalam mengakses
-        informasi secara cepat, akurat, dan interaktif.
-      </p>
-    </section>
-
-    <footer>
-      © 2026 ECH Digital Library
-    </footer>
-
-  </div>
-
-  <!-- FEEDBACK -->
-  <div class="feedback-box" id="feedbackBox">
-    <span class="close-feedback" onclick="toggleFeedback()">✕</span>
-
-    <input type="text" id="fbName" placeholder="Nama">
-    <textarea id="fbMessage" rows="3" placeholder="Masukan"></textarea>
-
-    <button onclick="sendFeedback()">Kirim</button>
-  </div>
-
-  <!-- SCRIPT -->
-  <script>
-    function openMenu() {
-      document.getElementById("sideMenu").classList.add("active");
-    }
-
-    function closeMenu() {
-      document.getElementById("sideMenu").classList.remove("active");
-    }
-
-    let currentUser = "";
-
-    function showRegister() {
-      loginPage.style.display = "none";
-      registerPage.style.display = "flex";
-    }
-
-    function showLogin() {
-      registerPage.style.display = "none";
-      loginPage.style.display = "flex";
-    }
-
-    function showForgot() {
-      alert("Fitur reset password belum tersedia.");
-    }
-
-    function register(e) {
-      e.preventDefault();
-
-      let fullName = regFirst.value + " " + regLast.value;
-
-      localStorage.setItem(regEmail.value, JSON.stringify({
-        password: regPassword.value,
-        name: fullName,
-        email: regEmail.value,
-        phone: regPhone.value
-      }));
-
-      alert("Pendaftaran berhasil!");
-      showLogin();
-    }
-
-    function login(e) {
-      e.preventDefault();
-
-      let data = JSON.parse(localStorage.getItem(loginEmail.value));
-
-      if (data && data.password === loginPassword.value) {
-        currentUser = data.name;
-        loginPage.style.display = "none";
-        homePage.style.display = "flex";
-      } else {
-        errorMsg.innerText = "Email atau Password salah!";
-      }
-    }
-
-    function toggleFeedback() {
-      feedbackBox.style.display =
-        feedbackBox.style.display === "block" ? "none" : "block";
-    }
-
-    function sendFeedback() {
-      alert("Terima kasih atas masukan Anda!");
-      fbName.value = "";
-      fbMessage.value = "";
-      toggleFeedback();
-    }
-  </script> let a, b;
-
-function newQuestion() {
-  a = Math.floor(Math.random() * 10);
-  b = Math.floor(Math.random() * 10);
-  document.getElementById("question").innerText = `Berapa ${a} + ${b}?`;
+<script>
+function login(e){
+e.preventDefault();
+loginPage.style.display="none";
+homePage.style.display="block";
 }
 
-function checkAnswer() {
-  let ans = document.getElementById("answer").value;
-  if (parseInt(ans) === a + b) {
-    document.getElementById("result").innerText = "✅ Benar!";
-  } else {
-    document.getElementById("result").innerText = "❌ Salah!";
-  }
-}
+/* GAME */
+let a=Math.floor(Math.random()*10);
+let b=Math.floor(Math.random()*10);
+soal.innerText=a+" + "+b;
 
-newQuestion();
+function cek(){
+let j=parseInt(jawaban.value);
+if(j===a+b){
+hasil.innerText="Benar!";
+}else{
+hasil.innerText="Salah!";
+}
+}
+</script>
 
 </body>
 </html>
