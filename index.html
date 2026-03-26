@@ -17,9 +17,7 @@ box-sizing:border-box;
 font-family:'Poppins',sans-serif;
 }
 
-html{
-scroll-behavior:smooth;
-}
+html{scroll-behavior:smooth;}
 
 body{
 background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
@@ -28,7 +26,6 @@ overflow-x:hidden;
 }
 
 /* LOGIN */
-
 .auth-page{
 display:flex;
 justify-content:center;
@@ -77,7 +74,6 @@ cursor:pointer;
 }
 
 /* HOME */
-
 #homePage{
 display:none;
 min-height:100vh;
@@ -85,7 +81,6 @@ flex-direction:column;
 }
 
 /* NAVBAR */
-
 nav{
 background:rgba(0,0,0,0.4);
 padding:15px 40px;
@@ -97,19 +92,33 @@ top:0;
 z-index:1000;
 }
 
-.logo-area h2{
-color:#4fd1ff;
+.logo-area h2{color:#4fd1ff;}
+
+/* SEARCH */
+.search-box{
+display:flex;
+align-items:center;
+background:white;
+padding:5px 10px;
+border-radius:20px;
+width:250px;
 }
 
-/* MENU BUTTON */
+.search-box input{
+border:none;
+outline:none;
+width:100%;
+}
 
+.search-box i{color:#4fd1ff;}
+
+/* MENU */
 .menu-btn{
 font-size:28px;
 cursor:pointer;
 }
 
 /* SIDE MENU */
-
 .side-menu{
 position:fixed;
 top:0;
@@ -123,21 +132,13 @@ transition:0.4s;
 z-index:2000;
 }
 
-.side-menu.active{
-right:0;
-}
-
-.side-menu h3{
-margin-bottom:20px;
-}
+.side-menu.active{right:0;}
 
 .side-menu a{
 display:block;
 margin:15px 0;
 text-decoration:none;
 color:black;
-font-size:16px;
-cursor:pointer;
 }
 
 .close-btn{
@@ -149,11 +150,9 @@ top:15px;
 }
 
 /* HERO */
-
 .hero{
 padding:100px 20px;
 text-align:center;
-animation:fadeIn 1.5s ease;
 }
 
 .hero h1{
@@ -162,20 +161,7 @@ color:#4fd1ff;
 margin-bottom:20px;
 }
 
-.hero p{
-max-width:700px;
-margin:auto;
-opacity:0.85;
-line-height:1.7;
-}
-
-.hero span{
-color:#4fd1ff;
-font-weight:600;
-}
-
 /* COLLECTION */
-
 .collection{
 padding:70px 20px;
 text-align:center;
@@ -198,8 +184,8 @@ margin:auto;
 background:rgba(255,255,255,0.1);
 padding:20px;
 border-radius:15px;
-transition:0.3s;
 cursor:pointer;
+transition:0.3s;
 }
 
 .book-card:hover{
@@ -209,12 +195,22 @@ box-shadow:0 0 25px rgba(79,209,255,0.7);
 
 .book-card i{
 font-size:40px;
-margin-bottom:15px;
+margin-bottom:10px;
 color:#4fd1ff;
 }
 
-/* CONTACT */
+/* EVENT BUTTON */
+.event-btn{
+margin-top:10px;
+padding:8px 15px;
+border:none;
+border-radius:20px;
+background:#4fd1ff;
+font-weight:bold;
+cursor:pointer;
+}
 
+/* CONTACT */
 .contact{
 padding:70px 20px;
 text-align:center;
@@ -237,79 +233,17 @@ justify-content:center;
 font-size:30px;
 color:white;
 text-decoration:none;
-transition:0.3s;
 }
 
-.contact-item:hover{
-transform:scale(1.1);
-}
-
-.wa{
-background:#25D366;
-}
-
-.ig{
-background:linear-gradient(45deg,#fd1d1d,#e1306c,#833ab4);
-}
-
-.email{
-background:#4fd1ff;
-}
-
-/* FEEDBACK */
-
-.feedback-box{
-display:none;
-position:fixed;
-bottom:30px;
-right:30px;
-background:rgba(255,255,255,0.1);
-backdrop-filter:blur(12px);
-padding:20px;
-border-radius:15px;
-width:280px;
-}
-
-.feedback-box input,
-.feedback-box textarea{
-width:100%;
-padding:8px;
-margin-bottom:10px;
-border:none;
-border-radius:8px;
-}
-
-.feedback-box button{
-width:100%;
-padding:8px;
-border:none;
-border-radius:20px;
-background:#4fd1ff;
-font-weight:bold;
-cursor:pointer;
-}
-
-.close-feedback{
-position:absolute;
-top:10px;
-right:15px;
-font-size:20px;
-cursor:pointer;
-color:white;
-}
+.wa{background:#25D366;}
+.ig{background:linear-gradient(45deg,#fd1d1d,#e1306c,#833ab4);}
+.email{background:#4fd1ff;}
 
 /* FOOTER */
-
 footer{
 padding:20px;
 text-align:center;
 background:rgba(0,0,0,0.4);
-margin-top:50px;
-}
-
-@keyframes fadeIn{
-from{opacity:0;transform:translateY(20px);}
-to{opacity:1;transform:translateY(0);}
 }
 
 </style>
@@ -317,15 +251,9 @@ to{opacity:1;transform:translateY(0);}
 
 <body>
 
-<!-- LOGIN -->
-
 <div id="loginPage" class="auth-page">
-
 <div class="auth-box">
-
 <h2>ECH Digital Library</h2>
-
-<div id="errorMsg"></div>
 
 <form onsubmit="login(event)">
 <input type="email" id="loginEmail" placeholder="Email" required>
@@ -334,125 +262,104 @@ to{opacity:1;transform:translateY(0);}
 </form>
 
 <div class="auth-links">
-<a onclick="showRegister()">Belum memiliki akun? Daftar sekarang</a>
-<a onclick="showForgot()">Lupa sandi?</a>
+<a onclick="showRegister()">Daftar</a>
 </div>
 
 </div>
 </div>
-
-<!-- REGISTER -->
-
-<div id="registerPage" class="auth-page" style="display:none;">
-
-<div class="auth-box">
-
-<h2>Daftar Anggota</h2>
-
-<form onsubmit="register(event)">
-
-<input type="text" id="regFirst" placeholder="First Name" required>
-<input type="text" id="regLast" placeholder="Last Name" required>
-<input type="email" id="regEmail" placeholder="Email" required>
-<input type="password" id="regPassword" placeholder="Password" required>
-<input type="text" id="regPhone" placeholder="Nomor Handphone" required>
-
-<button type="submit">Daftar</button>
-
-</form>
-
-<div style="margin-top:10px;">
-<a onclick="showLogin()" style="color:#4fd1ff;cursor:pointer;">Kembali ke Login</a>
-</div>
-
-</div>
-</div>
-
-<!-- HOME -->
 
 <div id="homePage">
 
 <nav>
-
 <div class="logo-area">
 <h2>ECH Digital Library</h2>
+</div>
+
+<div class="search-box">
+<input type="text" id="searchInput" placeholder="Cari buku...">
+<i class="fas fa-search"></i>
 </div>
 
 <div class="menu-btn" onclick="openMenu()">
 <i class="fas fa-bars"></i>
 </div>
-
 </nav>
 
-<!-- SIDE MENU -->
-
 <div class="side-menu" id="sideMenu">
-
 <div class="close-btn" onclick="closeMenu()">✕</div>
 
-<h3>MENU</h3>
-
 <a href="#home">Home</a>
-<a>Service</a>
 <a href="#collection">Collection</a>
 <a href="profil.html">Profil</a>
-<a href="library-news.html">Library News</a>
-<a>Membership</a>
-<a href="https://drive.google.com/file/d/1NDT8TYpnyim2lDyLb2Qpnk6EIdxlJNU0/view?usp=drivesdk" target="_blank">Librarian</a>
-<a href="#contact">Contact</a>
-<a onclick="toggleFeedback()">Feedback</a>
-<a href="#about">About Us</a>
+<a href="#about">About</a>
 
 </div>
 
-<section id="home" class="hero">
-
-<h1>Welcome to <span>ECH Digital Library</span></h1>
-
-<p>
-Ruang literasi digital ini hadir sebagai tempat pembelajaran terbuka,
-akses informasi, serta pengembangan kreativitas bagi semua orang.
-Mari temukan ribuan buku seru yang siap menemanimu hari ini ✨
-</p>
-
+<section class="hero" id="home">
+<h1>Welcome to ECH Digital Library</h1>
+<p>Temukan berbagai buku menarik dan event seru!</p>
 </section>
 
 <section id="collection" class="collection">
-
 <h2>Koleksi Buku Interaktif</h2>
 
 <div class="book-grid">
 
-<div class="book-card">
-<i class="fas fa-book"></i>
-<h4>Fisika SMA</h4>
+<div class="book-card"><i class="fas fa-book"></i><h4>Fisika SMA</h4></div>
+<div class="book-card"><i class="fas fa-book"></i><h4>Biologi SMA</h4></div>
+<div class="book-card"><i class="fas fa-book"></i><h4>Matematika</h4></div>
+<div class="book-card"><i class="fas fa-book"></i><h4>Sejarah</h4></div>
+
+<div class="book-card"><i class="fas fa-book"></i><h4>Ekonomi</h4></div>
+<div class="book-card"><i class="fas fa-book"></i><h4>Bahasa Indonesia</h4></div>
+<div class="book-card"><i class="fas fa-book"></i><h4>Bahasa Inggris</h4></div>
+<div class="book-card"><i class="fas fa-book"></i><h4>Geografi</h4></div>
+<div class="book-card"><i class="fas fa-book"></i><h4>Informatika</h4></div>
+<div class="book-card"><i class="fas fa-book"></i><h4>Kimia</h4></div>
+<div class="book-card"><i class="fas fa-book"></i><h4>PPKn</h4></div>
+
 </div>
+</section>
+
+<section class="collection">
+<h2>Event & Perlombaan</h2>
+
+<div class="book-grid">
 
 <div class="book-card">
-<i class="fas fa-book"></i>
-<h4>Biologi SMA</h4>
+<i class="fas fa-trophy"></i>
+<h4>Lomba Essay</h4>
+<p>Tanggal: Segera<br>Online</p>
+<a href="https://www.instagram.com/p/DVZIg1jE0HD/?igsh=cnlrNjRlZTA5OHFv" target="_blank">
+<button class="event-btn">Info Selengkapnya</button>
+</a>
 </div>
 
 <div class="book-card">
-<i class="fas fa-book"></i>
-<h4>Matematika</h4>
+<i class="fas fa-brain"></i>
+<h4>Cerdas Cermat</h4>
+<p>Tanggal: Segera</p>
+<a href="https://www.instagram.com/p/CvhAE3gBPvs/?igsh=M2w4azRmZnU3dTE=" target="_blank">
+<button class="event-btn">Info Selengkapnya</button>
+</a>
 </div>
 
 <div class="book-card">
-<i class="fas fa-book"></i>
-<h4>Sejarah</h4>
+<i class="fas fa-pen"></i>
+<h4>Pelatihan Menulis</h4>
+<p>Tanggal: Segera</p>
+<a href="https://www.instagram.com/p/DSzYIIgiZVm/?igsh=MXJha3U2NnVjc2MxNw==" target="_blank">
+<button class="event-btn">Info Selengkapnya</button>
+</a>
 </div>
 
 </div>
-
 </section>
 
 <section id="contact" class="contact">
-
 <h2>Contact</h2>
 
 <div class="contact-box">
-
 <a href="https://wa.me/6282169967447" target="_blank" class="contact-item wa">
 <i class="fab fa-whatsapp"></i>
 </a>
@@ -464,122 +371,33 @@ Mari temukan ribuan buku seru yang siap menemanimu hari ini ✨
 <a href="mailto:esradewitriputri08@gmail.com" class="contact-item email">
 <i class="fas fa-envelope"></i>
 </a>
-
 </div>
-
 </section>
 
-<section id="about" class="collection">
-
-<h2>About Us</h2>
-
-<p style="max-width:800px;margin:20px auto;line-height:1.8;opacity:0.9;">
-ECH Digital Library adalah platform perpustakaan digital
-yang dirancang untuk mendukung generasi muda dalam mengakses
-informasi secara cepat, akurat, dan interaktif.
-</p>
-
-</section>
-
-<footer>
-© 2026 ECH Digital Library
-</footer>
-
-</div>
-
-<!-- FEEDBACK BOX -->
-
-<div class="feedback-box" id="feedbackBox">
-
-<span class="close-feedback" onclick="toggleFeedback()">✕</span>
-
-<input type="text" id="fbName" placeholder="Nama">
-
-<textarea id="fbMessage" rows="3" placeholder="Masukan"></textarea>
-
-<button onclick="sendFeedback()">Kirim</button>
+<footer>© 2026 ECH Digital Library</footer>
 
 </div>
 
 <script>
 
-function openMenu(){
-document.getElementById("sideMenu").classList.add("active");
-}
-
-function closeMenu(){
-document.getElementById("sideMenu").classList.remove("active");
-}
-
-let currentUser="";
-
-function showRegister(){
-loginPage.style.display="none";
-registerPage.style.display="flex";
-}
-
-function showLogin(){
-registerPage.style.display="none";
-loginPage.style.display="flex";
-}
-
-function showForgot(){
-alert("Fitur reset password belum tersedia.");
-}
-
-function register(e){
-
-e.preventDefault();
-
-let fullName = regFirst.value + " " + regLast.value;
-
-localStorage.setItem(regEmail.value, JSON.stringify({
-password: regPassword.value,
-name: fullName,
-email: regEmail.value,
-phone: regPhone.value
-}));
-
-alert("Pendaftaran berhasil!");
-showLogin();
-
-}
+function openMenu(){sideMenu.classList.add("active");}
+function closeMenu(){sideMenu.classList.remove("active");}
 
 function login(e){
-
 e.preventDefault();
-
-let data = JSON.parse(localStorage.getItem(loginEmail.value));
-
-if(data && data.password === loginPassword.value){
-
-currentUser=data.name;
-
 loginPage.style.display="none";
 homePage.style.display="flex";
-
-}else{
-
-errorMsg.innerText="Email atau Password salah!";
-
 }
 
-}
+/* SEARCH */
+searchInput.addEventListener("keyup", function(){
+let filter = this.value.toLowerCase();
+let cards = document.querySelectorAll(".book-card");
 
-function toggleFeedback(){
-feedbackBox.style.display = feedbackBox.style.display === "block" ? "none" : "block";
-}
-
-function sendFeedback(){
-
-alert("Terima kasih atas masukan Anda!");
-
-fbName.value="";
-fbMessage.value="";
-
-toggleFeedback();
-
-}
+cards.forEach(card=>{
+card.style.display = card.innerText.toLowerCase().includes(filter) ? "block":"none";
+});
+});
 
 </script>
 
