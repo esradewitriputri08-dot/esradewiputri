@@ -19,7 +19,7 @@ align-items:center;
 justify-content:space-between;
 padding:15px 40px;
 background:rgba(0,0,0,0.4);
-position:sticky;top:0;z-index:1000;
+position:sticky;top:0;
 }
 
 .logo-area h2{color:#4fd1ff}
@@ -30,7 +30,6 @@ flex:1;
 display:flex;
 justify-content:center;
 }
-
 .search-box input{
 width:60%;
 padding:8px 15px;
@@ -38,9 +37,6 @@ border-radius:20px;
 border:none;
 outline:none;
 }
-
-/* MENU */
-.menu-btn{font-size:28px;cursor:pointer}
 
 /* HERO */
 .hero{text-align:center;padding:80px 20px}
@@ -65,8 +61,8 @@ transform:translateY(-8px);
 box-shadow:0 0 20px #4fd1ff;
 }
 
-/* CONTACT + GAME WRAPPER */
-.contact-game-wrapper{
+/* CONTACT + GAME */
+.contact-wrapper{
 display:flex;
 justify-content:center;
 align-items:flex-start;
@@ -75,7 +71,6 @@ flex-wrap:wrap;
 padding:60px 20px;
 }
 
-/* CONTACT */
 .contact{text-align:center}
 .contact-box{
 display:flex;
@@ -83,11 +78,13 @@ gap:20px;
 justify-content:center;
 margin-top:20px;
 }
+
 .contact-item{
 width:70px;height:70px;border-radius:50%;
 display:flex;align-items:center;justify-content:center;
 font-size:28px;color:white;
 }
+
 .wa{background:#25D366}
 .ig{background:linear-gradient(45deg,#fd1d1d,#e1306c,#833ab4)}
 .email{background:#4fd1ff}
@@ -97,39 +94,36 @@ font-size:28px;color:white;
 background:rgba(255,255,255,0.1);
 padding:25px;
 border-radius:15px;
-width:300px;
+width:280px;
 backdrop-filter:blur(10px);
 }
 
-.game-box h3{margin-bottom:10px}
 .game-box input{
 width:100%;
 padding:10px;
+margin:10px 0;
 border-radius:10px;
 border:none;
-margin:10px 0;
 }
 
 .game-box button{
-padding:10px 15px;
+padding:8px 12px;
 border:none;
 border-radius:20px;
 background:#4fd1ff;
-margin-right:10px;
 cursor:pointer;
+margin-right:5px;
 }
 
 /* FOOTER */
-footer{
-text-align:center;
-padding:20px;
-background:rgba(0,0,0,0.4);
-margin-top:40px;
-}
+footer{text-align:center;padding:20px;background:rgba(0,0,0,0.4);}
 </style>
 </head>
 
 <body>
+
+<!-- HOME -->
+<div id="homePage" style="display:flex;flex-direction:column;">
 
 <nav>
   <div class="logo-area">
@@ -147,8 +141,7 @@ margin-top:40px;
 </nav>
 
 <section class="hero">
-  <h1>Welcome to ECH Digital Library</h1>
-  <p>Temukan berbagai buku menarik di sini ✨</p>
+<h1>Welcome to <span>ECH Digital Library</span></h1>
 </section>
 
 <section class="collection">
@@ -159,77 +152,65 @@ margin-top:40px;
 <div class="book-card">Biologi SMA</div>
 <div class="book-card">Matematika</div>
 <div class="book-card">Sejarah</div>
-<div class="book-card">Ekonomi</div>
-<div class="book-card">Bahasa Indonesia</div>
-<div class="book-card">Bahasa Inggris</div>
-<div class="book-card">Geografi</div>
-<div class="book-card">Informatika</div>
-<div class="book-card">Kimia</div>
-<div class="book-card">PPKn</div>
-<div class="book-card">Seni</div>
 </div>
 </section>
 
 <!-- CONTACT + GAME -->
-<div class="contact-game-wrapper">
+<div class="contact-wrapper">
 
-  <!-- CONTACT -->
-  <div class="contact">
-    <h2>Contact</h2>
-    <div class="contact-box">
-      <a href="#" class="contact-item wa"><i class="fab fa-whatsapp"></i></a>
-      <a href="#" class="contact-item ig"><i class="fab fa-instagram"></i></a>
-      <a href="#" class="contact-item email"><i class="fas fa-envelope"></i></a>
-    </div>
-  </div>
+<div class="contact">
+<h2>Contact</h2>
+<div class="contact-box">
+<a href="#" class="contact-item wa"><i class="fab fa-whatsapp"></i></a>
+<a href="#" class="contact-item ig"><i class="fab fa-instagram"></i></a>
+<a href="#" class="contact-item email"><i class="fas fa-envelope"></i></a>
+</div>
+</div>
 
-  <!-- GAME -->
-  <div class="game-box">
-    <h3>🎮 Game Matematika</h3>
-    <p id="question">Berapa 2 + 3 ?</p>
-    <input type="number" id="answer" placeholder="Jawaban kamu">
-    <br>
-    <button onclick="checkAnswer()">Cek Jawaban</button>
-    <button onclick="newQuestion()">Soal Baru</button>
-    <p id="result"></p>
-  </div>
+<div class="game-box">
+<h3>🎮 Game Matematika</h3>
+<p id="question"></p>
+<input type="number" id="answer" placeholder="Jawaban kamu">
+<button onclick="checkAnswer()">Cek</button>
+<button onclick="newQuestion()">Soal Baru</button>
+<p id="result"></p>
+</div>
 
 </div>
 
 <footer>© 2026 ECH Digital Library</footer>
 
+</div>
+
 <script>
 /* SEARCH */
-const searchInput = document.getElementById("searchInput");
-searchInput.addEventListener("keyup", function(){
-  let filter = searchInput.value.toLowerCase();
-  let books = document.querySelectorAll(".book-card");
+document.getElementById("searchInput").addEventListener("keyup", function(){
+let filter = this.value.toLowerCase();
+let books = document.querySelectorAll(".book-card");
 
-  books.forEach(book=>{
-    let text = book.innerText.toLowerCase();
-    book.style.display = text.includes(filter) ? "block" : "none";
-  });
+books.forEach(b=>{
+b.style.display = b.innerText.toLowerCase().includes(filter) ? "block":"none";
+});
 });
 
 /* GAME */
-let num1, num2;
+let a,b;
 
 function newQuestion(){
-  num1 = Math.floor(Math.random()*10);
-  num2 = Math.floor(Math.random()*10);
-  document.getElementById("question").innerText =
-    "Berapa " + num1 + " + " + num2 + " ?";
-  document.getElementById("answer").value = "";
-  document.getElementById("result").innerText = "";
+a=Math.floor(Math.random()*10);
+b=Math.floor(Math.random()*10);
+document.getElementById("question").innerText = `Berapa ${a} + ${b} ?`;
+document.getElementById("answer").value="";
+document.getElementById("result").innerText="";
 }
 
 function checkAnswer(){
-  let ans = document.getElementById("answer").value;
-  if(parseInt(ans) === num1 + num2){
-    document.getElementById("result").innerText = "✅ Benar!";
-  } else {
-    document.getElementById("result").innerText = "❌ Salah!";
-  }
+let ans = document.getElementById("answer").value;
+if(parseInt(ans)===a+b){
+document.getElementById("result").innerText="✅ Benar!";
+}else{
+document.getElementById("result").innerText="❌ Salah!";
+}
 }
 
 newQuestion();
