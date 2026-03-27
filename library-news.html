@@ -26,6 +26,8 @@ header h1{
 color:#4fd1ff;
 }
 
+/* ================= NEWS ================= */
+
 .news-container{
 max-width:1100px;
 margin:auto;
@@ -74,6 +76,64 @@ text-decoration:none;
 font-size:14px;
 }
 
+/* ================= EVENT ================= */
+
+.event-title{
+text-align:center;
+margin-top:60px;
+color:#4fd1ff;
+}
+
+.event-container{
+max-width:1100px;
+margin:auto;
+padding:20px;
+}
+
+.event-card{
+background:rgba(255,255,255,0.1);
+border-radius:15px;
+padding:20px;
+margin-bottom:30px;
+display:flex;
+gap:20px;
+align-items:center;
+backdrop-filter:blur(8px);
+}
+
+.event-card img{
+width:200px;
+border-radius:10px;
+}
+
+.event-content h2{
+color:#4fd1ff;
+margin-bottom:10px;
+}
+
+.event-content .date{
+color:#ffcc70;
+font-weight:600;
+}
+
+.event-content .location{
+font-style:italic;
+opacity:0.8;
+margin-bottom:10px;
+}
+
+.event-content a{
+display:inline-block;
+margin-top:10px;
+background:#4fd1ff;
+color:black;
+padding:8px 15px;
+border-radius:20px;
+text-decoration:none;
+}
+
+/* ================= ARTICLE ================= */
+
 .article{
 max-width:900px;
 margin:60px auto;
@@ -98,6 +158,18 @@ color:#4fd1ff;
 text-decoration:none;
 }
 
+/* RESPONSIVE */
+@media(max-width:768px){
+.event-card{
+flex-direction:column;
+text-align:center;
+}
+
+.event-card img{
+width:100%;
+}
+}
+
 </style>
 </head>
 
@@ -108,75 +180,95 @@ text-decoration:none;
 <p>Informasi menarik seputar dunia belajar, buku, dan literasi untuk pelajar SMP & SMA</p>
 </header>
 
+<!-- ================= NEWS ================= -->
+
 <section class="news-container">
 
 <div class="news-card">
 <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f">
 <h3>5 Buku yang Wajib Dibaca Pelajar</h3>
-<p>Membaca buku dapat meningkatkan wawasan dan kreativitas pelajar. Berikut beberapa buku yang sangat direkomendasikan untuk remaja...</p>
+<p>Membaca buku dapat meningkatkan wawasan dan kreativitas pelajar...</p>
 <a href="#artikel1" class="read-more">Read More</a>
 </div>
 
 <div class="news-card">
 <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b">
 <h3>Cara Belajar Efektif Tanpa Bosan</h3>
-<p>Banyak pelajar merasa bosan ketika belajar. Padahal dengan teknik yang tepat, belajar bisa menjadi kegiatan yang menyenangkan...</p>
+<p>Banyak pelajar merasa bosan ketika belajar...</p>
 <a href="#artikel2" class="read-more">Read More</a>
 </div>
 
 <div class="news-card">
 <img src="https://images.unsplash.com/photo-1513258496099-48168024aec0">
 <h3>Tips Mencari Informasi untuk Tugas Sekolah</h3>
-<p>Internet memiliki banyak informasi, tetapi tidak semuanya dapat dipercaya. Pelajar perlu mengetahui cara mencari sumber yang benar...</p>
+<p>Internet memiliki banyak informasi...</p>
 <a href="#artikel3" class="read-more">Read More</a>
 </div>
 
 </section>
 
-<!-- ARTIKEL -->
+<!-- ================= EVENT ================= -->
+
+<h2 class="event-title">🎉 Event Kegiatan Perlombaan</h2>
+
+<div class="event-container">
+
+<div class="event-card">
+<img src="https://via.placeholder.com/200x300?text=Esai">
+
+<div class="event-content">
+<h2>Lomba Esai Nasional</h2>
+<div class="date">Tanggal: 1-10 Maret 2026</div>
+<div class="location">Online / Nasional</div>
+<p>Tunjukkan ide dan kreativitasmu dalam lomba esai tingkat nasional.</p>
+<a href="https://www.instagram.com/p/DVZIg1jE0HD/?igsh=cnlrNjRlZTA5OHFv" target="_blank">Info Selengkapnya</a>
+</div>
+</div>
+
+<div class="event-card">
+<img src="https://via.placeholder.com/200x300?text=Cerdas+Cermat">
+
+<div class="event-content">
+<h2>Lomba Cerdas Cermat</h2>
+<div class="date">Tanggal: 4-15 Agustus 2024</div>
+<div class="location">Offline</div>
+<p>Uji wawasanmu dalam lomba cerdas cermat yang seru dan kompetitif.</p>
+<a href="https://www.instagram.com/p/CvhAE3gBPvs/?igsh=M2w4azRmZnU3dTE=" target="_blank">Info Selengkapnya</a>
+</div>
+</div>
+
+<div class="event-card">
+<img src="https://via.placeholder.com/200x300?text=Menulis">
+
+<div class="event-content">
+<h2>Pelatihan & Lomba Menulis</h2>
+<div class="date">Tanggal: 28 Desember 2025</div>
+<div class="location">Zoom Meeting</div>
+<p>Asah kemampuan menulismu melalui pelatihan dan lomba sekaligus.</p>
+<a href="https://www.instagram.com/p/DSzYIIgiZVm/?igsh=MXJha3U2NnVjc2MxNw==" target="_blank">Info Selengkapnya</a>
+</div>
+</div>
+
+</div>
+
+<!-- ================= ARTIKEL ================= -->
 
 <section id="artikel1" class="article">
-
 <h2>📖 5 Buku yang Wajib Dibaca Pelajar</h2>
-
-<p>Membaca buku merupakan kebiasaan penting bagi pelajar karena dapat memperluas wawasan serta meningkatkan kemampuan berpikir kritis.</p>
-
-<p>Beberapa jenis buku yang direkomendasikan untuk pelajar adalah buku motivasi, novel pendidikan, serta buku pengembangan diri. Buku-buku tersebut dapat memberikan inspirasi dan membantu pelajar memahami berbagai perspektif kehidupan.</p>
-
-<p>Dengan membiasakan membaca minimal 15–30 menit setiap hari, pelajar dapat meningkatkan kemampuan bahasa, memperkaya pengetahuan, serta melatih imajinasi.</p>
-
+<p>Membaca buku merupakan kebiasaan penting bagi pelajar...</p>
 <a href="#" class="back">⬆ Kembali ke atas</a>
-
 </section>
-
 
 <section id="artikel2" class="article">
-
 <h2>💡 Cara Belajar Efektif Tanpa Bosan</h2>
-
-<p>Banyak pelajar merasa cepat bosan saat belajar karena metode yang digunakan kurang menarik.</p>
-
-<p>Salah satu cara agar belajar menjadi lebih menyenangkan adalah menggunakan metode seperti membuat mind map, menonton video edukasi, atau belajar bersama teman.</p>
-
-<p>Selain itu, teknik belajar 25 menit kemudian istirahat 5 menit juga dapat membantu otak tetap fokus dan tidak cepat lelah.</p>
-
+<p>Banyak pelajar merasa cepat bosan saat belajar...</p>
 <a href="#" class="back">⬆ Kembali ke atas</a>
-
 </section>
 
-
 <section id="artikel3" class="article">
-
 <h2>🌐 Tips Mencari Informasi di Internet</h2>
-
-<p>Internet merupakan sumber informasi yang sangat luas dan mudah diakses oleh pelajar.</p>
-
-<p>Namun, penting untuk memastikan bahwa informasi yang digunakan berasal dari sumber yang terpercaya seperti website pendidikan, jurnal ilmiah, atau perpustakaan digital.</p>
-
-<p>Dengan memilih sumber yang tepat, pelajar dapat menghasilkan tugas sekolah yang lebih akurat dan berkualitas.</p>
-
+<p>Internet merupakan sumber informasi yang sangat luas...</p>
 <a href="#" class="back">⬆ Kembali ke atas</a>
-
 </section>
 
 </body>
