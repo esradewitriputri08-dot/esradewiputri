@@ -26,7 +26,6 @@ background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
 color:white;
 overflow-x:hidden;
 }
-<style>
 
 a{
 text-decoration:none;
@@ -108,11 +107,17 @@ position:sticky;
 top:0;
 z-index:1000;
 }
-
-.logo-area h2{
-color:#4fd1ff;
+.logo-area{
+display:flex;
+align-items:center;
+gap:10px;
 }
 
+.logo-area img{
+width:40px;
+height:40px;
+object-fit:contain;
+}
 /* MENU BUTTON */
 
 .menu-btn{
@@ -454,11 +459,10 @@ to{opacity:1;transform:translateY(0);}
 <div id="homePage">
 
 <nav>
-
 <div class="logo-area">
+<img src="LOGO.png" alt="Logo">
 <h2>ECH Digital Library</h2>
-</div>
-
+</div> 
 <div class="menu-btn" onclick="openMenu()">
 <i class="fas fa-bars"></i>
 </div>
